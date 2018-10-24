@@ -1,10 +1,12 @@
+[![Build Status](https://travis-ci.org/benjaminpaige/haccp.svg?branch=master)](https://travis-ci.org/benjaminpaige/haccp)
+
 # Small Business HACCP Plan Builder
 
 Project that allows users to create small business haccp plans. 
 
 ## Created by
-[Ben Paige](https://github.com/benjaminpaige)  
 [Tom King](https://github.com/tomkingkong)  
+[Ben Paige](https://github.com/benjaminpaige)    
 [Lucas Alderfer](https://github.com/LucasAlderfer)  
 	
 
@@ -13,6 +15,4 @@ Project that allows users to create small business haccp plans.
 ## Tech used
 
 ## Final Result
-
-![screenshot1]() 
 
