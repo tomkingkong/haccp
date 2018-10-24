@@ -3,9 +3,10 @@
 Project that allows users to create small business haccp plans. 
 
 ## Created by
-	- [Tom King](https://github.com/tomkingkong)
-	- [Lucas Alderfer](https://github.com/LucasAlderfer)
-	- [Ben Paige](https://github.com/benjaminpaige)
+[Ben Paige](https://github.com/benjaminpaige)  
+[Tom King](https://github.com/tomkingkong)  
+[Lucas Alderfer](https://github.com/LucasAlderfer)  
+	
 
 ## How to use
 
