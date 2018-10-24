@@ -12,7 +12,6 @@ Project that allows users to create small business haccp plans.
 ## Tech used
 
 ## Final Result
-![screenshot1]() 
 
 ![screenshot1]() 
 
