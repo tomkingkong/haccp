@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-require('./App.css');
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>Hello World</h1>
-      </div>
-    );
-  }
+
+	handleClick = () => {
+		console.log('yes')
+	  fetch('')
+	    .then(response => response.json())
+	    .then(result => console.log(result))
+	    .catch(error => console.log(error));
+	}
+	render() {
+	  return (
+	    <div className="App">
+	      <button onClick={this.handleClick}>Click this button</button>
+	    </div>
+	  );
+	}
 }
 
 export default App;
