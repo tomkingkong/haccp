@@ -15,4 +15,3 @@ Project that allows users to create small business haccp plans.
 
 ![screenshot1]() 
 
-![screenshot1]() 
