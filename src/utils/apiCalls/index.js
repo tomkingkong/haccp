@@ -44,3 +44,15 @@ export const postProduct = (id, details) => {
   return fetchRequest(path, options);
 };
 
+export const postIngredient = (id, details) => {
+  const path = `/ingredients`;
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type' : 'application/json' },
+    body: JSON.stringify({
+      ...details,
+      product_id: id
+    })    
+  };
+  return fetchRequest(path, options);
+};
