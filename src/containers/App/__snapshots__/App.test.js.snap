@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match snapshot 1`] = `
+<div
+  className="App"
+>
+  <button
+    onClick={[Function]}
+  >
+    Click this button
+  </button>
+</div>
+`;
