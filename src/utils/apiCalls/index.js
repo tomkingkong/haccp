@@ -30,3 +30,17 @@ export const putCompanyInfo = (id, details) => {
   };
   return fetchRequest(path, options);
 };
+
+export const postProduct = (id, details) => {
+  const path = `/products`;
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type' : 'application/json' },
+    body: JSON.stringify({
+      ...details,
+      company_id: id
+    })    
+  };
+  return fetchRequest(path, options);
+};
+
