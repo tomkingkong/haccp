@@ -19,6 +19,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# mocks
-/src/utils/apiCalls/__mocks__
