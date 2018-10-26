@@ -1,43 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { object } from 'prop-types';
 
-class Dashboard extends Component {
+import ProductContainer from '../ProductContainer';
+export class Dashboard extends Component {
   constructor() {
     super();
   }
-	
-  componentDidMount() {
-  }
-	
-	handleNextClick = () => {
-	  //save the data
-		// do something
-    this.props.history.push('/home');
-	}
 
 	render() {
+		const { history } = this.props;
 	  return (
 	    <div>
 	      <h2>Dashboard</h2>
-	      <button onClick={this.handleNextClick}>
-					Next Page
-	      </button>
+				<section className="Products">
+				<ProductContainer history={history}/>
+				</section>
 	    </div>
 	  );
 	}	
 }
 
 Dashboard.propTypes = {
-
+	history: object
 };
 
 const mapStateToProps = state => ({
   
-})
+});
 
 const mapDispatchToProps = dispatch => ({
 
-})
-
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
