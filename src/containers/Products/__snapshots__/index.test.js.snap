@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Products should match snapshot 1`] = `
+<div>
+  <h2>
+    Products
+  </h2>
+  <button
+    onClick={[Function]}
+  >
+    Next Page
+  </button>
+</div>
+`;
