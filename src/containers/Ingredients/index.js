@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { object } from 'prop-types';
 
-class Ingredients extends Component {
+import IngredientsForm from '../../components/IngredientsForm';
+
+export class Ingredients extends Component {
   constructor() {
     super();
-  }
-	
-  componentDidMount() {
   }
 	
 	handleNextClick = () => {
@@ -20,6 +20,7 @@ class Ingredients extends Component {
 	  return (
 	    <div>
 	      <h2>Ingredients</h2>
+				<IngredientsForm />
 	      <button onClick={this.handleNextClick}>
 					Next Page
 	      </button>
@@ -29,16 +30,15 @@ class Ingredients extends Component {
 }
 
 Ingredients.propTypes = {
-
+	history: object
 };
 
 const mapStateToProps = state => ({
   
-})
+});
 
 const mapDispatchToProps = dispatch => ({
 
-})
-
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Ingredients);
