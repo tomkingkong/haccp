@@ -4,9 +4,6 @@ import { object } from 'prop-types';
 
 
 export class Navbar extends Component {
-  constructor() {
-    super();
-  }
 
 	render() {
 	  return (
