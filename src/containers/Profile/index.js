@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { object } from 'prop-types';
 
-class Profile extends Component {
+export class Profile extends Component {
   constructor() {
     super();
   }
@@ -28,16 +29,15 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-
+	history: object
 };
 
 const mapStateToProps = state => ({
   
-})
+});
 
 const mapDispatchToProps = dispatch => ({
 
-})
-
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
