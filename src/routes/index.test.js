@@ -1,16 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import App from '.';
+import Routes from '.';
 
-describe('App', () => {
+describe('Routes', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    wrapper = shallow(<Routes />);
   });
 
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
-

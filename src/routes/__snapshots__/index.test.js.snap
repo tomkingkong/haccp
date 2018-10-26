@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes should match snapshot 1`] = `
+<div>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/"
+  />
+  <Route
+    component={[Function]}
+    path="/"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/login"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/signup"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/profile"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/dashboard"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/companyinfo"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/products"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/ingredients"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/receiving"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/inventory"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/packaging"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/processing"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/summary"
+  />
+</div>
+`;
