@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IngredientsForm Component should match snapshot 1`] = `
+<form>
+  <input
+    name="ingredientName"
+    onChange={[Function]}
+    placeholder="Add ingredient name"
+    required={true}
+    type="text"
+    value=""
+  />
+</form>
+`;
