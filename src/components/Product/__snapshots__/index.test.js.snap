@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Component should match snapshot 1`] = `
+<div>
+  <h2 />
+  <button>
+    Receiving
+  </button>
+  <button>
+    Inventory
+  </button>
+  <button>
+    Processing
+  </button>
+  <button>
+    Shipping
+  </button>
+  <button>
+    Summary
+  </button>
+</div>
+`;
