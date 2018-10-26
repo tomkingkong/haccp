@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar Component should match snapshot 1`] = `
+<div
+  className="Navbar"
+>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/receiving"
+  >
+    Receiving
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/receiving"
+  >
+    Storage
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/receiving"
+  >
+    Processing
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/receiving"
+  >
+    Packaging
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/receiving"
+  >
+    Summary
+  </NavLink>
+</div>
+`;
