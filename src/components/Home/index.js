@@ -1,39 +1,17 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { object } from 'prop-types';
 
-class Home extends Component {
-  constructor() {
-    super();
-  }
-	
-	handleNextClick = () => {
-	  //save the data
-		// do something
-	}
+export const Home = ({ history }) => {
 
-	render() {
-	  return (
-	    <div>
-	      <h2>Home</h2>
-	      <button onClick={this.handleNextClick}>
-					Next Page
-	      </button>
-	    </div>
-	  );
-	}	
-}
-
-Home.propTypes = {
-
+	return (
+		<div>
+			<h2>Home</h2>
+			<button onClick={() => history.push('/signup')}>Sign Up</button>
+			<button onClick={() => history.push('/login')}>Log In</button>
+		</div>
+	);
 };
 
-const mapStateToProps = state => ({
-  
-})
-
-const mapDispatchToProps = dispatch => ({
-
-})
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+Home.propTypes = {
+	history: object
+};
