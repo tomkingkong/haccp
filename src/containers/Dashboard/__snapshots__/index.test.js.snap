@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard should match snapshot 1`] = `
+<div>
+  <h2>
+    Dashboard
+  </h2>
+  <section
+    className="Products"
+  >
+    <Connect(ProductContainer) />
+  </section>
+</div>
+`;
