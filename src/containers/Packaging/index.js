@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { object } from 'prop-types';
 
-
-class Login extends Component {
+export class Packaging extends Component {
   constructor() {
     super();
   }
@@ -20,7 +20,7 @@ class Login extends Component {
 	render() {
 	  return (
 	    <div>
-	      <h2>Login</h2>
+	      <h2>Packaging</h2>
 	      <Link onClick={this.handleNextClick} to="/dashboard">
 					Next Page
 	      </Link>
@@ -29,17 +29,16 @@ class Login extends Component {
 	}	
 }
 
-Login.propTypes = {
-
+Packaging.propTypes = {
+	history: object
 };
 
 const mapStateToProps = state => ({
   
-})
+});
 
 const mapDispatchToProps = dispatch => ({
 
-})
+});
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Packaging);
