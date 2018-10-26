@@ -5,12 +5,10 @@ exports[`Packaging should match snapshot 1`] = `
   <h2>
     Packaging
   </h2>
-  <Link
+  <button
     onClick={[Function]}
-    replace={false}
-    to="/dashboard"
   >
     Next Page
-  </Link>
+  </button>
 </div>
 `;

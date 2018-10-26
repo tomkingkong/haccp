@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { object } from 'prop-types';
 
 export class Inventory extends Component {
-  constructor() {
-    super();
-  }
 	
 	handleNextClick = () => {
 	  //save the data
@@ -17,7 +14,7 @@ export class Inventory extends Component {
 	  return (
 	    <div>
 	      <h2>Inventory</h2>
-	      <button onClick={this.handleNextClick} to="/dashboard">
+	      <button onClick={this.handleNextClick}>
 					Next Page
 	      </button>
 	    </div>

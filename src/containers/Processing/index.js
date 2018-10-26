@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { object } from 'prop-types';
 
 export class Processing extends Component {
-  constructor() {
-    super();
-  }
 	
 	handleNextClick = () => {
 	  //save the data

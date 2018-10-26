@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { } from 'prop-types';
 
 export class Summary extends Component {
-  constructor() {
-    super();
-  }
 
 	render() {
 	  return (
