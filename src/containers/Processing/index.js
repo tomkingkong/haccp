@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { object } from 'prop-types';
 
-
-class Processing extends Component {
+export class Processing extends Component {
   constructor() {
     super();
   }
@@ -26,16 +26,15 @@ class Processing extends Component {
 }
 
 Processing.propTypes = {
-
+	history: object
 };
 
 const mapStateToProps = state => ({
   
-})
+});
 
 const mapDispatchToProps = dispatch => ({
 
-})
-
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Processing);
