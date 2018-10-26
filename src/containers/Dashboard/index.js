@@ -4,9 +4,6 @@ import { object } from 'prop-types';
 
 import ProductContainer from '../ProductContainer';
 export class Dashboard extends Component {
-  constructor() {
-    super();
-  }
 
 	render() {
 		const { history } = this.props;

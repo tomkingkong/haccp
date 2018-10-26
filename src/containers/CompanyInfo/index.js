@@ -5,9 +5,6 @@ import { object } from 'prop-types';
 // import { CompanyDetails } from '../../components/CompanyDetails';
 
 export class CompanyInfo extends Component {
-  constructor() {
-    super();
-  }
 	
 	handleNextClick = () => {
 	  //save the data

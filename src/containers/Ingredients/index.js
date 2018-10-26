@@ -5,9 +5,6 @@ import { object } from 'prop-types';
 import IngredientsForm from '../../components/IngredientsForm';
 
 export class Ingredients extends Component {
-  constructor() {
-    super();
-  }
 	
 	handleNextClick = () => {
 	  //save the data
