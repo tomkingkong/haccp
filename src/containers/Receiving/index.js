@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { object } from 'prop-types';
 
-class Receiving extends Component {
+export class Receiving extends Component {
   constructor() {
     super();
   }
@@ -29,16 +30,15 @@ class Receiving extends Component {
 }
 
 Receiving.propTypes = {
-
+	history: object
 };
 
 const mapStateToProps = state => ({
   
-})
+});
 
 const mapDispatchToProps = dispatch => ({
 
-})
-
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Receiving);

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Receiving should match snapshot 1`] = `
+<div>
+  <h2>
+    Receiving
+  </h2>
+  <button
+    onClick={[Function]}
+  >
+    Next Page
+  </button>
+</div>
+`;
