@@ -1,32 +1,28 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { object } from 'prop-types';
 
-class Navbar extends Component {
+
+export class Navbar extends Component {
   constructor() {
     super();
   }
 
 	render() {
 	  return (
-	    <div>
-	      <h2>Navbar</h2>
-	      
+	    <div className="Navbar">
+	      <NavLink to='/receiving'>Receiving</NavLink>
+	      <NavLink to='/receiving'>Storage</NavLink>
+	      <NavLink to='/receiving'>Processing</NavLink>
+	      <NavLink to='/receiving'>Packaging</NavLink>
+	      <NavLink to='/receiving'>Summary</NavLink>
 	    </div>
 	  );
 	}	
 }
 
 Navbar.propTypes = {
-
+	history: object
 };
 
-const mapStateToProps = state => ({
-  
-})
-
-const mapDispatchToProps = dispatch => ({
-
-})
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default Navbar;
