@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { object } from 'prop-types';
 
-class Inventory extends Component {
+export class Inventory extends Component {
   constructor() {
     super();
-  }
-	
-  componentDidMount() {
-    this.props.history.push('/home');
   }
 	
 	handleNextClick = () => {
 	  //save the data
 		// do something
+		this.props.history.push('/summary');
 	}
 
 	render() {
@@ -28,16 +26,15 @@ class Inventory extends Component {
 }
 
 Inventory.propTypes = {
-
+	history: object
 };
 
 const mapStateToProps = state => ({
   
-})
+});
 
 const mapDispatchToProps = dispatch => ({
 
-})
-
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Inventory);
