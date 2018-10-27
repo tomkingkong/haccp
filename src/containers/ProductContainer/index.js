@@ -11,6 +11,7 @@ export class ProductContainer extends Component {
   constructor() {
 		super();
 		this.state = {
+			name: 'MeatSticks',
 			editReceiving: this.editReceiving,
 			editInventory: this.editInventory,
 			editProcessing: this.editProcessing,
@@ -63,6 +64,7 @@ export class ProductContainer extends Component {
 					<AddIcon />
 				</Button>
 	    </section>
+
 	  );
 	}	
 }

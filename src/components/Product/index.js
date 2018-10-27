@@ -75,6 +75,7 @@ export const Product = ({
 				</ListItem>
 			</List>
 		</article>
+
 	);
 };
 
