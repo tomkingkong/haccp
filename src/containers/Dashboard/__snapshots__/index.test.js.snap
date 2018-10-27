@@ -5,10 +5,30 @@ exports[`Dashboard should match snapshot 1`] = `
   <h2>
     Dashboard
   </h2>
-  <section
-    className="Products"
-  >
-    <Connect(ProductContainer) />
-  </section>
+  <div>
+    <h4
+      className="products-title"
+    >
+      Products
+    </h4>
+    <Connect(ProductContainer)
+      userProducts={
+        Array [
+          Object {
+            "id": 1,
+            "name": "Meat Sticks",
+          },
+          Object {
+            "id": 1,
+            "name": "Canned Ham",
+          },
+          Object {
+            "id": 1,
+            "name": "SnickleFritz",
+          },
+        ]
+      }
+    />
+  </div>
 </div>
 `;

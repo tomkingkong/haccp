@@ -1,0 +1,37 @@
+.user-product {
+  border: 2px solid #2096ba;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  min-width: 4rem;
+  width: 100%;
+  max-width: 8rem;
+  margin: 0 0.5rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.user-product:hover {
+  box-shadow: 0rem 0.5rem 1rem #2096ba9e;
+}
+
+.user-product h3 {
+  color: #36384c;
+  cursor: default;
+  font-size: 110%;
+  text-align: center;
+  top: 0;
+  margin: 0.2rem 0;
+}
+
+.user-product:hover h3{
+  font-size: 120%;
+}
+
+.plans ListItemText{
+  font-size: 80%;
+}
+
+.edit {
+  font-size: 0.5rem;
+}

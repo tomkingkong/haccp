@@ -1,0 +1,11 @@
+.user-products { 
+  border: 2px solid #2096ba;
+  width: 100%;
+}
+
+.products-title {
+  cursor: default;
+  color: #2096ba;
+  font-size: 150%;
+  margin: 0 0.5rem;
+}
