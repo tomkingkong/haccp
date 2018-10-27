@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { object } from 'prop-types';
+import { object, array } from 'prop-types';
+import { Button } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
+import './ProductContainer.css';
 import { Product } from '../../components/Product';
 
 export class ProductContainer extends Component {
   constructor() {
 		super();
 		this.state = {
-			name: 'MeatSticks',
 			editReceiving: this.editReceiving,
 			editInventory: this.editInventory,
 			editProcessing: this.editProcessing,
@@ -42,17 +44,32 @@ export class ProductContainer extends Component {
 		this.props.history.push('/summary');
 	}
 
+	displayUserProducts = () => {
+		const { userProducts } = this.props;
+		const products = userProducts.map((product, index) => {
+			return <Product {...this.state} {...product} key={index} />;
+		});
+		return products;
+	}
+
 	render() {
+		const { history } = this.props;
 	  return (
-	    <div>
-				<Product {...this.state} />
-	    </div>
+	    <section className="products-container">
+				{ this.displayUserProducts() }
+				<Button 
+					variant="outlined" 
+					onClick={() => history.push('/products')}>
+					<AddIcon />
+				</Button>
+	    </section>
 	  );
 	}	
 }
 
 ProductContainer.propTypes = {
-	history: object
+	history: object,
+	userProducts: array
 };
 
 const mapStateToProps = state => ({

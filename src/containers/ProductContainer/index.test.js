@@ -6,7 +6,7 @@ import { ProductContainer } from '.';
 describe('ProductContainer', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<ProductContainer />);
+    wrapper = shallow(<ProductContainer userProducts={[]} />);
   });
 
   it('should match snapshot', () => {
