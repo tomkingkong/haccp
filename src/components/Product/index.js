@@ -1,5 +1,10 @@
 import React from 'react';
 import { string, func } from 'prop-types';
+import { List, ListItem, ListItemText, Divider } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import Printer from '@material-ui/icons/Print';
+
+import './Product.css';
 
 export const Product = ({ 
 	name, 
@@ -9,15 +14,67 @@ export const Product = ({
 	editInventory,
 	displaySummary }) => {
 
+	const style = {
+		edit: {
+			fontSize:20
+		},
+		button: {
+			paddingRight: 0,
+			paddingLeft: '1rem'
+		}
+	};
+
 	return (
-		<div>
-			<h2>{name}</h2>
-			<button onClick={editReceiving}>Receiving</button>
-			<button onClick={editInventory}>Inventory</button>
-			<button onClick={editProcessing}>Processing</button>
-			<button onClick={editShipping}>Shipping</button>
-			<button onClick={displaySummary}>Summary</button>
-		</div>
+		<article className="user-product">
+			<h3>{name}</h3>
+			<List component='nav' className='plans'>
+				<Divider />
+				<ListItem 
+					style={style.button} 
+					button 
+					divider 
+					aria-label="Edit Receiving Information" 
+					onClick={editReceiving}>
+					<ListItemText primary='Receiving' />
+					<EditIcon style={style.edit}/>
+				</ListItem>
+				<ListItem 
+					style={style.button} 
+					button 
+					divider 
+					aria-label="Edit Storage Information" 
+					onClick={editInventory}>
+					<ListItemText primary='Storage' />
+					<EditIcon style={style.edit} />
+				</ListItem>
+				<ListItem 
+					style={style.button} 
+					button 
+					divider 
+					aria-label="Edit Processing Information" 
+					onClick={editProcessing}>
+					<ListItemText primary='Processing' />
+					<EditIcon style={style.edit} />
+				</ListItem>
+				<ListItem 
+					style={style.button} 
+					button 
+					divider 
+					aria-label="Edit Shipping Information" 
+					onClick={editShipping}>
+					<ListItemText primary='Shipping' /> 
+					<EditIcon style={style.edit} />
+				</ListItem>
+				<ListItem 
+					style={style.button} 
+					button 
+					aria-label="Display Summary" 
+					onClick={displaySummary}>
+					<ListItemText primary='Summary'/>
+					<Printer />
+				</ListItem>
+			</List>
+		</article>
 	);
 };
 

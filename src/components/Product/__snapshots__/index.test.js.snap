@@ -1,22 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Product Component should match snapshot 1`] = `
-<div>
-  <h2 />
-  <button>
-    Receiving
-  </button>
-  <button>
-    Inventory
-  </button>
-  <button>
-    Processing
-  </button>
-  <button>
-    Shipping
-  </button>
-  <button>
-    Summary
-  </button>
-</div>
+<article
+  className="user-product"
+>
+  <h3 />
+  <WithStyles(List)
+    className="plans"
+    component="nav"
+  >
+    <WithStyles(Divider) />
+    <WithStyles(ListItem)
+      aria-label="Edit Receiving Information"
+      button={true}
+      divider={true}
+      style={
+        Object {
+          "paddingLeft": "1rem",
+          "paddingRight": 0,
+        }
+      }
+    >
+      <WithStyles(ListItemText)
+        primary="Receiving"
+      />
+      <pure(EditIcon)
+        style={
+          Object {
+            "fontSize": 20,
+          }
+        }
+      />
+    </WithStyles(ListItem)>
+    <WithStyles(ListItem)
+      aria-label="Edit Storage Information"
+      button={true}
+      divider={true}
+      style={
+        Object {
+          "paddingLeft": "1rem",
+          "paddingRight": 0,
+        }
+      }
+    >
+      <WithStyles(ListItemText)
+        primary="Storage"
+      />
+      <pure(EditIcon)
+        style={
+          Object {
+            "fontSize": 20,
+          }
+        }
+      />
+    </WithStyles(ListItem)>
+    <WithStyles(ListItem)
+      aria-label="Edit Processing Information"
+      button={true}
+      divider={true}
+      style={
+        Object {
+          "paddingLeft": "1rem",
+          "paddingRight": 0,
+        }
+      }
+    >
+      <WithStyles(ListItemText)
+        primary="Processing"
+      />
+      <pure(EditIcon)
+        style={
+          Object {
+            "fontSize": 20,
+          }
+        }
+      />
+    </WithStyles(ListItem)>
+    <WithStyles(ListItem)
+      aria-label="Edit Shipping Information"
+      button={true}
+      divider={true}
+      style={
+        Object {
+          "paddingLeft": "1rem",
+          "paddingRight": 0,
+        }
+      }
+    >
+      <WithStyles(ListItemText)
+        primary="Shipping"
+      />
+      <pure(EditIcon)
+        style={
+          Object {
+            "fontSize": 20,
+          }
+        }
+      />
+    </WithStyles(ListItem)>
+    <WithStyles(ListItem)
+      aria-label="Display Summary"
+      button={true}
+      style={
+        Object {
+          "paddingLeft": "1rem",
+          "paddingRight": 0,
+        }
+      }
+    >
+      <WithStyles(ListItemText)
+        primary="Summary"
+      />
+      <pure(PrintIcon) />
+    </WithStyles(ListItem)>
+  </WithStyles(List)>
+</article>
 `;
