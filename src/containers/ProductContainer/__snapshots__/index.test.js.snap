@@ -6,6 +6,11 @@ exports[`ProductContainer should match snapshot 1`] = `
 >
   <WithStyles(Button)
     onClick={[Function]}
+    style={
+      Object {
+        "margin": "0.2rem",
+      }
+    }
     variant="outlined"
   >
     <pure(AddIcon) />

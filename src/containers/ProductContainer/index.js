@@ -1,55 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { object, array } from 'prop-types';
+import { object, array, func } from 'prop-types';
 import { Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 import './ProductContainer.css';
 import { Product } from '../../components/Product';
+import { editProduct } from '../../actions';
 
 export class ProductContainer extends Component {
   constructor() {
 		super();
 		this.state = {
-			editReceiving: this.editReceiving,
-			editInventory: this.editInventory,
-			editProcessing: this.editProcessing,
-			editShipping: this.editShipping,
-			displaySummary: this.displaySummary
+
 		};
-  }
+	}
+
+	selectProduct = id => {
+		this.props.editProduct(id);
+	}
 	
-	editReceiving = id => {
-		// set current product id to redux edit product
-		this.props.history.push('/receiving');
-	}
-
-	editInventory = id => {
-		// set current product id to redux edit product
-		this.props.history.push('/inventory');
-	}
-
-	editProcessing = id => {
-		// set current product id to redux edit product
-		this.props.history.push('/processing');
-	}
-
-	editShipping = id => {
-		// set current product id to redux edit product
-		this.props.history.push('/shipping');
-	}
-
-	displaySummary = id => {
-		// set current product id to redux edit product
-		this.props.history.push('/summary');
-	}
-
 	displayUserProducts = () => {
-		const { userProducts } = this.props;
-		const products = userProducts.map((product, index) => {
-			return <Product {...this.state} {...product} key={index} />;
-		});
-		return products;
+		const { userProducts, history } = this.props;
+		return userProducts.map((product, index) => (
+			<Product 
+				{...product} 
+				history={history} 
+				selectProduct={this.selectProduct} 
+				key={index} />
+		));
 	}
 
 	render() {
@@ -59,6 +38,7 @@ export class ProductContainer extends Component {
 				{ this.displayUserProducts() }
 				<Button 
 					variant="outlined" 
+					style={{margin: "0.2rem"}}
 					onClick={() => history.push('/products')}>
 					<AddIcon />
 				</Button>
@@ -69,15 +49,16 @@ export class ProductContainer extends Component {
 
 ProductContainer.propTypes = {
 	history: object,
-	userProducts: array
+	userProducts: array,
+	editProduct: func
 };
 
 const mapStateToProps = state => ({
-  
+
 });
 
 const mapDispatchToProps = dispatch => ({
-
+	editProduct: id => dispatch(editProduct(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);
