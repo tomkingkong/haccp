@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { object } from 'prop-types';
-
 import './Dashboard.css';
 import ProductContainer from '../ProductContainer';
 

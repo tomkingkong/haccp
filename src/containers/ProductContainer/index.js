@@ -9,12 +9,6 @@ import { Product } from '../../components/Product';
 import { editProduct } from '../../actions';
 
 export class ProductContainer extends Component {
-  constructor() {
-		super();
-		this.state = {
-
-		};
-	}
 
 	selectProduct = id => {
 		this.props.editProduct(id);
