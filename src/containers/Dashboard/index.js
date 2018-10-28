@@ -10,8 +10,8 @@ export class Dashboard extends Component {
 		this.state = {
 			userProducts: [
 				{name: 'Meat Sticks', id: 1},
-				{name: 'Canned Ham', id: 1},
-				{name: 'SnickleFritz', id: 1}
+				{name: 'Canned Ham', id: 2},
+				{name: 'SnickleFritz', id: 3}
 			]
 		};
 	}

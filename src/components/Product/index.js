@@ -1,78 +1,81 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { string, func, object, number } from 'prop-types';
+
 import { List, ListItem, ListItemText, Divider } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
+import AddIcon from '@material-ui/icons/Add';
 import Printer from '@material-ui/icons/Print';
 
 import './Product.css';
 
 export const Product = ({ 
 	name, 
-	editShipping, 
-	editReceiving, 
-	editProcessing, 
-	editInventory,
-	displaySummary }) => {
+	selectProduct,
+	history,
+	id }) => {
 
 	const style = {
 		edit: {
-			fontSize:20
+			color: "grey",
+			fontSize: 15,
+			zIndex:'-1'
 		},
 		button: {
 			paddingRight: 0,
-			paddingLeft: '1rem'
+			paddingLeft: '0.5rem',
+			fontSize: '9rem'
+		},
+		add: {
+			color: "green",
+			fontSize: 20,
+			zIndex:'-1'
+		},
+		summary: {
+			color: "#df6e21",
+			zIndex:'-1'
 		}
+	};
+
+	const handleEditing = event => {
+		selectProduct(id);
+		history.push(`/${event.target.id.toLowerCase()}`);
+	};
+
+	const displayLinks = () => {
+		const links = [
+			'Ingredients', 
+			'Receiving', 
+			'Inventory', 
+			'Processing', 
+			'Packaging', 
+			'Summary'];
+		return links.map((link, index) => {
+			const isSummary = link === 'Summary';
+			const isIngredients = link === 'Ingredients';
+			return <ListItem 
+								id={link}
+								key={index}
+								style={style.button} 
+								button 
+								divider
+								aria-label={(isSummary 
+									? `Display ${link}` 
+									: `Edit ${link} Information`)}
+								onClick={handleEditing}>
+							<ListItemText style={{zIndex:'-1'}} primary={link} />
+							{ isSummary && <Printer style={style.summary} /> }
+							{ isIngredients && <AddIcon style={style.add}/> }
+							{ !isSummary && !isIngredients && <EditIcon style={style.edit}/> }
+						</ListItem>;
+		});
 	};
 
 	return (
 		<article className="user-product">
 			<h3>{name}</h3>
-			<List component='nav' className='plans'>
+			<List component='nav'>
 				<Divider />
-				<ListItem 
-					style={style.button} 
-					button 
-					divider 
-					aria-label="Edit Receiving Information" 
-					onClick={editReceiving}>
-					<ListItemText primary='Receiving' />
-					<EditIcon style={style.edit}/>
-				</ListItem>
-				<ListItem 
-					style={style.button} 
-					button 
-					divider 
-					aria-label="Edit Storage Information" 
-					onClick={editInventory}>
-					<ListItemText primary='Storage' />
-					<EditIcon style={style.edit} />
-				</ListItem>
-				<ListItem 
-					style={style.button} 
-					button 
-					divider 
-					aria-label="Edit Processing Information" 
-					onClick={editProcessing}>
-					<ListItemText primary='Processing' />
-					<EditIcon style={style.edit} />
-				</ListItem>
-				<ListItem 
-					style={style.button} 
-					button 
-					divider 
-					aria-label="Edit Shipping Information" 
-					onClick={editShipping}>
-					<ListItemText primary='Shipping' /> 
-					<EditIcon style={style.edit} />
-				</ListItem>
-				<ListItem 
-					style={style.button} 
-					button 
-					aria-label="Display Summary" 
-					onClick={displaySummary}>
-					<ListItemText primary='Summary'/>
-					<Printer />
-				</ListItem>
+				{ displayLinks() }
 			</List>
 		</article>
 
@@ -80,10 +83,8 @@ export const Product = ({
 };
 
 Product.propTypes = {
-	name: string,
-	editShipping: func, 
-	editReceiving: func, 
-	editProcessing: func, 
-	editInventory: func,
-	displaySummary: func
+	id: number,
+	selectProduct: func,
+	history: object,
+	name: string
 };

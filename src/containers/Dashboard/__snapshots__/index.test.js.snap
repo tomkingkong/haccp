@@ -19,11 +19,11 @@ exports[`Dashboard should match snapshot 1`] = `
             "name": "Meat Sticks",
           },
           Object {
-            "id": 1,
+            "id": 2,
             "name": "Canned Ham",
           },
           Object {
-            "id": 1,
+            "id": 3,
             "name": "SnickleFritz",
           },
         ]
