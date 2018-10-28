@@ -16,4 +16,12 @@ describe('product actions', () => {
     expect(results).toEqual(expected);
   });
 });
+
+describe('company actions', () => {
+  it('should create an object with a company id', () => {
+    const mockCompanyId = 2;
+    const results = actions.setCompanyId(mockCompanyId);
+    const expected = {type:'SET_COMPANY_ID', id:mockCompanyId};
+    expect(results).toEqual(expected);
+  });
 });
