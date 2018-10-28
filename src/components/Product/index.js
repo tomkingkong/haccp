@@ -17,7 +17,8 @@ export const Product = ({
 	const style = {
 		edit: {
 			color: "grey",
-			fontSize: 20
+			fontSize: 15,
+			zIndex:'-1'
 		},
 		button: {
 			paddingRight: 0,
@@ -26,16 +27,47 @@ export const Product = ({
 		},
 		add: {
 			color: "green",
-			fontSize: 20
+			fontSize: 20,
+			zIndex:'-1'
 		},
 		summary: {
-			color: "#df6e21"
+			color: "#df6e21",
+			zIndex:'-1'
 		}
 	};
 
 	const handleEditing = event => {
 		selectProduct(id);
-		history.push(`/${event.target.innerText.toLowerCase()}`);
+		history.push(`/${event.target.id.toLowerCase()}`);
+	};
+
+	const displayLinks = () => {
+		const links = [
+			'Ingredients', 
+			'Receiving', 
+			'Inventory', 
+			'Processing', 
+			'Packaging', 
+			'Summary'];
+		return links.map((link, index) => {
+			const isSummary = link === 'Summary';
+			const isIngredients = link === 'Ingredients';
+			return <ListItem 
+								id={link}
+								key={index}
+								style={style.button} 
+								button 
+								divider
+								aria-label={(isSummary 
+									? `Display ${link}` 
+									: `Edit ${link} Information`)}
+								onClick={handleEditing}>
+							<ListItemText style={{zIndex:'-1'}} primary={link} />
+							{ isSummary && <Printer style={style.summary} /> }
+							{ isIngredients && <AddIcon style={style.add}/> }
+							{ !isSummary && !isIngredients && <EditIcon style={style.edit}/> }
+						</ListItem>;
+		});
 	};
 
 	return (
@@ -43,59 +75,7 @@ export const Product = ({
 			<h3>{name}</h3>
 			<List component='nav'>
 				<Divider />
-				<ListItem 
-					style={style.button} 
-					button 
-					divider
-					aria-label="Add Ingredients" 
-					onClick={handleEditing}>
-					<ListItemText primary='Ingredients' />
-					<AddIcon style={style.add}/>
-				</ListItem>
-				<ListItem 
-					style={style.button} 
-					button 
-					divider 
-					aria-label="Edit Receiving Information" 
-					onClick={handleEditing}>
-					<ListItemText classes={style.root} primary='Receiving' />
-					<EditIcon style={style.edit}/>
-				</ListItem>
-				<ListItem 
-					style={style.button} 
-					button 
-					divider 
-					aria-label="Edit Storage Information" 
-					onClick={handleEditing}>
-					<ListItemText classes={style.root} primary='Inventory' />
-					<EditIcon style={style.edit} />
-				</ListItem>
-				<ListItem 
-					style={style.button} 
-					button 
-					divider 
-					aria-label="Edit Processing Information" 
-					onClick={handleEditing}>
-					<ListItemText classes={style.root} primary='Processing' />
-					<EditIcon style={style.edit} />
-				</ListItem>
-				<ListItem 
-					style={style.button} 
-					button 
-					divider 
-					aria-label="Edit Shipping Information" 
-					onClick={handleEditing}>
-					<ListItemText classes={style.root} primary='Shipping' /> 
-					<EditIcon style={style.edit} />
-				</ListItem>
-				<ListItem 
-					style={style.button} 
-					button 
-					aria-label="Display Summary" 
-					onClick={handleEditing}>
-					<ListItemText classes={style.root} primary='Summary'/>
-					<Printer style={style.summary} />
-				</ListItem>
+				{ displayLinks() }
 			</List>
 		</article>
 
