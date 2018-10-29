@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { object } from 'prop-types';
+import { connect } from 'react-redux';
+import { object, func } from 'prop-types';
 
+import { setCompanyInfo } from '../../actions';
 export class Login extends Component {
   constructor() {
 		super();
 		this.state = {
-			nameInput: '',
-			emailInput: ''
+			emailInput: '',
+			passInput: ''
 		};
 	}
 	
@@ -17,8 +19,10 @@ export class Login extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
+		const { emailInput } = this.state;
+ 		// fetch company id and set to store
+		this.props.setCompanyInfo(1, emailInput);
     this.props.history.push('/dashboard');
-		console.log(this.state.nameInput);
 	}
 
 	render() {
@@ -27,15 +31,15 @@ export class Login extends Component {
 	      <h2>Login</h2>
 				<form onSubmit={this.handleSubmit}>
 					<input 
-						name="nameInput" 
-						value={this.state.nameInput}
-						onChange={this.handleChange} 
-						placeholder="Enter username" />
-					<input 
 						name="emailInput" 
 						value={this.state.emailInput}
 						onChange={this.handleChange} 
 						placeholder="Enter username" />
+					<input 
+						name="passInput" 
+						value={this.state.passInput}
+						onChange={this.handleChange} 
+						placeholder="Enter password" />
 					<button>Log In</button>
 				</form>
 	    </div>
@@ -44,7 +48,12 @@ export class Login extends Component {
 }
 
 Login.propTypes = {
-	history: object
+	history: object,
+	setCompanyInfo: func
 };
 
-export default Login;
+export const mapDispatchToProps = dispatch => ({
+	setCompanyInfo: (id, name) => dispatch(setCompanyInfo(id, name))
+});
+
+export default connect(null, mapDispatchToProps)(Login);
