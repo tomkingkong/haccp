@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { } from 'prop-types';
+import { object } from 'prop-types';
 
 export class Summary extends Component {
 
@@ -8,7 +8,7 @@ export class Summary extends Component {
 	  return (
 	    <div>
 	      <h2>Summary</h2>
-	      <button>
+	      <button onClick={() => this.props.history.push('/dashboard')}>
 					Print
 	      </button>
 	    </div>
@@ -17,7 +17,7 @@ export class Summary extends Component {
 }
 
 Summary.propTypes = {
-
+	history: object
 };
 
 const mapStateToProps = state => ({
