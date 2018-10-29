@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { object } from 'prop-types';
+import { object, array } from 'prop-types';
+
 import './Dashboard.css';
 import ProductContainer from '../ProductContainer';
 
@@ -16,6 +17,12 @@ export class Dashboard extends Component {
 		};
 	}
 
+	componentDidMount() {
+		this.setState({ 
+			userProducts: this.props.products 
+		});
+	}
+
 	render() {
 		const { history } = this.props;
 		const { userProducts } = this.state;
@@ -25,21 +32,22 @@ export class Dashboard extends Component {
 				<div>
 					<h4 className="products-title">Products</h4>
 					<ProductContainer history={history} userProducts={userProducts}/>
-				</div>
+        </div>
 	    </div>
 	  );
 	}	
 }
 
 Dashboard.propTypes = {
-	history: object
+  history: object,
+  products: array
 };
 
-const mapStateToProps = state => ({
-  
+export const mapStateToProps = ({ products }) => ({
+  products
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
 
 });
 
