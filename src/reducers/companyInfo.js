@@ -1,7 +1,9 @@
-export const companyInfo = (state=0, action) => {
+export const companyInfo = (state={}, action) => {
   switch (action.type) {
-    case 'SET_COMPANY_ID':
-      return action.id;
+    case 'SET_COMPANY_USER':{
+      const { id, name } = action;
+      return { id, name };
+    }
     default:
       return state;
   }
