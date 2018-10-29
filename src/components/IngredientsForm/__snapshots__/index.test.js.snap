@@ -1,14 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`IngredientsForm Component should match snapshot 1`] = `
-<form>
-  <input
-    name="ingredientName"
-    onChange={[Function]}
-    placeholder="Add ingredient name"
-    required={true}
-    type="text"
-    value=""
+<div>
+  <section
+    className="ingredients"
   />
-</form>
+  <form
+    className="form"
+  >
+    <TextField
+      id="standard-dense"
+      label="Ingredient name"
+      name="ingredientName"
+      onChange={[Function]}
+      required={true}
+      select={false}
+      value=""
+      variant="standard"
+    />
+    <WithStyles(Button)
+      onClick={[Function]}
+      variant="contained"
+    >
+      <pure(AddIcon)
+        style={
+          Object {
+            "color": "forestgreen",
+            "marginRight": "0.2rem",
+          }
+        }
+      />
+      Add Ingredient
+    </WithStyles(Button)>
+  </form>
+</div>
 `;
