@@ -6,7 +6,7 @@ import { Receiving } from '.';
 describe('Receiving', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<Receiving />);
+    wrapper = shallow(<Receiving ingredients={[]}/>);
   });
 
   it('should match snapshot', () => {
