@@ -86,13 +86,13 @@ describe('receiving reducer', () => {
   it('should return a state array containing a plan object', () => {
     const initialState = [];
     const plan = {  
-        ingredientId: 1, 
-        doesNotApply: false,
-        chemical: false,
-        physical: false,
-        biological: false,
-        hazardPlan: 'hazrd',
-        notes: 'notes' };
+      ingredientId: 1, 
+      doesNotApply: false,
+      chemical: false,
+      physical: false,
+      biological: false,
+      hazardPlan: 'hazrd',
+      notes: 'notes' };
     const mockAction = {type: 'ADD_RECEIVING_PLAN', id:1, plan};
     const results = receiving(initialState, mockAction);
     const expected = [{id:1, ...plan}];
@@ -109,10 +109,17 @@ describe('inventory reducer', () => {
   
   it('should return a state array containing a plan object', () => {
     const initialState = [];
-    const mockPlan = { ingredientId: 1 };
-    const mockAction = {...mockPlan, type: 'ADD_INVENTORY_PLAN'};
+    const plan = {  
+      ingredientId: 1, 
+      doesNotApply: false,
+      chemical: false,
+      physical: false,
+      biological: false,
+      hazardPlan: 'hazrd',
+      notes: 'notes' };
+    const mockAction = {type: 'ADD_INVENTORY_PLAN', id:1, plan};
     const results = inventory(initialState, mockAction);
-    const expected = [mockPlan];
+    const expected = [{id:1, ...plan}];
     expect(results).toEqual(expected);
   });
 });
@@ -126,10 +133,17 @@ describe('processing reducer', () => {
   
   it('should return a state array containing a plan object', () => {
     const initialState = [];
-    const mockPlan = { ingredientId: 1 };
-    const mockAction = {...mockPlan, type: 'ADD_PROCESSING_PLAN'};
+    const plan = {  
+      ingredientId: 1, 
+      doesNotApply: false,
+      chemical: false,
+      physical: false,
+      biological: false,
+      hazardPlan: 'hazrd',
+      notes: 'notes' };
+    const mockAction = {type: 'ADD_PROCESSING_PLAN', id:1, plan};
     const results = processing(initialState, mockAction);
-    const expected = [mockPlan];
+    const expected = [{id:1, ...plan}];
     expect(results).toEqual(expected);
   });
 });
@@ -143,10 +157,17 @@ describe('packaging reducer', () => {
   
   it('should return a state array containing a plan object', () => {
     const initialState = [];
-    const mockPlan = { ingredientId: 1 };
-    const mockAction = {...mockPlan, type: 'ADD_PACKAGING_PLAN'};
+    const plan = {  
+      ingredientId: 1, 
+      doesNotApply: false,
+      chemical: false,
+      physical: false,
+      biological: false,
+      hazardPlan: 'hazrd',
+      notes: 'notes' };
+    const mockAction = {type: 'ADD_PACKAGING_PLAN', id:1, plan};
     const results = packaging(initialState, mockAction);
-    const expected = [mockPlan];
+    const expected = [{id:1, ...plan}];
     expect(results).toEqual(expected);
   });
 });

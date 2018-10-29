@@ -6,7 +6,7 @@ import { Processing } from '.';
 describe('Processing', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<Processing />);
+    wrapper = shallow(<Processing ingredients={[]}/>);
   });
 
   it('should match snapshot', () => {
