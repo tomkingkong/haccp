@@ -10,9 +10,11 @@ exports[`Product Component should match snapshot 1`] = `
   >
     <WithStyles(Divider) />
     <WithStyles(ListItem)
-      aria-label="Add Ingredients"
+      aria-label="Edit Ingredients Information"
       button={true}
       divider={true}
+      id="Ingredients"
+      key="0"
       onClick={[Function]}
       style={
         Object {
@@ -24,12 +26,18 @@ exports[`Product Component should match snapshot 1`] = `
     >
       <WithStyles(ListItemText)
         primary="Ingredients"
+        style={
+          Object {
+            "zIndex": "-1",
+          }
+        }
       />
       <pure(AddIcon)
         style={
           Object {
             "color": "green",
             "fontSize": 20,
+            "zIndex": "-1",
           }
         }
       />
@@ -38,6 +46,8 @@ exports[`Product Component should match snapshot 1`] = `
       aria-label="Edit Receiving Information"
       button={true}
       divider={true}
+      id="Receiving"
+      key="1"
       onClick={[Function]}
       style={
         Object {
@@ -49,20 +59,28 @@ exports[`Product Component should match snapshot 1`] = `
     >
       <WithStyles(ListItemText)
         primary="Receiving"
+        style={
+          Object {
+            "zIndex": "-1",
+          }
+        }
       />
       <pure(EditIcon)
         style={
           Object {
             "color": "grey",
-            "fontSize": 20,
+            "fontSize": 15,
+            "zIndex": "-1",
           }
         }
       />
     </WithStyles(ListItem)>
     <WithStyles(ListItem)
-      aria-label="Edit Storage Information"
+      aria-label="Edit Inventory Information"
       button={true}
       divider={true}
+      id="Inventory"
+      key="2"
       onClick={[Function]}
       style={
         Object {
@@ -74,12 +92,18 @@ exports[`Product Component should match snapshot 1`] = `
     >
       <WithStyles(ListItemText)
         primary="Inventory"
+        style={
+          Object {
+            "zIndex": "-1",
+          }
+        }
       />
       <pure(EditIcon)
         style={
           Object {
             "color": "grey",
-            "fontSize": 20,
+            "fontSize": 15,
+            "zIndex": "-1",
           }
         }
       />
@@ -88,6 +112,8 @@ exports[`Product Component should match snapshot 1`] = `
       aria-label="Edit Processing Information"
       button={true}
       divider={true}
+      id="Processing"
+      key="3"
       onClick={[Function]}
       style={
         Object {
@@ -99,20 +125,28 @@ exports[`Product Component should match snapshot 1`] = `
     >
       <WithStyles(ListItemText)
         primary="Processing"
+        style={
+          Object {
+            "zIndex": "-1",
+          }
+        }
       />
       <pure(EditIcon)
         style={
           Object {
             "color": "grey",
-            "fontSize": 20,
+            "fontSize": 15,
+            "zIndex": "-1",
           }
         }
       />
     </WithStyles(ListItem)>
     <WithStyles(ListItem)
-      aria-label="Edit Shipping Information"
+      aria-label="Edit Packaging Information"
       button={true}
       divider={true}
+      id="Packaging"
+      key="4"
       onClick={[Function]}
       style={
         Object {
@@ -123,13 +157,19 @@ exports[`Product Component should match snapshot 1`] = `
       }
     >
       <WithStyles(ListItemText)
-        primary="Shipping"
+        primary="Packaging"
+        style={
+          Object {
+            "zIndex": "-1",
+          }
+        }
       />
       <pure(EditIcon)
         style={
           Object {
             "color": "grey",
-            "fontSize": 20,
+            "fontSize": 15,
+            "zIndex": "-1",
           }
         }
       />
@@ -137,6 +177,9 @@ exports[`Product Component should match snapshot 1`] = `
     <WithStyles(ListItem)
       aria-label="Display Summary"
       button={true}
+      divider={true}
+      id="Summary"
+      key="5"
       onClick={[Function]}
       style={
         Object {
@@ -148,11 +191,17 @@ exports[`Product Component should match snapshot 1`] = `
     >
       <WithStyles(ListItemText)
         primary="Summary"
+        style={
+          Object {
+            "zIndex": "-1",
+          }
+        }
       />
       <pure(PrintIcon)
         style={
           Object {
             "color": "#df6e21",
+            "zIndex": "-1",
           }
         }
       />
