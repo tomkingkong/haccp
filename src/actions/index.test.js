@@ -20,8 +20,9 @@ describe('product actions', () => {
 describe('company actions', () => {
   it('should create an object with a company id', () => {
     const mockCompanyId = 2;
-    const results = actions.setCompanyId(mockCompanyId);
-    const expected = {type:'SET_COMPANY_ID', id:mockCompanyId};
+    const mockUserName = 'Timf';
+    const results = actions.setCompanyInfo(mockCompanyId, mockUserName);
+    const expected = {type:'SET_COMPANY_USER', id:mockCompanyId, name:mockUserName};
     expect(results).toEqual(expected);
   });
 });
