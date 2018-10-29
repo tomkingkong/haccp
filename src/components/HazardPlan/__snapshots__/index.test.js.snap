@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HazardPlan Component should match snapshot 1`] = `
+<form
+  className="form"
+>
+  <WithStyles(FormControl)>
+    <WithStyles(FormLabel)
+      component="legend"
+    >
+      Hazard Control Points
+    </WithStyles(FormLabel)>
+    <WithStyles(FormGroup)>
+      <WithStyles(FormControlLabel)
+        control={
+          <WithStyles(Checkbox)
+            checked={false}
+            onChange={[Function]}
+            value="doesNotApply"
+          />
+        }
+        label="Does Not Apply"
+      />
+      <WithStyles(FormControlLabel)
+        control={
+          <WithStyles(Checkbox)
+            checked={false}
+            onChange={[Function]}
+            value="chemical"
+          />
+        }
+        label="Chemical"
+      />
+      <WithStyles(FormControlLabel)
+        control={
+          <WithStyles(Checkbox)
+            checked={false}
+            onChange={[Function]}
+            value="physical"
+          />
+        }
+        label="Physical"
+      />
+      <WithStyles(FormControlLabel)
+        control={
+          <WithStyles(Checkbox)
+            checked={false}
+            onChange={[Function]}
+            value="biological"
+          />
+        }
+        label="Biological"
+      />
+    </WithStyles(FormGroup)>
+  </WithStyles(FormControl)>
+  <TextField
+    id="outlined-with-placeholder"
+    label="How will you handle the hazard?"
+    margin="normal"
+    name="hazardPlan"
+    onChange={[Function]}
+    placeholder="Type plan here"
+    required={false}
+    select={false}
+    value=""
+    variant="outlined"
+  />
+  <TextField
+    id="outlined-with-placeholder"
+    label="Notes"
+    margin="normal"
+    name="notes"
+    onChange={[Function]}
+    placeholder="Type notes here"
+    required={false}
+    select={false}
+    value=""
+    variant="outlined"
+  />
+</form>
+`;
