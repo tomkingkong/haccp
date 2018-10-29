@@ -17,8 +17,8 @@ export class Login extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
-    this.props.history.push('/dashboard');
-		console.log(this.state.nameInput);
+    this.props.history.push('/companyinfo');
+		// console.log(this.state.nameInput);
 	}
 
 	render() {
