@@ -26,17 +26,18 @@ describe('editProduct reducer', () => {
 
 describe('companyInfo reducer', () => {
   it('should return the initial state', () => {
-    const expected = 0;
+    const expected = {};
     const results = companyInfo(undefined, {});
     expect(results).toEqual(expected);
   });
   
   it('should return a state with id', () => {
-    const initialState = 0;
+    const initialState = {};
     const mockId = 2;
-    const mockAction = {id:mockId, type: 'SET_COMPANY_ID'};
+    const mockName = 'Timf';
+    const mockAction = {id:mockId, name:mockName, type: 'SET_COMPANY_USER'};
     const results = companyInfo(initialState, mockAction);
-    const expected = 2;
+    const expected = { id:mockId, name:mockName };
     expect(results).toEqual(expected);
   });
 });
@@ -82,12 +83,19 @@ describe('receiving reducer', () => {
     expect(results).toEqual(expected);
   });
   
-  it('should return a state array containg plan object', () => {
+  it('should return a state array containing a plan object', () => {
     const initialState = [];
-    const mockPlan = { ingredientId: 1 };
-    const mockAction = {...mockPlan, type: 'ADD_RECEIVING_PLAN'};
+    const plan = {  
+        ingredientId: 1, 
+        doesNotApply: false,
+        chemical: false,
+        physical: false,
+        biological: false,
+        hazardPlan: 'hazrd',
+        notes: 'notes' };
+    const mockAction = {type: 'ADD_RECEIVING_PLAN', id:1, plan};
     const results = receiving(initialState, mockAction);
-    const expected = [mockPlan];
+    const expected = [{id:1, ...plan}];
     expect(results).toEqual(expected);
   });
 });
@@ -99,7 +107,7 @@ describe('inventory reducer', () => {
     expect(results).toEqual(expected);
   });
   
-  it('should return a state array containg plan object', () => {
+  it('should return a state array containing a plan object', () => {
     const initialState = [];
     const mockPlan = { ingredientId: 1 };
     const mockAction = {...mockPlan, type: 'ADD_INVENTORY_PLAN'};
@@ -116,7 +124,7 @@ describe('processing reducer', () => {
     expect(results).toEqual(expected);
   });
   
-  it('should return a state array containg plan object', () => {
+  it('should return a state array containing a plan object', () => {
     const initialState = [];
     const mockPlan = { ingredientId: 1 };
     const mockAction = {...mockPlan, type: 'ADD_PROCESSING_PLAN'};
@@ -133,7 +141,7 @@ describe('packaging reducer', () => {
     expect(results).toEqual(expected);
   });
   
-  it('should return a state array containg plan object', () => {
+  it('should return a state array containing a plan object', () => {
     const initialState = [];
     const mockPlan = { ingredientId: 1 };
     const mockAction = {...mockPlan, type: 'ADD_PACKAGING_PLAN'};
