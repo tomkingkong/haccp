@@ -5,10 +5,32 @@ exports[`Products should match snapshot 1`] = `
   <h2>
     Products
   </h2>
-  <button
-    onClick={[Function]}
-  >
-    Next Page
-  </button>
+  <form>
+    <TextField
+      id="standard-dense"
+      label="Product name"
+      name="productName"
+      onChange={[Function]}
+      required={true}
+      select={false}
+      value=""
+      variant="standard"
+    />
+    <WithStyles(Button)
+      color="primary"
+      onClick={[Function]}
+      required={true}
+      variant="contained"
+    >
+      Save & Continue
+      <pure(SendIcon)
+        style={
+          Object {
+            "marginLeft": "0.5rem",
+          }
+        }
+      />
+    </WithStyles(Button)>
+  </form>
 </div>
 `;
