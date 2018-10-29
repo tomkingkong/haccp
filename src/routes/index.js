@@ -23,13 +23,13 @@ export class Routes extends Component {
 	  return (
 			<div>
         <Route exact path = '/' component={Home} />
-        <Route path = '/plans' component={Navbar} />
         <Route exact path = '/login' component={Login} />
         <Route exact path = '/signup' component={Signup} />
         <Route exact path = '/profile' component={Profile} />
         <Route exact path = '/dashboard' component={Dashboard} />
         <Route exact path = '/companyinfo' component={CompanyInfo} />
         <Route exact path = '/products' component={Products} />
+        <Route path = '/plans' component={Navbar} />
         <Route exact path = '/plans/ingredients' component={Ingredients} />
         <Route exact path = '/plans/receiving' component={Receiving} />
         <Route exact path = '/plans/inventory' component={Inventory} />
