@@ -1,6 +1,4 @@
-export const setCompanyInfo = (id, name, email) => ({
+export const setCompanyInfo = (info) => ({
   type: 'SET_COMPANY_USER',
-  id,
-	name,
-	email
+  info
 });
