@@ -1,24 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { object } from 'prop-types';
+import { object, number, func, array } from 'prop-types';
 
 import IngredientsForm from '../../components/IngredientsForm';
+import { postIngredient } from '../../utils/apiCalls';
+import { addIngredient } from '../../actions';
 
 export class Ingredients extends Component {
+
+	handleNewIngredient = async (name) => {
+		const productId = this.props.editProduct;
+		const { addIngredient, ingredients } = this.props;
+		// const id = await postIngredient(name);
+		addIngredient(ingredients.length+1, name, productId);
+	}
 	
-	handleNextClick = () => {
+	handleNextClick = (ingredients) => {
 	  //save the data
 		// do something
+		// ingredients.map(async ingredient => await postIngredient(id, ingredient));
+		// ingredients.forEach(ingredient => console.log(ingredient.name));
     this.props.history.push('/receiving');
-
 	}
 
 	render() {
 	  return (
 	    <div>
 	      <h2>Ingredients</h2>
-				<IngredientsForm />
-	      <button onClick={this.handleNextClick}>
+				<IngredientsForm handleNewIngredient={this.handleNewIngredient} />
+				<button onClick={this.handleNextClick}>
 					Next Page
 	      </button>
 	    </div>
@@ -27,15 +37,19 @@ export class Ingredients extends Component {
 }
 
 Ingredients.propTypes = {
-	history: object
+	history: object,
+	editProduct: number,
+	addIngredient, func,
+	ingredients: array
 };
 
-const mapStateToProps = state => ({
-  
+export const mapStateToProps = ({ editProduct, ingredients }) => ({
+	editProduct,
+	ingredients
 });
 
-const mapDispatchToProps = dispatch => ({
-
+export const mapDispatchToProps = dispatch => ({
+	addIngredient: (id, name, productId) => dispatch(addIngredient(id, name, productId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Ingredients);
