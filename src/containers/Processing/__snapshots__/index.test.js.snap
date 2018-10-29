@@ -5,6 +5,9 @@ exports[`Processing should match snapshot 1`] = `
   <h2>
     Processing
   </h2>
+  <section
+    className="ingredients-processing-edit"
+  />
   <button
     onClick={[Function]}
   >

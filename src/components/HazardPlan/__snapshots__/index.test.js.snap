@@ -2,7 +2,7 @@
 
 exports[`HazardPlan Component should match snapshot 1`] = `
 <form
-  className="form"
+  className="hazard-plan"
 >
   <WithStyles(FormControl)>
     <WithStyles(FormLabel)

@@ -5,6 +5,9 @@ exports[`Packaging should match snapshot 1`] = `
   <h2>
     Packaging
   </h2>
+  <section
+    className="ingredients-packaging-edit"
+  />
   <button
     onClick={[Function]}
   >

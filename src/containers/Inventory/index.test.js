@@ -6,7 +6,7 @@ import { Inventory } from '.';
 describe('Inventory', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<Inventory />);
+    wrapper = shallow(<Inventory ingredients={[]}/>);
   });
 
   it('should match snapshot', () => {

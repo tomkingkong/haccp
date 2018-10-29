@@ -6,7 +6,7 @@ import { Ingredients } from '.';
 describe('Ingredients', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<Ingredients addIngredient={() => jest.fn()}/>);
+    wrapper = shallow(<Ingredients ingredients={[]} addIngredient={() => jest.fn()}/>);
   });
 
   it('should match snapshot', () => {

@@ -5,7 +5,9 @@ exports[`Summary should match snapshot 1`] = `
   <h2>
     Summary
   </h2>
-  <button>
+  <button
+    onClick={[Function]}
+  >
     Print
   </button>
 </div>

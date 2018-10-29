@@ -5,6 +5,9 @@ exports[`Inventory should match snapshot 1`] = `
   <h2>
     Inventory
   </h2>
+  <section
+    className="ingredients-inventory-edit"
+  />
   <button
     onClick={[Function]}
   >
