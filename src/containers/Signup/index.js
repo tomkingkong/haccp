@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
+import { connect } from 'react-redux';
+import { TextField } from '@material-ui/core';
+
+import { setCompanyInfo } from '../../actions';
+import { postCompanyInfo } from '../../utils/apiCalls';
 
 export class Signup extends Component {
   constructor() {
 		super();
 		this.state = {
-			nameInput: '',
-			emailInput: ''
+			email: '',
+			password: '',
+			name: ''
 		};
 	}
 	
@@ -15,12 +21,16 @@ export class Signup extends Component {
 		this.setState({ [name]: value });
 	}
 
-	handleSubmit = event => {
+	handleSubmit = async event => {
 		event.preventDefault();
-    this.props.history.push('/companyinfo');
-		console.log(this.state.nameInput);
+		const response =  await postCompanyInfo({company: this.state});
+		if (response.id) {
+			this.props.setCompanyInfo(response.id, this.state.name, this.state.email);
+			this.props.history.push('/companyinfo');
+		}
+		
 	}
-
+	
 	logIn = () => {
 		this.props.history.push('/login');
 	}
@@ -30,18 +40,32 @@ export class Signup extends Component {
 	    <div>
 	      <h2>Signup</h2>
 				<form onSubmit={this.handleSubmit}>
-					<input 
-						name="nameInput" 
-						value={this.state.nameInput}
-						onChange={this.handleChange} 
-						placeholder="Enter username" />
-					<input 
-						name="emailInput" 
-						value={this.state.emailInput}
-						onChange={this.handleChange} 
-						placeholder="Enter username" />
+					<TextField
+						id="standard-dense"
+						name="name"
+						value={this.state.name}
+						onChange={this.handleChange}
+						label="Company Name"
+						required />
+					<TextField
+						id="standard-dense"
+						name="email"
+						value={this.state.email}
+						onChange={this.handleChange}
+						label="Email"
+						required />
+					<TextField
+						id="outlined-password-input"
+						name="password"
+						value={this.state.password}
+						onChange={this.handleChange}
+						label="Password"
+						type="password"
+						variant="outlined"
+						required />
 					<button>Sign Up</button>
 				</form>
+				<p>Already have an account: </p>
 				<button onClick={this.logIn}>Log In</button>
 	    </div>
 	  );
@@ -52,4 +76,8 @@ Signup.propTypes = {
 	history: object
 };
 
-export default Signup;
+export const mapDispatchToProps = dispatch => ({
+	setCompanyInfo: (id, name, email) => dispatch(setCompanyInfo(id, name, email))
+});
+
+export default connect(null, mapDispatchToProps)(Signup);

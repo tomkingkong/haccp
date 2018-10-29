@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { object, func } from 'prop-types';
+import { TextField } from '@material-ui/core';
 
+import { getCompanyLogin } from '../../utils/apiCalls';
 import { setCompanyInfo } from '../../actions';
+
 export class Login extends Component {
   constructor() {
 		super();
 		this.state = {
-			emailInput: '',
-			passInput: ''
+			email: '',
+			password: ''
 		};
 	}
 	
@@ -17,11 +20,10 @@ export class Login extends Component {
 		this.setState({ [name]: value });
 	}
 
-	handleSubmit = event => {
+	handleSubmit = async event => {
 		event.preventDefault();
-		const { emailInput } = this.state;
- 		// fetch company id and set to store
-		this.props.setCompanyInfo(1, emailInput);
+		await getCompanyLogin(this.state);
+		// this.props.setCompanyInfo();
     this.props.history.push('/dashboard');
 	}
 
@@ -30,16 +32,22 @@ export class Login extends Component {
 	    <div>
 	      <h2>Login</h2>
 				<form onSubmit={this.handleSubmit}>
-					<input 
-						name="emailInput" 
-						value={this.state.emailInput}
-						onChange={this.handleChange} 
-						placeholder="Enter username" />
-					<input 
-						name="passInput" 
-						value={this.state.passInput}
-						onChange={this.handleChange} 
-						placeholder="Enter password" />
+					<TextField
+						id="standard-dense"
+						name="email"
+						value={this.state.email}
+						onChange={this.handleChange}
+						label="Email"
+						required />
+					<TextField
+						id="outlined-password-input"
+						name="password"
+						value={this.state.password}
+						onChange={this.handleChange}
+						label="Password"
+						type="password"
+						variant="outlined"
+						required />
 					<button>Log In</button>
 				</form>
 	    </div>
