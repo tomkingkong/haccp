@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { func } from 'prop-types';
+import { func, array } from 'prop-types';
 
 import { Button, TextField } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
@@ -13,6 +13,11 @@ export class IngredientsForm extends Component {
       ingredientName: '',
       ingredients: []
     };
+  }
+
+  componentDidMount() {
+    const { ingredients } = this.props;
+    this.setState({ ingredients });
   }
 
   handleSave = event => {
@@ -64,7 +69,8 @@ export class IngredientsForm extends Component {
 }
 
 IngredientsForm.propTypes = {
-  handleNewIngredient: func
+  handleNewIngredient: func,
+  ingredients: array
 };
 
 export default IngredientsForm;

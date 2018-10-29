@@ -23,11 +23,18 @@ export class Ingredients extends Component {
     this.props.history.push('/receiving');
 	}
 
+	editIngredients = () => {
+		const { ingredients, editProduct } = this.props;
+		return ingredients.filter(ing => ing.productId === editProduct);
+	}
+
 	render() {
 	  return (
 	    <div>
 	      <h2>Ingredients</h2>
-				<IngredientsForm handleNewIngredient={this.handleNewIngredient} />
+				<IngredientsForm 
+					ingredients={this.editIngredients()}
+					handleNewIngredient={this.handleNewIngredient} />
 				<button onClick={this.handleNextClick}>
 					Next Page
 	      </button>
@@ -39,7 +46,6 @@ export class Ingredients extends Component {
 Ingredients.propTypes = {
 	history: object,
 	editProduct: number,
-	addIngredient, func,
 	ingredients: array
 };
 
