@@ -9,6 +9,8 @@ import {
   FormGroup, 
   FormLabel } from '@material-ui/core';
 
+import './HazardPlan.css';
+
 export class HazardPlan extends Component {
   constructor() {
     super();
@@ -96,7 +98,7 @@ export class HazardPlan extends Component {
         placeholder="Type plan here"
         value={this.state.hazardPlan}
         onChange={this.handleChange}
-       />
+      />
     );  
   }
 
@@ -111,13 +113,13 @@ export class HazardPlan extends Component {
         placeholder="Type notes here"
         value={this.state.notes}
         onChange={this.handleChange}
-       />
+      />
     );  
   }
 
   render() {
     return (
-      <form className="form">
+      <form className="hazard-plan">
         { this.displayHazardChecks() }
         { this.displayHazardPlan() }
         { this.displayNotes() }

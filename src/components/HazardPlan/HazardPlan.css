@@ -1,0 +1,4 @@
+.hazard-plan {
+  display: flex;
+  flex-direction: column;
+}
