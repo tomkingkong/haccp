@@ -28,7 +28,7 @@ export class Receiving extends Component {
 	handleNextClick = () => {
 	  //save the data
 	  // do something
-	  this.props.history.push('/inventory');
+	  this.props.history.push('/plans/inventory');
 	}
 
 	displayIngredientsAndPlans = () => {

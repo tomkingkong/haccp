@@ -38,7 +38,7 @@ export const Product = ({
 
 	const handleEditing = event => {
 		selectProduct(id);
-		history.push(`/${event.target.id.toLowerCase()}`);
+		history.push(`/plans/${event.target.id.toLowerCase()}`);
 	};
 
 	const displayLinks = () => {

@@ -26,7 +26,7 @@ export class Products extends Component {
 		// set product id to edit
 		this.props.editProduct(4);
 		// continue to ingredients
-    this.props.history.push('/ingredients');
+    this.props.history.push('/plans/ingredients');
 	}
 
 	handleChange = event => {

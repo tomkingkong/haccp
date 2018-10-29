@@ -20,7 +20,7 @@ export class Ingredients extends Component {
 		// do something
 		// ingredients.map(async ingredient => await postIngredient(id, ingredient));
 		// ingredients.forEach(ingredient => console.log(ingredient.name));
-    this.props.history.push('/receiving');
+    this.props.history.push('/plans/receiving');
 	}
 
 	editIngredients = () => {
