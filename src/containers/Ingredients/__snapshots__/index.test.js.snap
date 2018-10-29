@@ -5,7 +5,9 @@ exports[`Ingredients should match snapshot 1`] = `
   <h2>
     Ingredients
   </h2>
-  <IngredientsForm />
+  <IngredientsForm
+    handleNewIngredient={[Function]}
+  />
   <button
     onClick={[Function]}
   >
