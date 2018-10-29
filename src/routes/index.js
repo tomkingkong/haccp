@@ -23,19 +23,19 @@ export class Routes extends Component {
 	  return (
 			<div>
         <Route exact path = '/' component={Home} />
-        <Route path = '/' component={Navbar} />
+        <Route path = '/plans' component={Navbar} />
         <Route exact path = '/login' component={Login} />
         <Route exact path = '/signup' component={Signup} />
         <Route exact path = '/profile' component={Profile} />
         <Route exact path = '/dashboard' component={Dashboard} />
         <Route exact path = '/companyinfo' component={CompanyInfo} />
         <Route exact path = '/products' component={Products} />
-        <Route exact path = '/ingredients' component={Ingredients} />
-        <Route exact path = '/receiving' component={Receiving} />
-        <Route exact path = '/inventory' component={Inventory} />
-        <Route exact path = '/packaging' component={Packaging} />
-        <Route exact path = '/processing' component={Processing} />
-        <Route exact path = '/summary' component={Summary} />
+        <Route exact path = '/plans/ingredients' component={Ingredients} />
+        <Route exact path = '/plans/receiving' component={Receiving} />
+        <Route exact path = '/plans/inventory' component={Inventory} />
+        <Route exact path = '/plans/packaging' component={Packaging} />
+        <Route exact path = '/plans/processing' component={Processing} />
+        <Route exact path = '/plans/summary' component={Summary} />
 			</div>
 	  );
   }

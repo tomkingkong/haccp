@@ -28,7 +28,7 @@ export class Packaging extends Component {
 	handleNextClick = () => {
 	  //save the data
 	  // do something
-	  this.props.history.push('/summary');
+	  this.props.history.push('/plans/summary');
 	}
 
 	displayIngredientsAndPlans = () => {

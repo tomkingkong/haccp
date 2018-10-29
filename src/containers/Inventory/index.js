@@ -28,7 +28,7 @@ export class Inventory extends Component {
 	handleNextClick = () => {
 	  //save the data
 	  // do something
-	  this.props.history.push('/processing');
+	  this.props.history.push('/plans/processing');
 	}
 
 	displayIngredientsAndPlans = () => {
