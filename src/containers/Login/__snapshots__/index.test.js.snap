@@ -9,15 +9,15 @@ exports[`Login Component should match snapshot 1`] = `
     onSubmit={[Function]}
   >
     <input
-      name="nameInput"
+      name="emailInput"
       onChange={[Function]}
       placeholder="Enter username"
       value=""
     />
     <input
-      name="emailInput"
+      name="passInput"
       onChange={[Function]}
-      placeholder="Enter username"
+      placeholder="Enter password"
       value=""
     />
     <button>
