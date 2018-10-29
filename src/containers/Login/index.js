@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { object, func } from 'prop-types';
 import { TextField } from '@material-ui/core';
 
-import { getCompanyLogin } from '../../utils/apiCalls';
-import { setCompanyInfo } from '../../actions';
+import { getCompanyLogin, getCompanyInfo } from '../../utils/apiCalls';
+import { parseCompanyData } from '../../thunks/parseCompanyData';
 
 export class Login extends Component {
   constructor() {
@@ -22,9 +22,16 @@ export class Login extends Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
-		await getCompanyLogin(this.state);
-		// this.props.setCompanyInfo();
-    this.props.history.push('/dashboard');
+		const query = `?company_email=${this.state.email}&company_password=${this.state.password}`;
+		const response = await getCompanyLogin(query);
+
+		const company = response.find(comp=> comp.email === this.state.email);
+		if (company.id) {
+			const data = await getCompanyInfo(company.id);
+
+			this.props.parseCompanyData(data);
+			this.props.history.push('/dashboard');
+		}
 	}
 
 	render() {
@@ -57,11 +64,12 @@ export class Login extends Component {
 
 Login.propTypes = {
 	history: object,
-	setCompanyInfo: func
+	setCompanyInfo: func,
+	parseCompanyData: func
 };
 
 export const mapDispatchToProps = dispatch => ({
-	setCompanyInfo: (id, name) => dispatch(setCompanyInfo(id, name))
+	parseCompanyData: data => dispatch(parseCompanyData(data))
 });
 
 export default connect(null, mapDispatchToProps)(Login);

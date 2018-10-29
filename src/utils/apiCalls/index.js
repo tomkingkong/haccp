@@ -11,14 +11,9 @@ export const getCompanyInfo = (id) => {
   return fetchRequest(path);
 };
 
-export const getCompanyLogin = (details) => {
-  const path = `/companies`;
-	const options = {
-    method: 'GET',
-    headers: { 'Content-Type' : 'application/json' },
-    body: JSON.stringify(details)
-  };
-  return fetchRequest(path, options);
+export const getCompanyLogin = (query) => {
+  const path = `/companies${query}`;
+  return fetchRequest(path);
 };
 
 export const postCompanyInfo = (details) => {
