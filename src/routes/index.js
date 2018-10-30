@@ -16,12 +16,14 @@ import Login from '../containers/Login';
 import Signup from '../containers/Signup';
 import { Home } from '../components/Home/index.js';
 import Navbar from '../components/Navbar';
+import { HeaderNav } from '../components/HeaderNav';
 
 export class Routes extends Component {
 
   render() {
 	  return (
 			<div>
+        <Route path = '/' component={HeaderNav} />
         <Route exact path = '/' component={Home} />
         <Route exact path = '/login' component={Login} />
         <Route exact path = '/signup' component={Signup} />

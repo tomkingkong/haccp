@@ -26,12 +26,12 @@
 	background-size: cover;
 	height: 33vh;
 	width: 100vw;
-	padding: 4rem 0;
+	padding: 2rem 0;
 }
 
 .splash-text {
 	max-width: 400px;
-	padding: 5rem;
+	padding: 2rem;
 	font-size: 1.5rem;
 	color: white;
 }
