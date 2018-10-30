@@ -2,7 +2,7 @@ import * as actions from '../actions';
 
 export const reducePlanData = (ingredient, planName) => {
   return Object.keys(ingredient).reduce((plan, key) => {
-    if (!key.includes(planName)) {
+    if (key.includes(planName)) {
       plan[key] = ingredient[key];
     }
     return plan;
