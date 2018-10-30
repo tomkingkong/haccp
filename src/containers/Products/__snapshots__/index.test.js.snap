@@ -9,7 +9,7 @@ exports[`Products should match snapshot 1`] = `
     <TextField
       id="standard-dense"
       label="Product name"
-      name="productName"
+      name="name"
       onChange={[Function]}
       required={true}
       select={false}

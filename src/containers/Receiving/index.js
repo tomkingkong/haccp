@@ -9,32 +9,52 @@ import {
   Typography } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+import { putIngredient } from '../../utils/apiCalls';
 import { addReceivingPlan, updateReceivingPlan } from '../../actions';
 import { HazardPlan } from '../../components/HazardPlan';
 
 export class Receiving extends Component {
+	constructor() {
+		super();
+		this.state ={
+			productIngredients: [],
+			plans: []
+		};
+	}
+
+	componentDidMount() {
+		const { ingredients, editProduct, receiving } = this.props;
+		const productIngredients = ingredients.filter(ing => ing.productId === editProduct);
+		const plans = receiving.filter(ingPlan => {
+			return productIngredients.some(ing => ing.id === ingPlan.id);
+		});
+		this.setState({ productIngredients, plans });
+	}
 
 	handleReceivingPlan = plan => {
 	  const { receiving, addReceivingPlan, updateReceivingPlan } = this.props;
-	  const alreadyExists = this.props.receiving.find(recPlan => {
-	    return recPlan.ingredientId === plan.ingredientId;
+	  const alreadyExists = receiving.find(recPlan => {
+	    return recPlan.id === plan.id;
 	  });
 
 	  alreadyExists === undefined
-	    ? addReceivingPlan((receiving.length+1), plan)
+	    ? addReceivingPlan(plan.id, plan)
 	    : updateReceivingPlan(alreadyExists.id, plan);
 	}
 	
 	handleNextClick = () => {
-	  //save the data
-	  // do something
-	  this.props.history.push('/plans/inventory');
+	  const { productIngredients } = this.state;
+		productIngredients.forEach(async (ing) => {
+			const data = this.props.receiving.find(plan => plan.id === ing.id);
+			await putIngredient(ing.id, data);
+		});
+	  // this.props.history.push('/plans/inventory');
 	}
 
 	displayIngredientsAndPlans = () => {
-	  const { ingredients, editProduct } = this.props;
-	  const ingredientsToEdit = ingredients.filter(ing => ing.productId === editProduct);
-	  return ingredientsToEdit.map((ing, index) => {
+	  const { productIngredients, plans } = this.state;
+	  return productIngredients.map((ing, index) => {
+			const details = plans.find(plan => plan.id === ing.id);
 	    return (
 	      <ExpansionPanel key={index}>
 	        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -42,7 +62,7 @@ export class Receiving extends Component {
 	        </ExpansionPanelSummary>
 	        <ExpansionPanelDetails>
 
-	          <HazardPlan {...ing} handleReceivingPlan={this.handleReceivingPlan}/>
+						<HazardPlan details={details} planName={'receiving'} {...ing} handleReceivingPlan={this.handleReceivingPlan}/>
 	        </ExpansionPanelDetails>
 	      </ExpansionPanel>
 	    );

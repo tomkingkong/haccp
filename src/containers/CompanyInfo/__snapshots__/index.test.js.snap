@@ -5,10 +5,72 @@ exports[`CompanyInfo should match snapshot 1`] = `
   <h2>
     Enter your company details
   </h2>
-  <button
-    onClick={[Function]}
+  <form
+    onSubmit={[Function]}
   >
-    Next Page
-  </button>
+    <TextField
+      id="standard-dense"
+      label="company name"
+      name="name"
+      onChange={[Function]}
+      required={true}
+      select={false}
+      value=""
+      variant="standard"
+    />
+    <TextField
+      id="standard-dense"
+      label="email"
+      name="email"
+      onChange={[Function]}
+      required={true}
+      select={false}
+      value=""
+      variant="standard"
+    />
+    <TextField
+      id="standard-dense"
+      label="address"
+      name="address"
+      onChange={[Function]}
+      required={true}
+      select={false}
+      value=""
+      variant="standard"
+    />
+    <TextField
+      id="standard-dense"
+      label="phone"
+      name="phone"
+      onChange={[Function]}
+      required={true}
+      select={false}
+      value=""
+      variant="standard"
+    />
+    <TextField
+      id="standard-dense"
+      label="team member name"
+      name="team_member_1_name"
+      onChange={[Function]}
+      required={true}
+      select={false}
+      value=""
+      variant="standard"
+    />
+    <TextField
+      id="standard-dense"
+      label="team_member_1_title"
+      name="team_member_1_title"
+      onChange={[Function]}
+      required={true}
+      select={false}
+      value=""
+      variant="standard"
+    />
+    <button>
+      Next Page
+    </button>
+  </form>
 </div>
 `;
