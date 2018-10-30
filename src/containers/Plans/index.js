@@ -27,7 +27,7 @@ export class Plans extends Component {
 		this.state = {
 			productIngredients: [],
 			plans: [],
-			planCategory: this.props.history.location.pathname.split('/').pop()
+			categories: ['receiving', 'inventory', 'processing', 'packaging', 'summary']
 		};
 	}
 
@@ -53,13 +53,9 @@ export class Plans extends Component {
 	}
 	
 	handleNextClick = () => {
-		const categories = ['receiving', 'inventory', 'processing', 'packaging', 'summary'];
-		const { productIngredients, planCategory } = this.state;
-		productIngredients.forEach(async (ing) => {
-			const data = this.props[planCategory].find(plan => plan.id === ing.id);
-			await putIngredient(ing.id, data);
-		});
+		const { productIngredients, planCategory, categories } = this.state;
 		const next = categories.indexOf(planCategory) + 1;
+		});
 		this.props.history.push(`/plans/${categories[next]}`);
 	}
 
