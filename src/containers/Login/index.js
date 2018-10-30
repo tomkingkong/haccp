@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { object, func } from 'prop-types';
 import { TextField } from '@material-ui/core';
 
-import { getCompanyLogin, getCompanyInfo } from '../../utils/apiCalls';
+import { logIn, getCompanyInfo, putCompanyInfo } from '../../utils/apiCalls';
 import { parseCompanyData } from '../../thunks/parseCompanyData';
 
 export class Login extends Component {
@@ -22,13 +22,15 @@ export class Login extends Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
-		const query = `?company_email=${this.state.email}&company_password=${this.state.password}`;
-		const company = await getCompanyLogin(query);
-
+		const company = await logIn({company: this.state});
+		console.log(company)
 		if (company.id) {
+			const compData = await putCompanyInfo(company.id, {company:{name:'Lucas'}});
 			const data = await getCompanyInfo(company.id);
-			this.props.parseCompanyData(data);
-			this.props.history.push('/dashboard');
+			console.log(data)
+			console.log(compData)
+			// this.props.parseCompanyData(data);
+			// this.props.history.push('/dashboard');
 		}
 	}
 

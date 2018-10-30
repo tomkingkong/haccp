@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { TextField } from '@material-ui/core';
 
 import { setCompanyInfo } from '../../actions';
-import { postCompanyInfo } from '../../utils/apiCalls';
+import { signUp, logIn } from '../../utils/apiCalls';
 
 export class Signup extends Component {
   constructor() {
@@ -23,9 +23,10 @@ export class Signup extends Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
-		const { email, name } = this.state;
-		const response =  await postCompanyInfo({company: this.state});
+		const { email, password, name } = this.state;
+		const response =  await signUp({company: this.state});
 		if (response.id) {
+			await logIn({company: { email, password }})
 			this.props.setCompanyInfo(response.id, name, email);
 			this.props.history.push('/companyinfo');
 		}

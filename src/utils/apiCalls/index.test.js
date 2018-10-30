@@ -10,7 +10,7 @@ describe('Generic Fetch Request', () => {
 
   it('to have been called with params without path or options', async () => {
     const expectedParams = [
-      'https://sheltered-peak-41535.herokuapp.com/api/v1',
+      'https://sheltered-peak-41535.herokuapp.com',
       {}
     ];
     await fetches.fetchRequest();
@@ -20,7 +20,7 @@ describe('Generic Fetch Request', () => {
   it('to have been called with params with path', async () => {
     const path = '/companies/1';
     const expectedParams = [
-      'https://sheltered-peak-41535.herokuapp.com/api/v1/companies/1',
+      'https://sheltered-peak-41535.herokuapp.com/companies/1',
       {}
     ];
     await fetches.fetchRequest(path);
@@ -35,7 +35,7 @@ describe('Generic Fetch Request', () => {
       body: JSON.stringify({})
     };
     const expectedParams = [
-      'https://sheltered-peak-41535.herokuapp.com/api/v1/companies/1',
+      'https://sheltered-peak-41535.herokuapp.com/companies/1',
       {
         method: 'POST',
         headers: { 'Content-Type' : 'application/json' },
@@ -124,14 +124,14 @@ describe('Company Requests', () => {
 
     it('should update company details', async () => {
       const expected = mock.companyDetailsWithId;
-      const result = await fetches.postCompanyInfo(1);
+      const result = await fetches.putCompanyInfo(1);
       expect(result).toEqual(expected);
     });
 
     it('should return an error if updating company details fails', async () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.reject('error'));
       const expected = 'error';
-      const result = await fetches.postCompanyInfo(1);
+      const result = await fetches.putCompanyInfo(1);
       expect(result).toEqual(expected);
     });
 
@@ -151,5 +151,58 @@ describe('Company Requests', () => {
       await fetches.putCompanyInfo(id, companyDetails);
       expect(window.fetch).toHaveBeenCalledWith(...expectedParams);
     });
+  });
+});
+
+
+describe.only('Login/Signup Fetch Request', () => {
+  describe('SignUp Fetch Request', () => {
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ 
+        json: () => {}
+      }));
+    });
+  
+    xit('to have been called with params without path or options', async () => {
+      const expectedParams = [
+        'https://sheltered-peak-41535.herokuapp.com',
+        {}
+      ];
+      await fetches.sign();
+      expect(window.fetch).toHaveBeenCalledWith(...expectedParams);
+    });
+  
+    xit('to have been called with params with path', async () => {
+      const path = '/companies/1';
+      const expectedParams = [
+        'https://sheltered-peak-41535.herokuapp.com/companies/1',
+        {}
+      ];
+      await fetches.fetchRequest(path);
+      expect(window.fetch).toHaveBeenCalledWith(...expectedParams);
+    });
+  
+    xit('to have been called with params with path and options', async () => {
+      const path = '/companies/1';
+      const options = {
+        method: 'POST',
+        headers: { 'Content-Type' : 'application/json' },
+        body: JSON.stringify({})
+      };
+      const expectedParams = [
+        'https://sheltered-peak-41535.herokuapp.com/companies/1',
+        {
+          method: 'POST',
+          headers: { 'Content-Type' : 'application/json' },
+          body: JSON.stringify({})
+        }
+      ];
+      await fetches.fetchRequest(path, options);
+      expect(window.fetch).toHaveBeenCalledWith(...expectedParams);
+    });
+  });
+
+  describe('LogIn Fetch Request', () => {
+
   });
 });
