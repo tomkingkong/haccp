@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { object, number, func, array } from 'prop-types';
+import { object, number, array } from 'prop-types';
 
 import IngredientsForm from '../../components/IngredientsForm';
 import { postIngredient } from '../../utils/apiCalls';
@@ -15,11 +15,7 @@ export class Ingredients extends Component {
 		addIngredient(ingredient.id, name, productId);
 	}
 	
-	handleNextClick = (ingredients) => {
-	  //save the data
-		// do something
-		// ingredients.map(async ingredient => await postIngredient(id, ingredient));
-		// ingredients.forEach(ingredient => console.log(ingredient.name));
+	handleNextClick = () => {
     this.props.history.push('/plans/receiving');
 	}
 
@@ -29,17 +25,17 @@ export class Ingredients extends Component {
 	}
 
 	render() {
-	  return (
-	    <div>
-	      <h2>Ingredients</h2>
+		return (
+			<div>
+				<h2>Ingredients</h2>
 				<IngredientsForm 
 					ingredients={this.editIngredients()}
 					handleNewIngredient={this.handleNewIngredient} />
 				<button onClick={this.handleNextClick}>
 					Next Page
-	      </button>
-	    </div>
-	  );
+				</button>
+			</div>
+		);
 	}	
 }
 

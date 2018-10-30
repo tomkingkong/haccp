@@ -24,9 +24,7 @@ export class Login extends Component {
 		event.preventDefault();
 		const query = `?company_email=${this.state.email}&company_password=${this.state.password}`;
 		const company = await getCompanyLogin(query);
-		// console.log(response);
 
-		// const company = response.find(comp=> comp.email === this.state.email);
 		if (company.id) {
 			const data = await getCompanyInfo(company.id);
 			this.props.parseCompanyData(data);

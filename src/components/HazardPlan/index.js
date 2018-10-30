@@ -26,7 +26,7 @@ export class HazardPlan extends PureComponent {
 
 	componentDidMount() {
 		const { planName, details } = this.props;
-
+    if (!Object.keys(details).length) return;
 		this.setState({
 			_dna: details[`${planName}_dna`],
       _hazard_chem: details[`${planName}_hazard_chem`],
@@ -47,106 +47,103 @@ export class HazardPlan extends PureComponent {
 	
   handleChange = event => {
     const { name, value } = event.target;
-    const { id, handleReceivingPlan } = this.props;
+    const { id, handlePlanEdits } = this.props;
     this.setState({ [name]: value }, () => {
-      handleReceivingPlan({id, ...this.cleanData(this.state)});
+      handlePlanEdits({id, ...this.cleanData(this.state)});
     });
   }
 
   handleChecked = name => event => {
     const { checked } = event.target;
-    const { id, handleReceivingPlan } = this.props;
+    const { id, handlePlanEdits } = this.props;
     this.setState({ [name]: checked }, () => {
-      handleReceivingPlan({id, ...this.cleanData(this.state)});
+      handlePlanEdits({id, ...this.cleanData(this.state)});
     });
   };
 
-  displayHazardChecks = () => {
-    const { _dna, _hazard_chem, _hazard_phys, _hazard_bio } = this.state;
+  displayHazardForm = (dna, chem, phys, bio, handling, other) => {
     return (
-      <FormControl>
-        <FormLabel component="legend">Hazard Control Points</FormLabel>
-        <FormGroup>
-          <FormControlLabel
-            control={
-              <Checkbox 
-                checked={_dna}
-                onChange={this.handleChecked('_dna')} />
-            }
-            label="Does Not Apply"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox 
-                checked={_hazard_chem}
-                onChange={this.handleChecked('_hazard_chem')} />
-            }
-            label="Chemical"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox 
-                checked={_hazard_phys}
-                onChange={this.handleChecked('_hazard_phys')} />
-            }
-            label="Physical"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox 
-                checked={_hazard_bio}
-                onChange={this.handleChecked('_hazard_bio')} />
-            }
-            label="Biological"
-          />
-        </FormGroup>
-      </FormControl>
+      <div>
+        <FormControl>
+          <FormLabel component="legend">Hazard Control Points</FormLabel>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox 
+                  checked={dna}
+                  onChange={this.handleChecked('_dna')} />
+              }
+              label="Does Not Apply"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox 
+                  checked={chem}
+                  onChange={this.handleChecked('_hazard_chem')} />
+              }
+              label="Chemical"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox 
+                  checked={phys}
+                  onChange={this.handleChecked('_hazard_phys')} />
+              }
+              label="Physical"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox 
+                  checked={bio}
+                  onChange={this.handleChecked('_hazard_bio')} />
+              }
+              label="Biological"
+            />
+          </FormGroup>
+        </FormControl>
+        <TextField
+          id="outlined-with-placeholder"
+          label="How will you handle the hazard?" 
+          name="_hazard_handling"
+          margin="normal"
+          variant="outlined"
+          placeholder="Type plan here"
+          value={handling}
+          onChange={this.handleChange}
+        />
+        <TextField
+          id="outlined-with-placeholder"
+          label="Notes" 
+          name="_other"
+          margin="normal"
+          variant="outlined"
+          placeholder="Type notes here"
+          value={other}
+          onChange={this.handleChange}
+        />
+      </div>
     );
   }
 
-  displayHazardPlan = () => {
-    return (
-      <TextField
-        id="outlined-with-placeholder"
-        label="How will you handle the hazard?" 
-        name="_hazard_handling"
-        margin="normal"
-        variant="outlined"
-        placeholder="Type plan here"
-        value={this.state._hazard_handling}
-        onChange={this.handleChange}
-      />
-    );  
-  }
-
-  displayNotes = () => {
-    return (
-      <TextField
-        id="outlined-with-placeholder"
-        label="Notes" 
-        name="_other"
-        margin="normal"
-        variant="outlined"
-        placeholder="Type notes here"
-        value={this.state._other}
-        onChange={this.handleChange}
-      />
-    );  
-  }
-
   render() {
+    const { 
+      _dna,
+      _hazard_chem, 
+      _hazard_phys,
+      _hazard_bio, 
+      _hazard_handling, 
+      _other } = this.state;
     return (
       <form className="hazard-plan">
-        { this.displayHazardChecks() }
-        { this.displayHazardPlan() }
-        { this.displayNotes() }
+        {  }
+        { this.displayHazardForm(_dna, _hazard_chem, _hazard_phys, _hazard_bio, _hazard_handling, _other) }
       </form>
     );
   }
 }
 
 HazardPlan.propTypes = {
-  handleReceivingPlan: func,
+  handlePlanEdits: func,
   addIngredient: func,
   planType: string,
 	id: number,

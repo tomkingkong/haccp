@@ -4,8 +4,7 @@ export const reducePlanData = (ingredient, planName) => {
   return Object.keys(ingredient).reduce((plan, key) => {
     if (key.includes(planName)) {
       plan[key] = ingredient[key];
-		}
-		plan.ingredient_id
+    }
     return plan;
   }, {});
 };
