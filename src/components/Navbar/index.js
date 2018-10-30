@@ -10,10 +10,10 @@ export class Navbar extends Component {
 	  return (
 	    <div className="navbar">
 	      <NavLink className="link" to='/plans/receiving'>Receiving</NavLink>
-	      <NavLink className="link" to='/plans/receiving'>Storage</NavLink>
-	      <NavLink className="link" to='/plans/receiving'>Processing</NavLink>
-	      <NavLink className="link" to='/plans/receiving'>Packaging</NavLink>
-	      <NavLink className="link" to='/plans/receiving'>Summary</NavLink>
+	      <NavLink className="link" to='/plans/inventory'>Inventory</NavLink>
+	      <NavLink className="link" to='/plans/processing'>Processing</NavLink>
+	      <NavLink className="link" to='/plans/packaging'>Packaging</NavLink>
+	      <NavLink className="link" to='/plans/summary'>Summary</NavLink>
 	    </div>
 	  );
 	}	

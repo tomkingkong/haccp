@@ -4,7 +4,7 @@ export const receiving = (state=[], action) => {
       return [...state, { id:action.id, ...action.plan }];
     }
     case 'UPDATE_RECEIVING_PLAN': {
-      const newState = state.filter(plan => plan.ingredientId !== action.plan.ingredientId);
+      const newState = state.filter(plan => plan.id !== action.plan.id);
       return [...newState, { id:action.id, ...action.plan }];
     }
     default:

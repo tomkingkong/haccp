@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { object } from 'prop-types';
+import { object, func } from 'prop-types';
 import { connect } from 'react-redux';
 import { TextField } from '@material-ui/core';
 
@@ -23,22 +23,22 @@ export class Signup extends Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
+		const { email, name } = this.state;
 		const response =  await postCompanyInfo({company: this.state});
-		console.log(response)
 		if (response.id) {
-			this.props.setCompanyInfo(response.id, this.state.name, this.state.email);
+			this.props.setCompanyInfo(response.id, name, email);
 			this.props.history.push('/companyinfo');
 		}
 	}
 	
-	logIn = () => {
+	goToLogin = () => {
 		this.props.history.push('/login');
 	}
 
 	render() {
-	  return (
-	    <div>
-	      <h2>Signup</h2>
+		return (
+			<div>
+				<h2>Signup</h2>
 				<form onSubmit={this.handleSubmit}>
 					<TextField
 						id="standard-dense"
@@ -66,14 +66,15 @@ export class Signup extends Component {
 					<button>Sign Up</button>
 				</form>
 				<p>Already have an account: </p>
-				<button onClick={this.logIn}>Log In</button>
-	    </div>
-	  );
+				<button onClick={this.goToLogin}>Log In</button>
+			</div>
+		);
 	}	
 }
 
 Signup.propTypes = {
-	history: object
+	history: object,
+	setCompanyInfo: func
 };
 
 export const mapDispatchToProps = dispatch => ({

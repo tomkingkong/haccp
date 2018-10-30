@@ -59,12 +59,12 @@ exports[`Routes should match snapshot 1`] = `
   <Route
     component={[Function]}
     exact={true}
-    path="/plans/packaging"
+    path="/plans/processing"
   />
   <Route
     component={[Function]}
     exact={true}
-    path="/plans/processing"
+    path="/plans/packaging"
   />
   <Route
     component={[Function]}
