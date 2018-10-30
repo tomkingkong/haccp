@@ -36,7 +36,7 @@ export class CompanyInfo extends Component {
 	}
 	
 	handleSubmit = async event => {
-		event.prenentDefault();
+		event.preventDefault();
 		const response = await putCompanyInfo(this.state.id, {company:this.state});
 		console.log(response)
 		if (response.id) {
