@@ -26,7 +26,7 @@ export class HazardPlan extends PureComponent {
 
 	componentDidMount() {
 		const { planName, details } = this.props;
-
+    if (!details) return;
 		this.setState({
 			_dna: details[`${planName}_dna`],
       _hazard_chem: details[`${planName}_hazard_chem`],
