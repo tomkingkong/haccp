@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { func, string, number } from 'prop-types';
+import React, { PureComponent } from 'react';
+import { func, string, number, object } from 'prop-types';
 
 import { 
   TextField, 
@@ -11,24 +11,45 @@ import {
 
 import './HazardPlan.css';
 
-export class HazardPlan extends Component {
+export class HazardPlan extends PureComponent {
   constructor() {
     super();
     this.state = {
-      doesNotApply: false,
-      chemical: false,
-      physical: false,
-      biological: false,
-      hazardPlan: '',
-      notes: ''
+      _dna: false,
+      _hazard_chem: false,
+      _hazard_phys: false,
+      _hazard_bio: false,
+			_hazard_handling: '',
+			_other: ''
     };
-  }
+	}
 
+	componentDidMount() {
+		const { planName, details } = this.props;
+
+		this.setState({
+			_dna: details[`${planName}_dna`],
+      _hazard_chem: details[`${planName}_hazard_chem`],
+      _hazard_phys: details[`${planName}_hazard_phys`],
+      _hazard_bio: details[`${planName}_hazard_bio`],
+			_hazard_handling: details[`${planName}_hazard_handling`],
+			_other: details[`${planName}_other`]
+		});
+	}
+
+	cleanData = () => {
+		const { planName } = this.props;
+		return Object.keys(this.state).reduce((thePlan, key) => {
+			thePlan[planName+key] = this.state[key];
+			return thePlan;
+		}, {});
+	}
+	
   handleChange = event => {
     const { name, value } = event.target;
     const { id, handleReceivingPlan } = this.props;
     this.setState({ [name]: value }, () => {
-      handleReceivingPlan({ingredientId:id, ...this.state});
+      handleReceivingPlan({id, ...this.cleanData(this.state)});
     });
   }
 
@@ -36,12 +57,12 @@ export class HazardPlan extends Component {
     const { checked } = event.target;
     const { id, handleReceivingPlan } = this.props;
     this.setState({ [name]: checked }, () => {
-      handleReceivingPlan({ingredientId:id, ...this.state});
+      handleReceivingPlan({id, ...this.cleanData(this.state)});
     });
   };
 
   displayHazardChecks = () => {
-    const { doesNotApply, chemical, physical, biological } = this.state;
+    const { _dna, _hazard_chem, _hazard_phys, _hazard_bio } = this.state;
     return (
       <FormControl>
         <FormLabel component="legend">Hazard Control Points</FormLabel>
@@ -49,36 +70,32 @@ export class HazardPlan extends Component {
           <FormControlLabel
             control={
               <Checkbox 
-                checked={doesNotApply}
-                value="doesNotApply"
-                onChange={this.handleChecked('doesNotApply')} />
+                checked={_dna}
+                onChange={this.handleChecked('_dna')} />
             }
             label="Does Not Apply"
           />
           <FormControlLabel
             control={
               <Checkbox 
-                checked={chemical}
-                value="chemical"
-                onChange={this.handleChecked('chemical')} />
+                checked={_hazard_chem}
+                onChange={this.handleChecked('_hazard_chem')} />
             }
             label="Chemical"
           />
           <FormControlLabel
             control={
               <Checkbox 
-                checked={physical}
-                value="physical"
-                onChange={this.handleChecked('physical')} />
+                checked={_hazard_phys}
+                onChange={this.handleChecked('_hazard_phys')} />
             }
             label="Physical"
           />
           <FormControlLabel
             control={
               <Checkbox 
-                checked={biological}
-                value="biological"
-                onChange={this.handleChecked('biological')} />
+                checked={_hazard_bio}
+                onChange={this.handleChecked('_hazard_bio')} />
             }
             label="Biological"
           />
@@ -92,11 +109,11 @@ export class HazardPlan extends Component {
       <TextField
         id="outlined-with-placeholder"
         label="How will you handle the hazard?" 
-        name="hazardPlan"
+        name="_hazard_handling"
         margin="normal"
         variant="outlined"
         placeholder="Type plan here"
-        value={this.state.hazardPlan}
+        value={this.state._hazard_handling}
         onChange={this.handleChange}
       />
     );  
@@ -107,11 +124,11 @@ export class HazardPlan extends Component {
       <TextField
         id="outlined-with-placeholder"
         label="Notes" 
-        name="notes"
+        name="_other"
         margin="normal"
         variant="outlined"
         placeholder="Type notes here"
-        value={this.state.notes}
+        value={this.state._other}
         onChange={this.handleChange}
       />
     );  
@@ -132,7 +149,9 @@ HazardPlan.propTypes = {
   handleReceivingPlan: func,
   addIngredient: func,
   planType: string,
-  id: number
+	id: number,
+	planName: string,
+	details: object
 };
 
 export default HazardPlan;

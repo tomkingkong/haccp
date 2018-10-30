@@ -10,9 +10,9 @@ export class Ingredients extends Component {
 
 	handleNewIngredient = async (name) => {
 		const productId = this.props.editProduct;
-		const { addIngredient, ingredients } = this.props;
-		// const id = await postIngredient(name);
-		addIngredient(ingredients.length+1, name, productId);
+		const { addIngredient } = this.props;
+		const ingredient = await postIngredient(productId, {ingredient: {name}});
+		addIngredient(ingredient.id, name, productId);
 	}
 	
 	handleNextClick = (ingredients) => {

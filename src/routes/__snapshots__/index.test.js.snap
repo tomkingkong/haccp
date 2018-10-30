@@ -9,10 +9,6 @@ exports[`Routes should match snapshot 1`] = `
   />
   <Route
     component={[Function]}
-    path="/"
-  />
-  <Route
-    component={[Function]}
     exact={true}
     path="/login"
   />
@@ -43,33 +39,37 @@ exports[`Routes should match snapshot 1`] = `
   />
   <Route
     component={[Function]}
-    exact={true}
-    path="/ingredients"
+    path="/plans"
   />
   <Route
     component={[Function]}
     exact={true}
-    path="/receiving"
+    path="/plans/ingredients"
   />
   <Route
     component={[Function]}
     exact={true}
-    path="/inventory"
+    path="/plans/receiving"
   />
   <Route
     component={[Function]}
     exact={true}
-    path="/packaging"
+    path="/plans/inventory"
   />
   <Route
     component={[Function]}
     exact={true}
-    path="/processing"
+    path="/plans/packaging"
   />
   <Route
     component={[Function]}
     exact={true}
-    path="/summary"
+    path="/plans/processing"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/plans/summary"
   />
 </div>
 `;

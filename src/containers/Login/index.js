@@ -23,12 +23,10 @@ export class Login extends Component {
 	handleSubmit = async event => {
 		event.preventDefault();
 		const query = `?company_email=${this.state.email}&company_password=${this.state.password}`;
-		const response = await getCompanyLogin(query);
+		const company = await getCompanyLogin(query);
 
-		const company = response.find(comp=> comp.email === this.state.email);
 		if (company.id) {
 			const data = await getCompanyInfo(company.id);
-
 			this.props.parseCompanyData(data);
 			this.props.history.push('/dashboard');
 		}
