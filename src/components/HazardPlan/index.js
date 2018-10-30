@@ -47,17 +47,17 @@ export class HazardPlan extends PureComponent {
 	
   handleChange = event => {
     const { name, value } = event.target;
-    const { id, handleReceivingPlan } = this.props;
+    const { id, handlePlanEdits } = this.props;
     this.setState({ [name]: value }, () => {
-      handleReceivingPlan({id, ...this.cleanData(this.state)});
+      handlePlanEdits({id, ...this.cleanData(this.state)});
     });
   }
 
   handleChecked = name => event => {
     const { checked } = event.target;
-    const { id, handleReceivingPlan } = this.props;
+    const { id, handlePlanEdits } = this.props;
     this.setState({ [name]: checked }, () => {
-      handleReceivingPlan({id, ...this.cleanData(this.state)});
+      handlePlanEdits({id, ...this.cleanData(this.state)});
     });
   };
 
@@ -146,7 +146,7 @@ export class HazardPlan extends PureComponent {
 }
 
 HazardPlan.propTypes = {
-  handleReceivingPlan: func,
+  handlePlanEdits: func,
   addIngredient: func,
   planType: string,
 	id: number,
