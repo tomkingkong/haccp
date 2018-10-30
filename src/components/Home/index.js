@@ -1,6 +1,5 @@
 import React from 'react';
 import { object } from 'prop-types';
-import { HeaderNav } from '../HeaderNav';
 
 import './index.css';
 
