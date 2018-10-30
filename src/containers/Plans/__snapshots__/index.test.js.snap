@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plans should match snapshot 1`] = `
+<div>
+  <h2>
+    Receiving
+  </h2>
+  <section
+    className="ingredients-receiving-edit"
+  />
+  <button
+    onClick={[Function]}
+  >
+    Next Page
+  </button>
+</div>
+`;

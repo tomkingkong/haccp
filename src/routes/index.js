@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router';
 
 import Summary from '../containers/Summary';
-import Processing from '../containers/Processing';
-import Packaging from '../containers/Packaging';
-import Inventory from '../containers/Inventory';
-import Receiving from '../containers/Receiving';
 import Ingredients from '../containers/Ingredients';
 import Products from '../containers/Products';
 import CompanyInfo from '../containers/CompanyInfo';
@@ -21,7 +17,7 @@ import Navbar from '../components/Navbar';
 export class Routes extends Component {
 
   render() {
-	  return (
+    return (
 			<div>
         <Route exact path = '/' component={Home} />
         <Route exact path = '/login' component={Login} />
@@ -38,7 +34,7 @@ export class Routes extends Component {
         <Route exact path = {`/plans/packaging`} component={Plans} />
         <Route exact path = {`/plans/summary`} component={Summary} />
 			</div>
-	  );
+    );
   }
 }
 

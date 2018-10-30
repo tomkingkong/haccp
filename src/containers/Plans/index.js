@@ -24,7 +24,7 @@ import { HazardPlan } from '../../components/HazardPlan';
 export class Plans extends Component {
 	constructor(props) {
 		super(props);
-		this.state ={
+		this.state = {
 			productIngredients: [],
 			plans: [],
 			planCategory: this.props.history.location.pathname.split('/').pop()
