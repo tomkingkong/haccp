@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { object, func } from 'prop-types';
 import { connect } from 'react-redux';
-import { TextField } from '@material-ui/core';
 
 import { setCompanyInfo } from '../../actions';
 import { signUp, logIn } from '../../utils/apiCalls';
+
+import './index.css';
 
 export class Signup extends Component {
   constructor() {
@@ -41,29 +42,24 @@ export class Signup extends Component {
 			<div>
 				<h2>Signup</h2>
 				<form onSubmit={this.handleSubmit}>
-					<TextField
-						id="standard-dense"
+					<input
 						name="name"
 						value={this.state.name}
 						onChange={this.handleChange}
-						label="Company Name"
-						required />
-					<TextField
-						id="standard-dense"
+						placeholder="Company Name"
+						 />
+					<input
 						name="email"
 						value={this.state.email}
 						onChange={this.handleChange}
-						label="Email"
-						required />
-					<TextField
-						id="outlined-password-input"
+						placeholder="Email"
+						/>
+					<input
 						name="password"
 						value={this.state.password}
 						onChange={this.handleChange}
-						label="Password"
-						type="password"
-						variant="outlined"
-						required />
+						placeholder="Password"
+						/>
 					<button>Sign Up</button>
 				</form>
 				<p>Already have an account: </p>

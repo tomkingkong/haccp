@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { object } from 'prop-types';
 
-import { TextField } from '@material-ui/core';
 import { putCompanyInfo } from '../../utils/apiCalls';
 
 // import { CompanyDetails } from '../../components/CompanyDetails';
@@ -38,7 +37,6 @@ export class CompanyInfo extends Component {
 	handleSubmit = async event => {
 		event.preventDefault();
 		const response = await putCompanyInfo(this.state.id, {company:this.state});
-		console.log(response)
 		if (response.id) {
 			this.props.history.push('/dashboard');
 		}
@@ -51,52 +49,46 @@ export class CompanyInfo extends Component {
 
 	render() {
 	  return (
-	    <div>
-	      <h2>Enter your company details</h2>
-	      <form onSubmit={this.handleSubmit}>
-	        <TextField
-	          id="standard-dense"
+	    <div className="signup-container">
+	      <h2 className="signup-header">Enter your company details</h2>
+	      <form className="signup-form" onSubmit={this.handleSubmit}>
+	        <input
 	          name="name"
 	          value={this.state.name}
 	          onChange={this.handleChange}
-	          label="company name"
-	          required />
-	        <TextField
-	          id="standard-dense"
+	          placeholder="company name"
+	          />
+	        <input
 	          name="email"
 	          value={this.state.email}
 	          onChange={this.handleChange}
-	          label="email"
-	          required />
-	        <TextField
-	          id="standard-dense"
+	          placeholder="email"
+	          />
+	        <input
 	          name="address"
 	          value={this.state.address}
 	          onChange={this.handleChange}
-	          label="address"
-	          required />
-	        <TextField
-	          id="standard-dense"
+	          placeholder="address"
+	          />
+	        <input
 	          name="phone"
 	          value={this.state.phone}
 	          onChange={this.handleChange}
-	          label="phone"
-	          required />
-	        <TextField
-	          id="standard-dense"
+	          placeholder="phone"
+	          />
+	        <input
 	          name="team_member_1_name"
 	          value={this.state.team_member_1_name}
 	          onChange={this.handleChange}
-	          label="team member name"
-	          required />
-	        <TextField
-	          id="standard-dense"
+	          placeholder="team member name"
+	          />
+	        <input
 	          name="team_member_1_title"
 	          value={this.state.team_member_1_title}
 	          onChange={this.handleChange}
-	          label="team_member_1_title"
-	          required />
-	      <button>
+	          placeholder="team_member_1_title"
+	          />
+	      <button className="signin-button">
 					Next Page
 	      </button>
 	      </form>

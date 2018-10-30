@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { object, array, func } from 'prop-types';
-import { Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
 
 import './ProductContainer.css';
 import { Product } from '../../components/Product';
@@ -30,12 +28,9 @@ export class ProductContainer extends Component {
 	  return (
 	    <section className="products-container">
 				{ this.displayUserProducts() }
-				<Button 
-					variant="outlined" 
-					style={{margin: "0.2rem"}}
+				<button
 					onClick={() => history.push('/products')}>
-					<AddIcon />
-				</Button>
+				</button>
 	    </section>
 	  );
 	}	
