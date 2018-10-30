@@ -62,7 +62,7 @@ export class Plans extends Component {
 		productIngredients.forEach(async (ingredient) => {
 			const data = this.props[planCategory]
 				.find(plan => plan.id === ingredient.id);
-			await putIngredient(ingredient.id, data);
+			await putIngredient(ingredient.id, {ingredient:{...data}});
 		});
 		this.props.history.push(`/plans/${categories[next]}`);
 	}
