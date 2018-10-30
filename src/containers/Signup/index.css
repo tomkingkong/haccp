@@ -1,0 +1,49 @@
+.signup-container {
+	/* background-color: rgb(243, 243, 243);	 */
+	max-width: 450px;
+	margin: 0 auto;
+}
+
+.signup-header {
+	font-size: 2rem;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.signup-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.MuiFormControl-root-1 {
+	margin: 1.5rem 3rem !important;
+	/* background-color: white; */
+}
+
+.signin-button {
+	padding: 1rem 3rem;
+	margin: 1.5rem 3rem;
+	width: 358px;
+	background-color: #41768D;
+	color: white;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+.signin-button:hover {
+	background-color: rgb(75, 134, 160);
+
+}
+
+.signin-text {
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.login-button {
+	background-color: #C05339;
+}
+
+.login-button:hover {
+	background-color: rgb(204, 90, 61);
+}

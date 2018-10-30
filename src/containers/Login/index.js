@@ -34,9 +34,9 @@ export class Login extends Component {
 
 	render() {
 	  return (
-	    <div>
-	      <h2>Login</h2>
-				<form onSubmit={this.handleSubmit}>
+	    <div className="signup-container">
+	      <h2 className="signup-header">Login</h2>
+				<form className="signup-form" onSubmit={this.handleSubmit}>
 					<TextField
 						id="standard-dense"
 						name="email"
@@ -53,7 +53,7 @@ export class Login extends Component {
 						type="password"
 						variant="outlined"
 						required />
-					<button>Log In</button>
+					<button className="signin-button">Log In</button>
 				</form>
 	    </div>
 	  );

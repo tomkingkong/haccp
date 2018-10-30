@@ -51,9 +51,9 @@ export class CompanyInfo extends Component {
 
 	render() {
 	  return (
-	    <div>
-	      <h2>Enter your company details</h2>
-	      <form onSubmit={this.handleSubmit}>
+	    <div className="signup-container">
+	      <h2 className="signup-header">Enter your company details</h2>
+	      <form className="signup-form" onSubmit={this.handleSubmit}>
 	        <TextField
 	          id="standard-dense"
 	          name="name"
@@ -96,7 +96,7 @@ export class CompanyInfo extends Component {
 	          onChange={this.handleChange}
 	          label="team_member_1_title"
 	          required />
-	      <button>
+	      <button className="signin-button">
 					Next Page
 	      </button>
 	      </form>

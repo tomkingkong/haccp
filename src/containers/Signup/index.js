@@ -6,6 +6,8 @@ import { TextField } from '@material-ui/core';
 import { setCompanyInfo } from '../../actions';
 import { postCompanyInfo } from '../../utils/apiCalls';
 
+import './index.css';
+
 export class Signup extends Component {
   constructor() {
 		super();
