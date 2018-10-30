@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { object, func } from 'prop-types';
-import { TextField } from '@material-ui/core';
 
 import { getCompanyLogin, getCompanyInfo } from '../../utils/apiCalls';
 import { parseCompanyData } from '../../thunks/parseCompanyData';
@@ -34,28 +33,22 @@ export class Login extends Component {
 
 	render() {
 	  return (
-	    <div className="signup-container">
-	      <h2 className="signup-header">Login</h2>
-				<form className="signup-form" onSubmit={this.handleSubmit}>
-					<TextField
-						id="standard-dense"
+	    <div>
+	      <h2>Login</h2>
+				<form onSubmit={this.handleSubmit}>
+					<input
 						name="email"
 						value={this.state.email}
 						onChange={this.handleChange}
-						label="Email"
-						required />
-					<TextField
-						id="outlined-password-input"
+						/>
+					<input
 						name="password"
 						value={this.state.password}
 						onChange={this.handleChange}
-						label="Password"
-						type="password"
-						variant="outlined"
-						required />
-					<button className="signin-button">Log In</button>
+						/>
+					<button>Log In</button>
 				</form>
-	    </div>
+		  </div>
 	  );
 	}	
 }

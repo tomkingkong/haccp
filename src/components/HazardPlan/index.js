@@ -1,14 +1,6 @@
 import React, { PureComponent } from 'react';
 import { func, string, number, object } from 'prop-types';
 
-import { 
-  TextField, 
-  Checkbox, 
-  FormControl, 
-  FormControlLabel, 
-  FormGroup, 
-  FormLabel } from '@material-ui/core';
-
 import './HazardPlan.css';
 
 export class HazardPlan extends PureComponent {
@@ -67,8 +59,6 @@ export class HazardPlan extends PureComponent {
   handleChange = event => {
     const { name, value } = event.target;
     const { id, handlePlanEdits } = this.props;
-    console.log(name, value)
-    console.log(this.cleanData(this.state))
     this.setState({ [name]: value }, () => {
       handlePlanEdits({id, ...this.cleanData(this.state)});
     });
@@ -85,59 +75,56 @@ export class HazardPlan extends PureComponent {
   displayHazardForm = (dna, chem, phys, bio, handling, other) => {
     return (
       <div>
-        <FormControl>
-          <FormLabel component="legend">Hazard Control Points</FormLabel>
-          <FormGroup>
-            <FormControlLabel
-              control={
-                <Checkbox 
-                  checked={dna}
-                  onChange={this.handleChecked('gen_dna')} />
-              }
-              label="Does Not Apply"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox 
-                  checked={chem}
-                  onChange={this.handleChecked('gen_hazard_chem')} />
-              }
-              label="Chemical"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox 
-                  checked={phys}
-                  onChange={this.handleChecked('gen_hazard_phys')} />
-              }
-              label="Physical"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox 
-                  checked={bio}
-                  onChange={this.handleChecked('gen_hazard_bio')} />
-              }
-              label="Biological"
-            />
-          </FormGroup>
-        </FormControl>
-        <TextField
-          id="outlined-with-placeholder"
-          label="How will you handle the hazard?" 
+
+				<h2>Hazard control points</h2>
+
+				<label>
+					<input 
+						type="checkbox"
+						value={dna}
+						onChange={this.handleChecked('gen_dna')}
+						/>
+						Does not apply
+				</label>
+
+				<label>
+					<input 
+						type="checkbox"
+						value={chem}
+						onChange={this.handleChecked('gen_hazard_chem')}
+						/>
+						Chemical
+				</label>
+
+				<label>
+					<input 
+						type="checkbox"
+						value={phys}
+						onChange={this.handleChecked('gen_hazard_phys')}
+						/>
+						Physical
+				</label>
+
+				<label>
+					<input 
+						type="checkbox"
+						value={bio}
+						onChange={this.handleChecked('gen_hazard_bio')}
+						/>
+						Biological
+				</label>
+
+				
+
+        <input
           name="gen_hazard_handling"
-          margin="normal"
-          variant="outlined"
           placeholder="Type plan here"
           value={handling}
           onChange={this.handleChange}
         />
-        <TextField
-          id="outlined-with-placeholder"
-          label="Notes" 
+				
+        <input 
           name="gen_other"
-          margin="normal"
-          variant="outlined"
           placeholder="Type notes here"
           value={other}
           onChange={this.handleChange}
@@ -149,70 +136,61 @@ export class HazardPlan extends PureComponent {
   displayPlanSpecifics = (fromWhere, letter, inventoryType, prepMethod, packMethod) => {
     const { planName } = this.props;
     return (
-        <FormControl>
-          <FormLabel component="legend">{ planName + ' info' }</FormLabel>
+				<div>
+					<h2>{ planName + ' info' }</h2>
+
           { planName === 'receiving' &&
             <div>
-              <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox 
-                      checked={letter}
-                      onChange={this.handleChecked('receiving_letter')} />
-                  }
-                  label="Letter"
-                />
-              </FormGroup>
-              <TextField
-                id="outlined-with-placeholder"
-                label="Where is this coming from?" 
+
+							<label>
+								<input 
+									type="checkbox"
+									value={letter}
+									onChange={this.handleChecked('receiving_letter')}
+									/>
+									Does not apply
+							</label>
+              
+              <input 
                 name="receiving_from"
-                margin="normal"
-                variant="outlined"
                 placeholder="Enter here"
                 value={fromWhere}
                 onChange={this.handleChange}
               />
             </div> 
           }
-          { planName === 'inventory' &&
-            <TextField
-              id="outlined-with-placeholder"
-              label="Type of Storage" 
-              name="inventory_type"
-              margin="normal"
-              variant="outlined"
-              placeholder="Enter here"
-              value={this.state.inventory_type}
-              onChange={this.handleChange}
-            />
+					{ planName === 'inventory' &&
+					
+						<input 
+							name="inventory_type"
+							placeholder="Enter here"
+							value={this.state.inventory_type}
+							onChange={this.handleChange}
+						/>
+
           }
-          { planName === 'processing' &&
-            <TextField
-              id="outlined-with-placeholder"
-              label="Method of preparation:" 
-              name="processing_method"
-              margin="normal"
-              variant="outlined"
-              placeholder="Enter here"
+					{ planName === 'processing' &&
+					
+						<input 
+							name="processing_method"
+							placeholder="Enter here"
               value={this.state.processing_method}
-              onChange={this.handleChange}
-            />
+							onChange={this.handleChange}
+						/>
+            
           }
-          { planName === 'packaging' &&
-            <TextField
-              id="outlined-with-placeholder"
-              label="Method of packaging:" 
-              name="packaging_method"
-              margin="normal"
-              variant="outlined"
-              placeholder="Enter here"
-              value={packMethod}
-              onChange={this.handleChange}
-            />
+					{ planName === 'packaging' &&
+					
+						<input 
+							name="packaging_method"
+							placeholder="Enter here"
+							value={packMethod}
+							onChange={this.handleChange}
+						/>
+            
           }
-        </FormControl>
-    );
+			</div>
+		);
   }
 
   render() {

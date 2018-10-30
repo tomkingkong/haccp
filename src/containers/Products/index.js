@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { object, func } from 'prop-types';
 
-import { Button, TextField } from '@material-ui/core';
-import SendIcon from '@material-ui/icons/Send';
-
 import { postProduct } from '../../utils/apiCalls';
 import { editProduct, addProduct } from '../../actions';
 
@@ -38,20 +35,16 @@ export class Products extends Component {
 	    <div>
 	      <h2>Products</h2>
 	      <form>
-	        <TextField
-	          id="standard-dense"
+	        <input
 	          name="name"
 	          value={this.state.name}
 	          onChange={this.handleChange}
-	          label="Product name"
-	          required />
-	        <Button 
-	          variant="contained" 
-	          color="primary" 
-	          required onClick={this.handleNextClick}>
+	          placeholder="Product name"
+	          />
+	        <button
+	          onClick={this.handleNextClick}>
 						Save & Continue
-	          <SendIcon style={{marginLeft:'0.5rem'}}/>
-	        </Button>
+	        </button>
 	      </form>
 	    </div>
 	  );
