@@ -27,54 +27,62 @@ export class Plans extends Component {
 		this.state = {
 			productIngredients: [],
 			plans: [],
+			planTitle: '',
+			planCategory: this.props.history.location.pathname.split('/').pop(),
 			categories: ['receiving', 'inventory', 'processing', 'packaging', 'summary']
 		};
 	}
 
 	componentDidMount() {
-		const { ingredients, editProduct } = this.props;
 		const { planCategory } = this.state;
-		const productIngredients = ingredients.filter(ing => ing.productId === editProduct);
-		const plans = this.props[planCategory].filter(ingPlan => {
-			return productIngredients.some(ing => ing.id === ingPlan.id);
+		const { ingredients, editProduct } = this.props;
+		const planTitle = planCategory[0].toUpperCase() + planCategory.slice(1);
+		const productIngredients = ingredients
+			.filter(ingredient => ingredient.productId === editProduct);
+		const plans = this.props[planCategory].filter(plan => {
+			return productIngredients.some(ingredient => ingredient.id === plan.id);
 		});
-		this.setState({ productIngredients, plans });
+		this.setState({ productIngredients, plans, planTitle });
 	}
 
-	handleReceivingPlan = plan => {
-		const { planCategory } = this.state;
-		const planTitle = planCategory[0].toUpperCase() + planCategory.slice(1);
-		const alreadyExists = this.props[planCategory].find(recPlan => {
-			return recPlan.id === plan.id;
-		});
-		alreadyExists === undefined
-			? this.props[`add${planTitle}Plan`](plan.id, plan)
-			: this.props[`update${planTitle}Plan`](alreadyExists.id, plan);
+	handlePlanEdits = newPlan => {
+		const { planCategory, planTitle } = this.state;
+		const alreadyExists = this.props[planCategory]
+			.find(oldPlan => oldPlan.id === newPlan.id) || false;
+
+		!alreadyExists
+			? this.props[`add${planTitle}Plan`](newPlan.id, newPlan)
+			: this.props[`update${planTitle}Plan`](alreadyExists.id, newPlan);
 	}
 	
 	handleNextClick = () => {
 		const { productIngredients, planCategory, categories } = this.state;
 		const next = categories.indexOf(planCategory) + 1;
+
+		productIngredients.forEach(async (ingredient) => {
+			const data = this.props[planCategory]
+				.find(plan => plan.id === ingredient.id);
+			await putIngredient(ingredient.id, data);
 		});
 		this.props.history.push(`/plans/${categories[next]}`);
 	}
 
-	displayIngredientsAndPlans = () => {
-		const { productIngredients, plans, planCategory } = this.state;
-		return productIngredients.map((ing, index) => {
-			const details = plans.find(plan => plan.id === ing.id) || false;
+	displayIngredientsAndPlans = (ingredients, plans, category) => {
+		return ingredients.map((ingredient, index) => {
+			const details = plans
+				.find(plan => plan.id === ingredient.id) || {};
 			return (
 				<ExpansionPanel key={index}>
 					<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-						<Typography>{ing.name}</Typography>
+						<Typography>{ingredient.name}</Typography>
 					</ExpansionPanelSummary>
 					<ExpansionPanelDetails>
 
 						<HazardPlan 
-							{...ing} 
+							{...ingredient} 
 							details={details} 
-							planName={planCategory} 
-							handleReceivingPlan={this.handleReceivingPlan}/>
+							planName={category} 
+							handlePlanEdits={this.handlePlanEdits}/>
 					</ExpansionPanelDetails>
 				</ExpansionPanel>
 			);
@@ -82,15 +90,14 @@ export class Plans extends Component {
 	}
 
 	render() {
-		const { planCategory } = this.state;
-		const planTitle = planCategory[0].toUpperCase() + planCategory.slice(1);
+		const { productIngredients, plans, planCategory, planTitle } = this.state;
 		return (
 			<div>
 				<h2>{ planTitle }</h2>
 				<section className="ingredients-receiving-edit">
-					{ this.displayIngredientsAndPlans() }
+					{ this.displayIngredientsAndPlans(productIngredients, plans, planCategory) }
 				</section>
-				<button onClick={this.handleNextClick}>
+				<button onClick={ this.handleNextClick }>
 					Next Page
 				</button>
 			</div>
