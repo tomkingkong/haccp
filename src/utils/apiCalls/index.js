@@ -12,7 +12,7 @@ export const getCompanyInfo = (id) => {
 };
 
 export const getCompanyLogin = (query) => {
-  const path = `/companies${query}`;
+  const path = `/company${query}`;
   return fetchRequest(path);
 };
 
@@ -37,27 +37,31 @@ export const putCompanyInfo = (id, details) => {
 };
 
 export const postProduct = (id, details) => {
-  const path = `/products`;
+  const path = `/companies/${id}/products`;
   const options = {
     method: 'POST',
     headers: { 'Content-Type' : 'application/json' },
-    body: JSON.stringify({
-      ...details,
-      company_id: id
-    })    
+    body: JSON.stringify(details)    
   };
   return fetchRequest(path, options);
 };
 
 export const postIngredient = (id, details) => {
-  const path = `/ingredients`;
+  const path = `/products/${id}/ingredients`;
   const options = {
     method: 'POST',
     headers: { 'Content-Type' : 'application/json' },
-    body: JSON.stringify({
-      ...details,
-      product_id: id
-    })    
+    body: JSON.stringify(details)    
+  };
+  return fetchRequest(path, options);
+};
+
+export const putIngredient = (id, details) => {
+  const path = `/ingredients/${id}`;
+  const options = {
+    method: 'PUT',
+    headers: { 'Content-Type' : 'application/json' },
+    body: JSON.stringify(details)    
   };
   return fetchRequest(path, options);
 };

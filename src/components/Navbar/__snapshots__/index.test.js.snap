@@ -2,40 +2,45 @@
 
 exports[`Navbar Component should match snapshot 1`] = `
 <div
-  className="Navbar"
+  className="navbar"
 >
   <NavLink
     activeClassName="active"
     aria-current="page"
-    to="/receiving"
+    className="link"
+    to="/plans/receiving"
   >
     Receiving
   </NavLink>
   <NavLink
     activeClassName="active"
     aria-current="page"
-    to="/receiving"
+    className="link"
+    to="/plans/receiving"
   >
     Storage
   </NavLink>
   <NavLink
     activeClassName="active"
     aria-current="page"
-    to="/receiving"
+    className="link"
+    to="/plans/receiving"
   >
     Processing
   </NavLink>
   <NavLink
     activeClassName="active"
     aria-current="page"
-    to="/receiving"
+    className="link"
+    to="/plans/receiving"
   >
     Packaging
   </NavLink>
   <NavLink
     activeClassName="active"
     aria-current="page"
-    to="/receiving"
+    className="link"
+    to="/plans/receiving"
   >
     Summary
   </NavLink>

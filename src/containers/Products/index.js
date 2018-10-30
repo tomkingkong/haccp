@@ -12,20 +12,19 @@ export class Products extends Component {
   constructor() {
     super();
     this.state = {
-      productName: ''
+      name: ''
     };
-  }
+	}
+	
 	handleNextClick = async () => {
-	  const { productName } = this.state;
-	  // post new product and retreive id
-	  // const id = await postProduct(companyID, productName);
+		const { name } = this.state;
+		const companyId = this.props.companyInfo.id;
+	
+		const product = await postProduct(companyId, {product: {name}});
 
-	  // retreive product id, set to redux store
-	  // add product to products array
-	  this.props.addProduct(4, productName);
-	  // set product id to edit
-	  this.props.editProduct(4);
-	  // continue to ingredients
+	  this.props.addProduct(product.id, name);
+	  this.props.editProduct(product.id);
+		
 	  this.props.history.push('/plans/ingredients');
 	}
 
@@ -38,11 +37,11 @@ export class Products extends Component {
 	  return (
 	    <div>
 	      <h2>Products</h2>
-	      <form >
+	      <form>
 	        <TextField
 	          id="standard-dense"
-	          name="productName"
-	          value={this.state.productName}
+	          name="name"
+	          value={this.state.name}
 	          onChange={this.handleChange}
 	          label="Product name"
 	          required />
@@ -62,11 +61,12 @@ export class Products extends Component {
 Products.propTypes = {
   history: object,
   editProduct: func,
-  addProduct: func
+	addProduct: func,
+	companyInfo: object
 };
 
-const mapStateToProps = state => ({
-  
+const mapStateToProps = ({companyInfo})=> ({
+  companyInfo
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -24,11 +24,11 @@ export class Signup extends Component {
 	handleSubmit = async event => {
 		event.preventDefault();
 		const response =  await postCompanyInfo({company: this.state});
+		console.log(response)
 		if (response.id) {
 			this.props.setCompanyInfo(response.id, this.state.name, this.state.email);
 			this.props.history.push('/companyinfo');
 		}
-		
 	}
 	
 	logIn = () => {

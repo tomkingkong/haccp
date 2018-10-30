@@ -8,22 +8,44 @@ exports[`Signup Component should match snapshot 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <input
-      name="nameInput"
+    <TextField
+      id="standard-dense"
+      label="Company Name"
+      name="name"
       onChange={[Function]}
-      placeholder="Enter username"
+      required={true}
+      select={false}
       value=""
+      variant="standard"
     />
-    <input
-      name="emailInput"
+    <TextField
+      id="standard-dense"
+      label="Email"
+      name="email"
       onChange={[Function]}
-      placeholder="Enter username"
+      required={true}
+      select={false}
       value=""
+      variant="standard"
+    />
+    <TextField
+      id="outlined-password-input"
+      label="Password"
+      name="password"
+      onChange={[Function]}
+      required={true}
+      select={false}
+      type="password"
+      value=""
+      variant="outlined"
     />
     <button>
       Sign Up
     </button>
   </form>
+  <p>
+    Already have an account: 
+  </p>
   <button
     onClick={[Function]}
   >
