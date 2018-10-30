@@ -11,6 +11,7 @@ import Products from '../containers/Products';
 import CompanyInfo from '../containers/CompanyInfo';
 import Dashboard from '../containers/Dashboard';
 import Profile from '../containers/Profile';
+import Plans from '../containers/Plans';
 
 import Login from '../containers/Login';
 import Signup from '../containers/Signup';
@@ -31,11 +32,11 @@ export class Routes extends Component {
         <Route exact path = '/products' component={Products} />
         <Route path = '/plans' component={Navbar} />
         <Route exact path = '/plans/ingredients' component={Ingredients} />
-        <Route exact path = '/plans/receiving' component={Receiving} />
-        <Route exact path = '/plans/inventory' component={Inventory} />
-        <Route exact path = '/plans/packaging' component={Packaging} />
-        <Route exact path = '/plans/processing' component={Processing} />
-        <Route exact path = '/plans/summary' component={Summary} />
+        <Route exact path = {`/plans/receiving`} component={Plans} />
+        <Route exact path = {`/plans/inventory`} component={Plans} />
+        <Route exact path = {`/plans/processing`} component={Plans} />
+        <Route exact path = {`/plans/packaging`} component={Plans} />
+        <Route exact path = {`/plans/summary`} component={Summary} />
 			</div>
 	  );
   }
