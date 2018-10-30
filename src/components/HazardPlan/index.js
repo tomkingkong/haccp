@@ -67,8 +67,6 @@ export class HazardPlan extends PureComponent {
   handleChange = event => {
     const { name, value } = event.target;
     const { id, handlePlanEdits } = this.props;
-    console.log(name, value)
-    console.log(this.cleanData(this.state))
     this.setState({ [name]: value }, () => {
       handlePlanEdits({id, ...this.cleanData(this.state)});
     });
