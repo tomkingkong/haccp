@@ -2,12 +2,234 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { object } from 'prop-types';
 
-export class Summary extends Component {
+import './index.css';
 
+export class Summary extends Component {
+	constructor() {
+		super()
+		this.state = {
+			ingredient:
+    {
+      name: 'beef things',
+      receiving_from: 'supplier name',
+      receiving_letter: true,
+      receiving_dna: false,
+      receiving_other: 'some other text',
+      receiving_hazard_bio: true,
+      receiving_hazard_chem: true,
+      receiving_hazard_phys: false,
+      receiving_hazard_handling: 'something',
+      storage_type: 'cold',
+      storage_dna: false,
+      storage_other: 'something else',
+      storage_hazard_bio: false,
+      storage_hazard_chem: true,
+      storage_hazard_phys: false,
+      storage_hazard_handling: 'handled this way',
+      preparation_method: 'mixing it up',
+      preparation_dna: false,
+      preparation_other: 'some other toher string',
+      preparation_hazard_bio: false,
+      preparation_hazard_chem: false,
+      preparation_hazard_phys: true,
+      preparation_hazard_handling: 'heres a thing',
+      packaging_method: 'i haz a bucket',
+      packaging_dna: true,
+      packaging_other: '',
+      packaging_hazard_bio: false,
+      packaging_hazard_chem: false,
+      packaging_hazard_phys: false,
+      packaging_hazard_handling: false
+		 },
+		 company:
+      {
+        name: 'foodco llc',
+        email: 'company@email.com',
+        password: 'password',
+        address: '1331 17th st denver, co',
+        phone: '303-867-5309',
+        team_member_1_name: 'kort moller',
+        team_member_1_title: 'president'
+			},
+			product:
+      {
+        name: 'beef product'
+      }
+		}
+	}
 	render() {
+		const {ingredient, company, product} = this.state;
 	  return (
-	    <div>
+	    <div className="summary-container">
 	      <h2>Summary</h2>
+				<h1 className="summary-header">HACCP Plan</h1>
+				<h2 className="summary-company-name">{company.name}</h2>
+				<h2 className="summary-product-name">{product.name}</h2>
+
+				<p>{company.team_member_1_name}</p>
+				<p>{company.team_member_1_title}</p>
+				<p>{company.phone}</p>
+				<p>{company.address}</p>
+				<p>{company.email}</p>
+
+				<table>
+					<tr>
+						<th>Ingredient</th>
+						<th>Receiving</th> 
+						<th>Storage</th>
+						<th>Processing</th>
+						<th>Packaging</th>
+					</tr>
+					<tr>
+						<td>{ingredient.name}</td>
+						
+						<td>
+	
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									 {ingredient.receiving_dna ? 'Does not apply' : ''}
+								</p>
+							</div>
+							
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+								Letter of Auth on file:
+								</p >
+									<p className="summary-info-single-line">{ingredient.receiving_letter ? 'Yes' : 'No'}
+									</p>
+							</div>
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Bio Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.receiving_hazard_bio ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Chem Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.receiving_hazard_chem ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Physical Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.receiving_hazard_phys ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-info-dual-line">
+								<p className="summary-table-item summary-table-item-header">
+									Hazard Handling:
+								</p>
+								<p className="summary-table-item">
+								{ingredient.receiving_hazard_handling}
+								</p>
+							</div>
+							<div className="summary-info-dual-line">
+								<p className="summary-table-item summary-table-item-header">
+									Received From:
+								</p>
+								<p className="summary-table-item">
+									{ingredient.receiving_from}
+								</p>
+							</div>
+							<div className="summary-info-dual-line">
+								<p className="summary-table-item summary-table-item-header">
+									Other: 
+								</p>
+								<p className="summary-table-item">
+									{ingredient.receiving_other}
+								</p>
+							</div>
+						</td> 
+						
+						<td>
+
+							{/* storage_type: 'cold',
+      storage_other: 'something else',
+      storage_hazard_bio: false,
+      storage_hazard_chem: true,
+      storage_hazard_phys: false,
+			storage_hazard_handling: 'handled this way', */}
+			
+						<div className="summary-bool">
+								<p className="summary-info-single-line">
+									 {ingredient.storage_dna ? 'Does not apply' : ''}
+								</p>
+							</div>
+							
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Bio Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.storage_hazard_bio ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Chem Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.storage_hazard_chem ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Physical Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.storage_hazard_phys ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-info-dual-line">
+								<p className="summary-table-item summary-table-item-header">
+									Hazard Handling:
+								</p>
+								<p className="summary-table-item">
+								{ingredient.storage_hazard_handling}
+								</p>
+							</div>
+							<div className="summary-info-dual-line">
+								<p className="summary-table-item summary-table-item-header">
+									Received From:
+								</p>
+								<p className="summary-table-item">
+									{ingredient.receiving_from}
+								</p>
+							</div>
+							<div className="summary-info-dual-line">
+								<p className="summary-table-item summary-table-item-header">
+									Other: 
+								</p>
+								<p className="summary-table-item">
+									{ingredient.storage_other}
+								</p>
+							</div>
+						</td>
+						
+						<td>Jackson</td> 
+						
+						<td>94</td>
+					</tr>
+				</table>
+
+
+
+
+
+
 	      <button onClick={() => this.props.history.push('/dashboard')}>
 					Print
 	      </button>

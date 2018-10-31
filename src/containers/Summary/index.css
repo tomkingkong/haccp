@@ -1,0 +1,40 @@
+.summary-bool {
+	display: flex;
+	justify-content: space-between;
+}
+
+.summary-info-dual-line {
+	border: 1px solid grey;
+}
+
+.summary-info-single-line {
+	margin: 0;
+
+}
+
+.summary-container {
+
+}
+
+.summary-header {
+
+}
+
+.summary-company-name {
+
+}
+
+.summary-table-item {
+	margin: 0;
+	text-align: right;
+}
+
+.summary-table-item-header {
+	background-color: lightgray;
+	text-align: left;
+}
+
+td {
+	min-width: 200px;
+}
+
