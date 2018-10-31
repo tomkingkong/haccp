@@ -1,29 +1,62 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Plans } from '.';
+import { Plans, mapDispatchToProps, mapStateToProps } from '.';
 
 describe('Plans Container', () => {
   let wrapper;
   let history;
   beforeEach(() => {
     history = {
+      push: jest.fn(),
       location: {
-        pathname: 'receiving'
+        pathname: 'packaging'
       }
     };
     wrapper = shallow(<Plans history={history} ingredients={[]}/>);
   });
 
-  it('should match snapshot with receiving path', () => {
-    history = {location: { pathname: 'receiving'} };
+  describe('snapshot tests', () => {
+    it('should match snapshot with ingredients and plans', () => {
+      history = {location: { pathname: 'packaging'} };
+      const mockIngredients = [
+        { id: 1, name: 'carrots', productId: 1 },
+        { id: 2, name: 'meat', productId: 1 },
+      ]
+      const mockPlans = [
+        { id: 1, info: 'specific to carrots' },
+        { id: 2, info: 'specific to meat' }
+      ]
+      wrapper = shallow(
+        <Plans 
+          packaging={mockPlans}
+          history={history} 
+          ingredients={mockIngredients}
+          editProduct={1}
+        />);
+      wrapper.instance().componentDidMount();
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should match snapshot with inventory path', () => {
-    history = {location: { pathname: 'inventory'} };
+    it('should match snapshot with ingredients but no plans', () => {
+      history = {location: { pathname: 'packaging'} };
+      const mockIngredients = [
+        { id: 1, name: 'carrots', productId: 1 },
+        { id: 2, name: 'meat', productId: 1 },
+      ]
+      const mockPlans = []
+      wrapper = shallow(
+        <Plans 
+          packaging={mockPlans}
+          history={history} 
+          ingredients={mockIngredients}
+          editProduct={1}
+        />);
+      wrapper.instance().componentDidMount();
     expect(wrapper).toMatchSnapshot();
   });
+  });
+  
 
   it('should match snapshot with processing path', () => {
     history = {location: { pathname: 'processing'} };

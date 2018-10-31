@@ -1,11 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Plans Container should have default states 1`] = `
+exports[`Plans Container snapshot tests should match snapshot with ingredients and plans 1`] = `
 <div>
-  <h2 />
+  <h2>
+    Packaging
+  </h2>
   <section
     className="ingredients-receiving-edit"
-  />
+  >
+    <WithStyles(ExpansionPanel)
+      key="0"
+    >
+      <WithStyles(ExpansionPanelSummary)
+        expandIcon={<pure(ExpandMoreIcon) />}
+      >
+        <WithStyles(Typography)>
+          carrots
+        </WithStyles(Typography)>
+      </WithStyles(ExpansionPanelSummary)>
+      <WithStyles(ExpansionPanelDetails)>
+        <HazardPlan
+          details={
+            Object {
+              "id": 1,
+              "info": "specific to carrots",
+            }
+          }
+          handlePlanEdits={[Function]}
+          id={1}
+          name="carrots"
+          planName="packaging"
+          productId={1}
+        />
+      </WithStyles(ExpansionPanelDetails)>
+    </WithStyles(ExpansionPanel)>
+    <WithStyles(ExpansionPanel)
+      key="1"
+    >
+      <WithStyles(ExpansionPanelSummary)
+        expandIcon={<pure(ExpandMoreIcon) />}
+      >
+        <WithStyles(Typography)>
+          meat
+        </WithStyles(Typography)>
+      </WithStyles(ExpansionPanelSummary)>
+      <WithStyles(ExpansionPanelDetails)>
+        <HazardPlan
+          details={
+            Object {
+              "id": 2,
+              "info": "specific to meat",
+            }
+          }
+          handlePlanEdits={[Function]}
+          id={2}
+          name="meat"
+          planName="packaging"
+          productId={1}
+        />
+      </WithStyles(ExpansionPanelDetails)>
+    </WithStyles(ExpansionPanel)>
+  </section>
   <button
     onClick={[Function]}
   >
@@ -14,110 +69,57 @@ exports[`Plans Container should have default states 1`] = `
 </div>
 `;
 
-exports[`Plans Container should match snapshot with inventory path 1`] = `
+exports[`Plans Container snapshot tests should match snapshot with ingredients but no plans 1`] = `
 <div>
-  <h2 />
+  <h2>
+    Packaging
+  </h2>
   <section
     className="ingredients-receiving-edit"
-  />
-  <button
-    onClick={[Function]}
   >
-    Next Page
-  </button>
-</div>
-`;
-
-exports[`Plans Container should match snapshot with packaging path 1`] = `
-<div>
-  <h2 />
-  <section
-    className="ingredients-receiving-edit"
-  />
-  <button
-    onClick={[Function]}
-  >
-    Next Page
-  </button>
-</div>
-`;
-
-exports[`Plans Container should match snapshot with processing path 1`] = `
-<div>
-  <h2 />
-  <section
-    className="ingredients-receiving-edit"
-  />
-  <button
-    onClick={[Function]}
-  >
-    Next Page
-  </button>
-</div>
-`;
-
-exports[`Plans Container should match snapshot with receiving path 1`] = `
-<div>
-  <h2 />
-  <section
-    className="ingredients-receiving-edit"
-  />
-  <button
-    onClick={[Function]}
-  >
-    Next Page
-  </button>
-</div>
-`;
-
-exports[`Plans should match snapshot with inventory path 1`] = `
-<div>
-  <h2 />
-  <section
-    className="ingredients-receiving-edit"
-  />
-  <button
-    onClick={[Function]}
-  >
-    Next Page
-  </button>
-</div>
-`;
-
-exports[`Plans should match snapshot with packaging path 1`] = `
-<div>
-  <h2 />
-  <section
-    className="ingredients-receiving-edit"
-  />
-  <button
-    onClick={[Function]}
-  >
-    Next Page
-  </button>
-</div>
-`;
-
-exports[`Plans should match snapshot with processing path 1`] = `
-<div>
-  <h2 />
-  <section
-    className="ingredients-receiving-edit"
-  />
-  <button
-    onClick={[Function]}
-  >
-    Next Page
-  </button>
-</div>
-`;
-
-exports[`Plans should match snapshot with receiving path 1`] = `
-<div>
-  <h2 />
-  <section
-    className="ingredients-receiving-edit"
-  />
+    <WithStyles(ExpansionPanel)
+      key="0"
+    >
+      <WithStyles(ExpansionPanelSummary)
+        expandIcon={<pure(ExpandMoreIcon) />}
+      >
+        <WithStyles(Typography)>
+          carrots
+        </WithStyles(Typography)>
+      </WithStyles(ExpansionPanelSummary)>
+      <WithStyles(ExpansionPanelDetails)>
+        <HazardPlan
+          details={Object {}}
+          handlePlanEdits={[Function]}
+          id={1}
+          name="carrots"
+          planName="packaging"
+          productId={1}
+        />
+      </WithStyles(ExpansionPanelDetails)>
+    </WithStyles(ExpansionPanel)>
+    <WithStyles(ExpansionPanel)
+      key="1"
+    >
+      <WithStyles(ExpansionPanelSummary)
+        expandIcon={<pure(ExpandMoreIcon) />}
+      >
+        <WithStyles(Typography)>
+          meat
+        </WithStyles(Typography)>
+      </WithStyles(ExpansionPanelSummary)>
+      <WithStyles(ExpansionPanelDetails)>
+        <HazardPlan
+          details={Object {}}
+          handlePlanEdits={[Function]}
+          id={2}
+          name="meat"
+          planName="packaging"
+          productId={1}
+        />
+      </WithStyles(ExpansionPanelDetails)>
+    </WithStyles(ExpansionPanel)>
+  </section>
   <button
     onClick={[Function]}
   >
