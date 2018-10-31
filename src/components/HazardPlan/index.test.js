@@ -185,7 +185,62 @@ describe('HazardPlan Component', () => {
       inventory_type: undefined,
       processing_method: undefined,
 			packaging_method: 'boxing'
+    };
+    const planName = 'packaging';
+    wrapper = shallow(<HazardPlan planName={planName} details={details}/>);
+    wrapper.instance().componentDidMount();
+    expect(wrapper.state()).toEqual(expectedState);
+  });
+
+  describe('handleChange', () => {
+    it('should change state on input or checkbox changes', () => {
+      const mockFn = jest.fn();
+      let event = {
+        target: {
+          name: 'gen_dna',
+          value: true
     }
+      };
+
+      wrapper = shallow(<HazardPlan handlePlanEdits={mockFn}/>);
+      wrapper.instance().handleChange(event);
+      expect(wrapper.state().gen_dna).toEqual(true);
+
+      event = {
+        target: {
+          name: 'gen_hazard_handling',
+          value: 'will do'
+        }
+      };
+      wrapper.instance().handleChange(event);
+      expect(wrapper.state().gen_hazard_handling).toEqual('will do');
+    });
+
+    it('should call handlePlanEdits with scrubbed state data', () => {
+      const mockFn = jest.fn();
+      const id = 1;
+      const mockCleanedState = {
+        _dna: true, 
+        _hazard_bio: false, 
+        _hazard_chem: false, 
+        _hazard_handling: "", 
+        _hazard_phys: false, 
+        _other: "", 
+        id
+      };
+      const event = {
+        target: {
+          name: 'gen_dna',
+          value: true
+        }
+      };
+
+      wrapper = shallow(<HazardPlan handlePlanEdits={mockFn} id={id} />);
+      wrapper.instance().handleChange(event);
+      expect(mockFn).toHaveBeenCalled();
+      expect(mockFn).toHaveBeenCalledWith(mockCleanedState);
+    });
+  });
     const planName = 'packaging';
     wrapper = shallow(<HazardPlan planName={planName} details={details}/>);
     wrapper.instance().componentDidMount();
