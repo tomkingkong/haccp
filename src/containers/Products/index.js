@@ -58,11 +58,11 @@ Products.propTypes = {
 	companyInfo: object
 };
 
-const mapStateToProps = ({companyInfo})=> ({
+export const mapStateToProps = ({companyInfo})=> ({
   companyInfo
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   editProduct: id => dispatch(editProduct(id)),
   addProduct: (id, name) => dispatch(addProduct(id, name))
 });
