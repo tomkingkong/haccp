@@ -35,8 +35,8 @@ describe('Plans Container', () => {
           editProduct={1}
         />);
       wrapper.instance().componentDidMount();
-    expect(wrapper).toMatchSnapshot();
-  });
+      expect(wrapper).toMatchSnapshot();
+    });
 
     it('should match snapshot with ingredients but no plans', () => {
       history = {location: { pathname: 'packaging'} };
@@ -53,8 +53,8 @@ describe('Plans Container', () => {
           editProduct={1}
         />);
       wrapper.instance().componentDidMount();
-    expect(wrapper).toMatchSnapshot();
-  });
+      expect(wrapper).toMatchSnapshot();
+    });
   });
   
   it('should have default states', () => {
@@ -161,13 +161,94 @@ describe('Plans Container', () => {
     });
   });
 
-  it('should match snapshot with packaging path', () => {
-    history = {location: { pathname: 'packaging'} };
-    expect(wrapper).toMatchSnapshot();
+  describe('mapStateToProps', () => {
+    it('should be provided with an ingredients array, plans arrays, and editProduct number from props', () => {
+      const mockState = {
+        editProduct: 1,
+	      ingredients: [ { id: 1, name:'MeatSticks' } ],
+        companyInfo: {},
+        products: [],
+        receiving: [ { id: 1, info: 'receiving'} ],
+        inventory: [ { id: 1, info: 'inventory'} ],
+        processing: [ { id: 1, info: 'processing'} ],
+        packaging: [ { id: 1, info: 'packaging'} ],
+      };
+      const expected = { 
+        editProduct: 1, 
+        ingredients: [ { id: 1, name:'MeatSticks' } ],
+        receiving: [ { id: 1, info: 'receiving'} ],
+        inventory: [ { id: 1, info: 'inventory'} ],
+        processing: [ { id: 1, info: 'processing'} ],
+        packaging: [ { id: 1, info: 'packaging'} ],
+      };
+      const results = mapStateToProps(mockState);
+      expect(results).toEqual(expected);
+    });
   });
 
-  it('should have default states', () => {
-		const categories = ['receiving', 'inventory', 'processing', 'packaging', 'summary'];
-    expect(wrapper).toMatchSnapshot();
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with addReceivingPlan when addReceivingPlan is called', () => {
+      const mockDispatch = jest.fn();
+      const mockAddReceivingPlan = { id: 1, plan: { info: 'planstuff' }, type: 'ADD_RECEIVING_PLAN' };
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.addReceivingPlan(1, { info: 'planstuff' });
+      expect(mockDispatch).toHaveBeenCalledWith(mockAddReceivingPlan);
+    });
+
+    it('should call dispatch with addInventoryPlan when addInventoryPlan is called', () => {
+      const mockDispatch = jest.fn();
+      const mockAddInventoryPlan = { id: 1, plan: { info: 'planstuff' }, type: 'ADD_INVENTORY_PLAN' };
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.addInventoryPlan(1, { info: 'planstuff' });
+      expect(mockDispatch).toHaveBeenCalledWith(mockAddInventoryPlan);
+    });
+
+    it('should call dispatch with addProcessingPlan when addProcessingPlan is called', () => {
+      const mockDispatch = jest.fn();
+      const mockAddProcessingPlan = { id: 1, plan: { info: 'planstuff' }, type: 'ADD_PROCESSING_PLAN' };
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.addProcessingPlan(1, { info: 'planstuff' });
+      expect(mockDispatch).toHaveBeenCalledWith(mockAddProcessingPlan);
+    });
+
+    it('should call dispatch with addPackagingPlan when addPackagingPlan is called', () => {
+      const mockDispatch = jest.fn();
+      const mockAddPackagingPlan = { id: 1, plan: { info: 'planstuff' }, type: 'ADD_PACKAGING_PLAN' };
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.addPackagingPlan(1, { info: 'planstuff' });
+      expect(mockDispatch).toHaveBeenCalledWith(mockAddPackagingPlan);
+    });
+
+    it('should call dispatch with updateReceivingPlan when updateReceivingPlan is called', () => {
+      const mockDispatch = jest.fn();
+      const mockUpdateReceivingPlan = { id: 1, plan: { info: 'planstuff' }, type: 'UPDATE_RECEIVING_PLAN' };
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.updateReceivingPlan(1, { info: 'planstuff' });
+      expect(mockDispatch).toHaveBeenCalledWith(mockUpdateReceivingPlan);
+    });
+
+    it('should call dispatch with updateInventoryPlan when updateInventoryPlan is called', () => {
+      const mockDispatch = jest.fn();
+      const mockUpdateInventoryPlan = { id: 1, plan: { info: 'planstuff' }, type: 'UPDATE_INVENTORY_PLAN' };
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.updateInventoryPlan(1, { info: 'planstuff' });
+      expect(mockDispatch).toHaveBeenCalledWith(mockUpdateInventoryPlan);
+    });
+
+    it('should call dispatch with updateProcessingPlan when updateProcessingPlan is called', () => {
+      const mockDispatch = jest.fn();
+      const mockUpdateProcessingPlan = { id: 1, plan: { info: 'planstuff' }, type: 'UPDATE_PROCESSING_PLAN' };
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.updateProcessingPlan(1, { info: 'planstuff' });
+      expect(mockDispatch).toHaveBeenCalledWith(mockUpdateProcessingPlan);
+    });
+
+    it('should call dispatch with updatePackagingPlan when updatePackagingPlan is called', () => {
+      const mockDispatch = jest.fn();
+      const mockUpdatePackagingPlan = { id: 1, plan: { info: 'planstuff' }, type: 'UPDATE_PACKAGING_PLAN' };
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.updatePackagingPlan(1, { info: 'planstuff' });
+      expect(mockDispatch).toHaveBeenCalledWith(mockUpdatePackagingPlan);
+    });
   });
 });
