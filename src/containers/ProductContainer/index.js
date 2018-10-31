@@ -42,12 +42,8 @@ ProductContainer.propTypes = {
 	editProduct: func
 };
 
-const mapStateToProps = state => ({
-
-});
-
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
 	editProduct: id => dispatch(editProduct(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);
+export default connect(null, mapDispatchToProps)(ProductContainer);
