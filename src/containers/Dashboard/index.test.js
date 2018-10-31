@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Dashboard } from '.';
+import { Dashboard, mapStateToProps } from '.';
 
 describe('Dashboard', () => {
   let wrapper;
@@ -27,5 +27,30 @@ describe('Dashboard', () => {
     wrapper = shallow(<Dashboard products={mockData} />);
     wrapper.instance().componentDidMount();
     expect(wrapper.state().userProducts).toEqual(mockData);
+  });
+
+  describe('mapStateToProps', () => {
+    it('should be provided with a products array from props', () => {
+      const mockState = {
+        editProduct: 1,
+	      ingredients: [
+        ],
+        companyInfo: {},
+        products: [
+          { id: 1, name:'MeatSticks' }
+        ],
+        receiving: [],
+        inventory: [],
+        processing: [],
+        packaging: [],
+      };
+      const expected = { 
+        products: [
+          { id: 1, name:'MeatSticks' }
+        ] 
+      };
+      const results = mapStateToProps(mockState);
+      expect(results).toEqual(expected);
+    });
   });
 });
