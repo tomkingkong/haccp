@@ -61,17 +61,21 @@ export class Summary extends Component {
 		const {ingredient, company, product} = this.state;
 	  return (
 	    <div className="summary-container">
-	      <h2>Summary</h2>
-				<h1 className="summary-header">HACCP Plan</h1>
-				<h2 className="summary-company-name">{company.name}</h2>
-				<h2 className="summary-product-name">{product.name}</h2>
-
-				<p>{company.team_member_1_name}</p>
-				<p>{company.team_member_1_title}</p>
-				<p>{company.phone}</p>
-				<p>{company.address}</p>
-				<p>{company.email}</p>
-
+				<div className="summary-info-header">
+				<div className="summary-product-header">
+					<h1 className="summary-header">HACCP Plan</h1>
+					<h2 className="summary-company-name">{company.name}</h2>
+					<h2 className="summary-product-name">{product.name}</h2>
+				</div>
+				
+				<div className="summary-product-header">
+					<p>{company.team_member_1_name}</p>
+					<p>{company.team_member_1_title}</p>
+					<p>{company.phone}</p>
+					<p>{company.address}</p>
+					<p>{company.email}</p>
+				</div>
+				</div>
 				<table>
 					<tr>
 						<th>Ingredient</th>
@@ -153,13 +157,6 @@ export class Summary extends Component {
 						
 						<td>
 
-							{/* storage_type: 'cold',
-      storage_other: 'something else',
-      storage_hazard_bio: false,
-      storage_hazard_chem: true,
-      storage_hazard_phys: false,
-			storage_hazard_handling: 'handled this way', */}
-			
 						<div className="summary-bool">
 								<p className="summary-info-single-line">
 									 {ingredient.storage_dna ? 'Does not apply' : ''}
@@ -219,9 +216,122 @@ export class Summary extends Component {
 							</div>
 						</td>
 						
-						<td>Jackson</td> 
+						<td>
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									 {ingredient.preparation_dna ? 'Does not apply' : ''}
+								</p>
+							</div>
+							
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Bio Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.preparation_hazard_bio ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Chem Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.preparation_hazard_chem ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Physical Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.preparation_hazard_phys ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-info-dual-line">
+								<p className="summary-table-item summary-table-item-header">
+									Hazard Handling:
+								</p>
+								<p className="summary-table-item">
+								{ingredient.preparation_hazard_handling}
+								</p>
+							</div>
+							
+							<div className="summary-info-dual-line">
+								<p className="summary-table-item summary-table-item-header">
+									Other: 
+								</p>
+								<p className="summary-table-item">
+									{ingredient.preparation_other}
+								</p>
+							</div>
+							
+							</td> 
 						
-						<td>94</td>
+						<td>
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									 {ingredient.packaging_dna ? 'Does not apply' : ''}
+								</p>
+							</div>
+							
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Bio Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.packaging_hazard_bio ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Chem Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.packaging_hazard_chem ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-bool">
+								<p className="summary-info-single-line">
+									Physical Hazard:  
+								</p>
+								<p className="summary-info-single-line"> 
+								{ingredient.packaging_hazard_phys ? 'yes' : 'no'}
+								</p>
+							</div>
+
+							<div className="summary-info-dual-line">
+								<p className="summary-table-item summary-table-item-header">
+									Hazard Handling:
+								</p>
+								<p className="summary-table-item">
+								{ingredient.packaging_hazard_handling}
+								</p>
+							</div>
+
+							<div className="summary-info-dual-line">
+								<p className="summary-table-item summary-table-item-header">
+									Packaging method:
+								</p>
+								<p className="summary-table-item">
+								{ingredient.packaging_method}
+								</p>
+							</div>
+							
+							<div className="summary-info-dual-line">
+								<p className="summary-table-item summary-table-item-header">
+									Other: 
+								</p>
+								<p className="summary-table-item">
+									{ingredient.packaging_other}
+								</p>
+							</div>
+
+						</td>
 					</tr>
 				</table>
 

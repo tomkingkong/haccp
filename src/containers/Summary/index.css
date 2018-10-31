@@ -9,19 +9,33 @@
 
 .summary-info-single-line {
 	margin: 0;
-
 }
 
 .summary-container {
-
+	/* width: 960px; */
+	border: 1px solid black;
 }
 
 .summary-header {
-
+margin: 0;
 }
 
 .summary-company-name {
+	margin: 0;
+}
 
+.summary-product-name {
+	margin: 0;
+}
+
+.summary-product-header p {
+	margin: 0;
+}
+
+.summary-info-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
 }
 
 .summary-table-item {
@@ -38,3 +52,6 @@ td {
 	min-width: 200px;
 }
 
+table, th, td {
+	border: 1px solid black;
+}
