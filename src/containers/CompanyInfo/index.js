@@ -4,7 +4,6 @@ import { object } from 'prop-types';
 
 import { putCompanyInfo } from '../../utils/apiCalls';
 
-// import { CompanyDetails } from '../../components/CompanyDetails';
 
 export class CompanyInfo extends Component {
   constructor() {
@@ -21,7 +20,14 @@ export class CompanyInfo extends Component {
 	}
 	
 	componentDidMount = () => {
-		const { id, name, email, address, phone, team_member_1_name, team_member_1_title } = this.props.companyInfo;
+		const { 
+			id, 
+			name, 
+			email, 
+			address, 
+			phone, 
+			team_member_1_name, 
+			team_member_1_title } = this.props.companyInfo;
 
 		this.setState({
 			id,
@@ -101,11 +107,11 @@ CompanyInfo.propTypes = {
   history: object
 };
 
-const mapStateToProps = ({companyInfo}) => ({
+export const mapStateToProps = ({ companyInfo }) => ({
   companyInfo
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   // editCompanyInfo: info => dispatch(editCompamnyInfo(info)),
   // addCompanyInfo: info => dispatch(addCompanyInfo(info))
 });
