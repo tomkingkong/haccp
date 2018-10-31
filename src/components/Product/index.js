@@ -52,21 +52,23 @@ export const Product = ({
 		return links.map((link, index) => {
 			const isSummary = link === 'Summary';
 			const isIngredients = link === 'Ingredients';
-			return <ListItem 
-								id={link}
-								key={index}
-								style={style.button} 
-								button 
-								divider
-								aria-label={(isSummary 
-									? `Display ${link}` 
-									: `Edit ${link} Information`)}
-								onClick={handleEditing}>
-							<ListItemText style={{zIndex:'-1'}} primary={link} />
-							{ isSummary && <Printer style={style.summary} /> }
-							{ isIngredients && <AddIcon style={style.add}/> }
-							{ !isSummary && !isIngredients && <EditIcon style={style.edit}/> }
-						</ListItem>;
+			return (
+				<ListItem 
+					id={link}
+					key={index}
+					style={style.button} 
+					button 
+					divider
+					aria-label={(isSummary 
+						? `Display ${link}` 
+						: `Edit ${link} Information`)}
+					onClick={handleEditing}>
+					<ListItemText style={{zIndex:'-1'}} primary={link} />
+					{ isSummary && <Printer style={style.summary} /> }
+					{ isIngredients && <AddIcon style={style.add}/> }
+					{ !isSummary && !isIngredients && <EditIcon style={style.edit}/> }
+				</ListItem>
+			);
 		});
 	};
 

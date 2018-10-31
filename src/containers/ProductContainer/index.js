@@ -23,13 +23,18 @@ export class ProductContainer extends Component {
 		));
 	}
 
+	addNewProduct = () => {
+		this.props.history.push('/products')
+	}
+
 	render() {
-		const { history } = this.props;
 	  return (
 	    <section className="products-container">
 				{ this.displayUserProducts() }
-				<button
-					onClick={() => history.push('/products')}>
+				<button 
+					className="add-product"
+					onClick={this.addNewProduct}>
+					+
 				</button>
 	    </section>
 	  );

@@ -3,3 +3,25 @@
   flex-wrap: wrap;
   height: auto;
 }
+
+.add-product {
+  background: #f3f3f3;
+  border: none;
+  box-shadow: 0.05rem 0.1rem 0.05rem #b3b3b3;
+  cursor: pointer;
+  color: #21c01c;
+  border-radius: 0.2rem;
+  font-size: 140%;
+  outline: none;
+  width: 2rem;
+  height: 2rem;
+}
+
+.add-product:hover {
+  background: #d3d3d3;
+}
+
+.add-product:active {
+  background: #e9e8e8;
+  box-shadow: none;
+}
