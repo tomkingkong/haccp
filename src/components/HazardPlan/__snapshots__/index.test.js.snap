@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HazardPlan Component should match snapshot 1`] = `
+exports[`HazardPlan Component snapshots should match snapshot 1`] = `
 <form
   className="hazard-plan"
 >
@@ -8,6 +8,301 @@ exports[`HazardPlan Component should match snapshot 1`] = `
     <h2>
       undefined info
     </h2>
+  </div>
+  <div>
+    <h2>
+      Hazard control points
+    </h2>
+    <label>
+      <input
+        name="gen_dna"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Does not apply
+    </label>
+    <label>
+      <input
+        name="gen_hazard_chem"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Chemical
+    </label>
+    <label>
+      <input
+        name="gen_hazard_phys"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Physical
+    </label>
+    <label>
+      <input
+        name="gen_hazard_bio"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Biological
+    </label>
+    <input
+      name="gen_hazard_handling"
+      onChange={[Function]}
+      placeholder="Type plan here"
+      value=""
+    />
+    <input
+      name="gen_other"
+      onChange={[Function]}
+      placeholder="Type notes here"
+      value=""
+    />
+  </div>
+</form>
+`;
+
+exports[`HazardPlan Component snapshots should match snapshot with inventory plan 1`] = `
+<form
+  className="hazard-plan"
+>
+  <div>
+    <h2>
+      inventory info
+    </h2>
+    <input
+      name="inventory_type"
+      onChange={[Function]}
+      placeholder="Enter here"
+      value=""
+    />
+  </div>
+  <div>
+    <h2>
+      Hazard control points
+    </h2>
+    <label>
+      <input
+        name="gen_dna"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Does not apply
+    </label>
+    <label>
+      <input
+        name="gen_hazard_chem"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Chemical
+    </label>
+    <label>
+      <input
+        name="gen_hazard_phys"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Physical
+    </label>
+    <label>
+      <input
+        name="gen_hazard_bio"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Biological
+    </label>
+    <input
+      name="gen_hazard_handling"
+      onChange={[Function]}
+      placeholder="Type plan here"
+      value=""
+    />
+    <input
+      name="gen_other"
+      onChange={[Function]}
+      placeholder="Type notes here"
+      value=""
+    />
+  </div>
+</form>
+`;
+
+exports[`HazardPlan Component snapshots should match snapshot with packaging plan 1`] = `
+<form
+  className="hazard-plan"
+>
+  <div>
+    <h2>
+      packaging info
+    </h2>
+    <input
+      name="packaging_method"
+      onChange={[Function]}
+      placeholder="Enter here"
+      value=""
+    />
+  </div>
+  <div>
+    <h2>
+      Hazard control points
+    </h2>
+    <label>
+      <input
+        name="gen_dna"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Does not apply
+    </label>
+    <label>
+      <input
+        name="gen_hazard_chem"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Chemical
+    </label>
+    <label>
+      <input
+        name="gen_hazard_phys"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Physical
+    </label>
+    <label>
+      <input
+        name="gen_hazard_bio"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Biological
+    </label>
+    <input
+      name="gen_hazard_handling"
+      onChange={[Function]}
+      placeholder="Type plan here"
+      value=""
+    />
+    <input
+      name="gen_other"
+      onChange={[Function]}
+      placeholder="Type notes here"
+      value=""
+    />
+  </div>
+</form>
+`;
+
+exports[`HazardPlan Component snapshots should match snapshot with processing plan 1`] = `
+<form
+  className="hazard-plan"
+>
+  <div>
+    <h2>
+      processing info
+    </h2>
+    <input
+      name="processing_method"
+      onChange={[Function]}
+      placeholder="Enter here"
+      value=""
+    />
+  </div>
+  <div>
+    <h2>
+      Hazard control points
+    </h2>
+    <label>
+      <input
+        name="gen_dna"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Does not apply
+    </label>
+    <label>
+      <input
+        name="gen_hazard_chem"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Chemical
+    </label>
+    <label>
+      <input
+        name="gen_hazard_phys"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Physical
+    </label>
+    <label>
+      <input
+        name="gen_hazard_bio"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+      Biological
+    </label>
+    <input
+      name="gen_hazard_handling"
+      onChange={[Function]}
+      placeholder="Type plan here"
+      value=""
+    />
+    <input
+      name="gen_other"
+      onChange={[Function]}
+      placeholder="Type notes here"
+      value=""
+    />
+  </div>
+</form>
+`;
+
+exports[`HazardPlan Component snapshots should match snapshot with receiving plan 1`] = `
+<form
+  className="hazard-plan"
+>
+  <div>
+    <h2>
+      receiving info
+    </h2>
+    <div>
+      <label>
+        <input
+          name="receiving_letter"
+          onChange={[Function]}
+          type="checkbox"
+          value={false}
+        />
+        Does not apply
+      </label>
+      <input
+        name="receiving_from"
+        onChange={[Function]}
+        placeholder="Enter here"
+        value=""
+      />
+    </div>
   </div>
   <div>
     <h2>

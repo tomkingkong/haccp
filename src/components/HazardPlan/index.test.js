@@ -11,10 +11,10 @@ describe('HazardPlan Component', () => {
   });
 
   describe('snapshots', () => {
-  it('should match snapshot', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
-
+    it('should match snapshot', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
+  
     it('should match snapshot with receiving plan', () => {
       wrapper = shallow(<HazardPlan planName={'receiving'} />);
       expect(wrapper).toMatchSnapshot();
@@ -199,7 +199,7 @@ describe('HazardPlan Component', () => {
         target: {
           name: 'gen_dna',
           value: true
-    }
+        }
       };
 
       wrapper = shallow(<HazardPlan handlePlanEdits={mockFn}/>);
@@ -241,9 +241,48 @@ describe('HazardPlan Component', () => {
       expect(mockFn).toHaveBeenCalledWith(mockCleanedState);
     });
   });
-    const planName = 'packaging';
-    wrapper = shallow(<HazardPlan planName={planName} details={details}/>);
-    wrapper.instance().componentDidMount();
-    expect(wrapper.state()).toEqual(expectedState);
+
+  describe('cleanData', () => {
+    it('should return plan details for updating store sans generic keynames', () => {
+      const mockState = {
+        gen_dna: true,
+        gen_hazard_chem: true,
+        gen_hazard_phys: true,
+        gen_hazard_bio: true,
+        gen_hazard_handling: 'will do',
+        gen_other: 'notes',
+        receiving_from: undefined,
+        receiving_letter: undefined,
+        inventory_type: undefined,
+        processing_method: undefined,
+        packaging_method: 'boxing'
+      };
+      const details = {
+        packaging_dna: true,
+        packaging_hazard_chem: true,
+        packaging_hazard_phys: true,
+        packaging_hazard_bio: true,
+        packaging_hazard_handling: 'will do',
+        packaging_other: 'notes',
+        packaging_method: 'boxing'
+      };
+      const expected = {
+        packaging_dna: true,
+        packaging_hazard_chem: true,
+        packaging_hazard_phys: true,
+        packaging_hazard_bio: true,
+        packaging_hazard_handling: 'will do',
+        packaging_other: 'notes',
+        packaging_method: 'boxing'
+      };
+      const planName = 'packaging';
+
+      wrapper = shallow(<HazardPlan planName={planName} details={details}/>);
+      wrapper.instance().componentDidMount();
+      
+      const results = wrapper.instance().cleanData(planName, mockState);
+      expect(results).toEqual(expected);
+    });
   });
+
 });
