@@ -4,6 +4,10 @@ exports[`Routes should match snapshot 1`] = `
 <div>
   <Route
     component={[Function]}
+    path="/"
+  />
+  <Route
+    component={[Function]}
     exact={true}
     path="/"
   />
