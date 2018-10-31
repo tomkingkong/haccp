@@ -54,4 +54,29 @@ describe('IngredientsForm Component', () => {
       expect(wrapper.state().ingredientName).toEqual('booberries');
     });
   });
+
+  describe('handleNewIngredient', () => {
+    it('should call handleNewIngredient', () => {
+      const mockfn = jest.fn();
+      wrapper = shallow(<IngredientsForm handleNewIngredient={mockfn} />)
+      wrapper.instance().handleNewIngredient();
+      expect(mockfn).toHaveBeenCalled();
+    });
+
+    it('should reset state ingredientName', () => {
+      const mockfn = jest.fn();
+      const event = {
+        target: {
+          name: 'ingredientName',
+          value: 'booberries'
+        }
+      };
+      wrapper = shallow(<IngredientsForm handleNewIngredient={mockfn} />)
+      wrapper.instance().handleChange(event);
+      expect(wrapper.state().ingredientName).toEqual('booberries');
+
+      wrapper.instance().handleNewIngredient();
+      expect(wrapper.state().ingredientName).toEqual('');
+    });
+  });
 });
