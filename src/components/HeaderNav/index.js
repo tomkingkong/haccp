@@ -30,6 +30,7 @@ export const HeaderNav = ({ history }) => {
 			onClick={() => {
 				logOut();
 				history.replace('/')
+				window.location.reload();
 				}}>
 			Log Out
 		</button>
