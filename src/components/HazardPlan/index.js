@@ -66,14 +66,6 @@ export class HazardPlan extends PureComponent {
     });
   }
 
-  // handleChecked = name => event => {
-  //   const { value } = event.target;
-  //   const { id, handlePlanEdits } = this.props;
-  //   this.setState({ [name]: value }, () => {
-  //     handlePlanEdits({id, ...this.cleanData(this.state)});
-  //   });
-  // };
-
   displayHazardForm = (dna, chem, phys, bio, handling, other) => {
     return (
       <div>
