@@ -114,7 +114,7 @@ export class Plans extends Component {
 	render() {
 		const { productIngredients, plans, planCategory, planTitle } = this.state;
 		return (
-			<div>
+			<div className="plans">
 				<h2>{ planTitle }</h2>
 				<section className="ingredients-receiving-edit">
 					{ this.displayIngredientsAndPlans(productIngredients, plans, planCategory) }

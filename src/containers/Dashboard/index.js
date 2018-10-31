@@ -22,7 +22,7 @@ export class Dashboard extends Component {
 		const { history } = this.props;
 		const { userProducts } = this.state;
 	  return (
-	    <div>
+	    <div className="dashboard">
 	      <h2>Dashboard</h2>
 				<div>
 					<h4 className="products-title">Products</h4>
