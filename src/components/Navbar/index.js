@@ -10,6 +10,7 @@ export class Navbar extends PureComponent {
 	  return (
 	    <div className="navbar">
 	      <NavLink className="link" to='/dashboard'>Dashboard</NavLink>
+	      <NavLink className="link" to='/plans/ingredients'>Ingredients</NavLink>
 	      <NavLink className="link" to='/plans/receiving'>Receiving</NavLink>
 	      <NavLink className="link" to='/plans/inventory'>Inventory</NavLink>
 	      <NavLink className="link" to='/plans/processing'>Processing</NavLink>
