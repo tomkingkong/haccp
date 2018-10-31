@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { object } from 'prop-types';
 
-import { putCompanyInfo } from '../../utils/apiCalls';
+import { postCompanyInfo } from '../../utils/apiCalls';
+import { setCompanyInfo } from '../../actions';
 
 
 export class CompanyInfo extends Component {
@@ -11,7 +12,6 @@ export class CompanyInfo extends Component {
     this.state = {
 			id: '',
       name: '', 
-      email: '',
       address: '',
       phone: '',
       team_member_1_name: '',
@@ -20,30 +20,32 @@ export class CompanyInfo extends Component {
 	}
 	
 	componentDidMount = () => {
-		const { 
-			id, 
-			name, 
-			email, 
-			address, 
-			phone, 
-			team_member_1_name, 
-			team_member_1_title } = this.props.companyInfo;
+		const { companyInfo } = this.props;
 
 		this.setState({
-			id,
-			name, 
-			email,
-			address,
-			phone,
-			team_member_1_name,
-			team_member_1_title
+			id: companyInfo.id,
+			name: companyInfo.name, 
+			address: companyInfo.address,
+			phone: companyInfo.phone,
+			team_member_1_name: companyInfo.team_member_1_name,
+			team_member_1_title: companyInfo.team_member_1_title
 		});
 	}
 	
 	handleSubmit = async event => {
 		event.preventDefault();
-		const response = await putCompanyInfo(this.state.id, {company:this.state});
+		const company = {
+			company: {
+				name: this.state.name,
+				address: this.state.address,
+				phone: this.state.phone,
+				team_member_1_name: this.state.team_member_1_name,
+				team_member_1_title: this.state.team_member_1_title
+			}
+		};
+		const response = await postCompanyInfo(company);
 		if (response.id) {
+			this.props.setCompanyInfo({...company.company, id: response.id});
 			this.props.history.push('/dashboard');
 		}
 	}
@@ -63,12 +65,6 @@ export class CompanyInfo extends Component {
 	          value={this.state.name}
 	          onChange={this.handleChange}
 	          placeholder="company name"
-	          />
-	        <input
-	          name="email"
-	          value={this.state.email}
-	          onChange={this.handleChange}
-	          placeholder="email"
 	          />
 	        <input
 	          name="address"
@@ -92,7 +88,7 @@ export class CompanyInfo extends Component {
 	          name="team_member_1_title"
 	          value={this.state.team_member_1_title}
 	          onChange={this.handleChange}
-	          placeholder="team_member_1_title"
+	          placeholder="team member title"
 	          />
 	      <button className="signin-button">
 					Next Page
@@ -112,8 +108,7 @@ export const mapStateToProps = ({ companyInfo }) => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  // editCompanyInfo: info => dispatch(editCompamnyInfo(info)),
-  // addCompanyInfo: info => dispatch(addCompanyInfo(info))
+  setCompanyInfo: info => dispatch(setCompanyInfo(info))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompanyInfo);

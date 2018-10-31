@@ -13,7 +13,8 @@ export class Products extends Component {
     };
 	}
 	
-	handleNextClick = async () => {
+	handleSubmit = async event => {
+		event.preventDefault();
 		const { name } = this.state;
 		const companyId = this.props.companyInfo.id;
 	
@@ -34,15 +35,14 @@ export class Products extends Component {
 	  return (
 	    <div>
 	      <h2>Products</h2>
-	      <form>
+	      <form onSubmit={this.handleSubmit}>
 	        <input
 	          name="name"
 	          value={this.state.name}
 	          onChange={this.handleChange}
 	          placeholder="Product name"
 	          />
-	        <button
-	          onClick={this.handleNextClick}>
+	        <button>
 						Save & Continue
 	        </button>
 	      </form>
