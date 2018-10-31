@@ -1,0 +1,22 @@
+.save-continue {
+  border: none;
+  background: #35d835;
+  border-radius: 0.2rem;
+  box-shadow: 0.01rem 0.01rem 0.4rem 0.01rem #bcbdbc;
+  color: #fff;
+  cursor: pointer;
+  font-size: 120%;
+  width: 10rem;
+  height: 2.2rem;
+  outline: none;
+  transition: all 0.1s ease-in-out;
+}
+
+.save-continue:hover {
+  background: #46f146;
+}
+
+.save-continue:active {
+  background: #c2c2c2;
+  box-shadow: none;
+}

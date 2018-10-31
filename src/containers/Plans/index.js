@@ -20,15 +20,29 @@ import {
 	addPackagingPlan,
 	updatePackagingPlan } from '../../actions';
 import { HazardPlan } from '../../components/HazardPlan';
+import './index.css';
 
 export class Plans extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			productIngredients: [],
-			plans: [],
-			planTitle: '',
-			planCategory: '',
+			productIngredients: [
+				{id: 1, productId:1, name:'carrot juice'}
+			],
+			plans: [
+				{	id: 1,
+					receiving_dna: true,
+					receiving_hazard_chem: true,
+					receiving_hazard_phys: true,
+					receiving_hazard_bio: true,
+					receiving_hazard_handling: 'will do',
+					receiving_other: 'notes',
+					receiving_from: 'vendor',
+					receiving_letter: true
+				}
+			],
+			planTitle: 'receiving',
+			planCategory: 'Receiving',
 			categories: ['receiving', 'inventory', 'processing', 'packaging', 'summary']
 		};
 	}
@@ -105,8 +119,9 @@ export class Plans extends Component {
 				<section className="ingredients-receiving-edit">
 					{ this.displayIngredientsAndPlans(productIngredients, plans, planCategory) }
 				</section>
-				<button onClick={ this.handleNextClick }>
-					Next Page
+				<button className="save-continue"
+					onClick={ this.handleNextClick }>
+					save & continue
 				</button>
 			</div>
 		);
