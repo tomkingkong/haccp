@@ -42,13 +42,13 @@
 		"not op_mini all"
 	],
 	"jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!src/index.js",
-      "!src/reducers/index.js",
-      "!src/setupTests.js",
+		"collectCoverageFrom": [
+			"src/**/*.{js,jsx}",
+			"!src/index.js",
+			"!src/reducers/index.js",
+			"!src/setupTests.js",
 			"!src/serviceWorker.js",
 			"!src/utils/apiCalls/setAuthToken.js"
-    ]
-  }
+		]
+	}
 }
