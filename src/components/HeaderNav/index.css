@@ -1,0 +1,30 @@
+.header-nav {
+	height: 4rem;
+	background-color: #03617C;
+	width: 100vw;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-btns {
+	align-self: center;
+}
+
+.signup-login {
+	align-self: center;
+	background-color: #03617C;
+	border: none;
+	padding: 1rem;
+	color: #6ABFD7;
+	font-size: 1.2rem;
+	cursor: pointer;
+	outline: none;
+}
+
+.signup-login:hover { 
+	color: rgb(119, 213, 240);
+}
+
+.signup-login:active { 
+	color: rgb(175, 238, 255);
+}
