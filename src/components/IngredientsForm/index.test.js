@@ -22,4 +22,24 @@ describe('IngredientsForm Component', () => {
     wrapper.instance().componentDidMount();
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should have default states', () => {
+    wrapper = shallow(<IngredientsForm />);
+    const expected = {
+      ingredientName: '',
+      ingredients: []
+    }
+    expect(wrapper.state()).toEqual(expected);
+  });
+
+  it('should update state with ingredients on mount', () => {
+    const mockIngredients = [
+      {id:1, name:'meat'},
+      {id:2, name:'carrots'}
+    ]
+    wrapper = shallow(<IngredientsForm ingredients={mockIngredients}/>);
+    wrapper.instance().componentDidMount();
+    expect(wrapper.state().ingredients).toEqual(mockIngredients);
+  });
+
 });
