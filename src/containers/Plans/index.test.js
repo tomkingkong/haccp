@@ -96,9 +96,53 @@ describe('Plans Container', () => {
     expect(wrapper.state()).toEqual(expected);
   });
 
-  it('should match snapshot with processing path', () => {
-    history = {location: { pathname: 'processing'} };
-    expect(wrapper).toMatchSnapshot();
+  describe('handlePlanEdits', () => {
+    it('should add a plan if none exists', () => {
+      const mockIngredients = [
+        { id: 1, name: 'carrots', productId: 1 },
+        { id: 2, name: 'meat', productId: 2 },
+      ]
+      const mockPlans = [
+        { id: 1, info: 'specific to carrots' }
+      ]
+      const mockPlan = { id: 2, info: 'specific to meat' };
+      const mockFn = jest.fn();
+      wrapper = shallow(
+        <Plans 
+          packaging={mockPlans}
+          history={history} 
+          ingredients={mockIngredients}
+          addPackagingPlan={mockFn}
+        />);
+      wrapper.instance().componentDidMount();
+      wrapper.instance().handlePlanEdits(mockPlan);
+      expect(mockFn).toHaveBeenCalled();
+    });
+
+    it('should update a plan if one exists', () => {
+      const mockIngredients = [
+        { id: 1, name: 'carrots', productId: 1 },
+        { id: 2, name: 'meat', productId: 2 },
+      ]
+      const mockPlans = [
+        { id: 1, info: 'specific to carrots' },
+        { id: 2, info: 'specific to meat' },
+      ]
+      const mockPlan = { id: 2, info: 'smooches' };
+      const mockFn = jest.fn();
+      wrapper = shallow(
+        <Plans 
+          packaging={mockPlans}
+          history={history} 
+          ingredients={mockIngredients}
+          updatePackagingPlan={mockFn}
+        />);
+      wrapper.instance().componentDidMount();
+      wrapper.instance().handlePlanEdits(mockPlan);
+      expect(mockFn).toHaveBeenCalled();
+    });
+  });
+
   });
 
   it('should match snapshot with packaging path', () => {
