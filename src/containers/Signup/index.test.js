@@ -25,13 +25,13 @@ let wrapper;
 
 	});
 
-	it('should handle submit', () => {
+	xit('should handle submit', () => {
 		window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
 			json: () => Promise.resolve({id:1})
 			})
 		);
 		
-		const mockHistory = [];
+		const mockHistory = {};
 		const mockSetCompanyInfo = jest.fn();
 		wrapper = shallow(<Signup 
 			history={mockHistory}

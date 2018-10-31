@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import HeaderNav from '.';
+import { HeaderNav } from '.';
 
 describe('HeaderNav', () => {
   let wrapper;

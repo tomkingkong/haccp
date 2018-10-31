@@ -25,11 +25,13 @@ export class Signup extends Component {
 	handleSubmit = async event => {
 		event.preventDefault();
 		const { email, password, name } = this.state;
-		const response =  await signUp({company: this.state});
+		const response =  await signUp({user: { email, password }});
+		console.log(response)
 		if (response.id) {
-			await logIn({company: { email, password }})
-			this.props.setCompanyInfo(response.id, name, email);
-			this.props.history.push('/companyinfo');
+			const logResponse = await logIn({user: { email, password }});
+			console.log(logResponse)
+			// this.props.setCompanyInfo(response.id, name, email);
+			// this.props.history.push('/companyinfo');
 		}
 	}
 	
