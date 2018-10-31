@@ -1,3 +1,7 @@
+.dashboard {
+  margin: 0 1rem;
+}
+
 .user-products { 
   border: 2px solid #2096ba;
   width: 100%;

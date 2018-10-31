@@ -107,6 +107,7 @@ export class Plans extends Component {
 		return (
 			<div className="plans">
 				<h2>{ planTitle }</h2>
+				<h4>Edit { planCategory } information for your ingredients</h4>
 				<section className="ingredients-receiving-edit">
 					{ this.displayIngredientsAndPlans(productIngredients, plans, planCategory) }
 				</section>

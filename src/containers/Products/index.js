@@ -4,6 +4,7 @@ import { object, func } from 'prop-types';
 
 import { postProduct } from '../../utils/apiCalls';
 import { editProduct, addProduct } from '../../actions';
+import './index.css';
 
 export class Products extends Component {
   constructor() {
@@ -33,8 +34,8 @@ export class Products extends Component {
 
 	render() {
 	  return (
-	    <div>
-	      <h2>Products</h2>
+	    <div className="new-products">
+	      <h2>Add new product</h2>
 	      <form onSubmit={this.handleSubmit}>
 	        <input
 	          name="name"
@@ -42,7 +43,7 @@ export class Products extends Component {
 	          onChange={this.handleChange}
 	          placeholder="Product name"
 	          />
-	        <button>
+	        <button className="add-new-product">
 						Save & Continue
 	        </button>
 	      </form>
