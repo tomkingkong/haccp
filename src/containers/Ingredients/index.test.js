@@ -29,4 +29,21 @@ describe('Ingredients', () => {
     });
   });
 
+  describe('editIngredients', () => {
+    it('should return an array of editable ingredients', () => {
+      const mockIngredients = [
+        { productId: 1, name: 'carrots' },
+        { productId: 2, name: 'fish' },
+        { productId: 2, name: 'cheese' },
+      ];
+      const expected = [
+        { productId: 1, name: 'carrots' }
+      ];
+      wrapper = shallow(<Ingredients 
+        editProduct={1}
+        ingredients={mockIngredients} />);
+      const results = wrapper.instance().editIngredients();
+      expect(results).toEqual(expected);
+    });
+  });
 });
