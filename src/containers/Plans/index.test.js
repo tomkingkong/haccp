@@ -57,6 +57,44 @@ describe('Plans Container', () => {
   });
   });
   
+  it('should have default states', () => {
+		const expected = {
+			productIngredients: [],
+			plans: [],
+			planTitle: '',
+			planCategory: '',
+			categories: ['receiving', 'inventory', 'processing', 'packaging', 'summary']
+		};
+    expect(wrapper.state()).toEqual(expected);
+  });
+
+  it('should set plan specific state on mount', () => {
+    const mockIngredients = [
+      { id: 1, name: 'carrots', productId: 1 },
+      { id: 2, name: 'meat', productId: 2 },
+    ]
+    const mockPlans = [
+      { id: 1, info: 'specific to carrots' },
+      { id: 2, info: 'specific to meat' }
+    ]
+    wrapper = shallow(
+      <Plans 
+        packaging={mockPlans}
+        history={history} 
+        ingredients={mockIngredients}
+        editProduct={1}
+      />);
+
+		const expected = {
+			productIngredients: [ { id: 1, name: 'carrots', productId: 1 } ],
+			plans: [ { id: 1, info: 'specific to carrots' } ],
+			planTitle: 'Packaging',
+			planCategory: 'packaging',
+			categories: ['receiving', 'inventory', 'processing', 'packaging', 'summary']
+    };
+    wrapper.instance().componentDidMount();
+    expect(wrapper.state()).toEqual(expected);
+  });
 
   it('should match snapshot with processing path', () => {
     history = {location: { pathname: 'processing'} };
