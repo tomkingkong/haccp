@@ -6,9 +6,16 @@
   background: #6ABFD7;
   margin: 0 0.2rem;
   padding: 0.5rem;
+  transition: all 0.1s ease-in-out;
 }
 
-.active {
+.link:hover {
+  color: rgb(7, 87, 109);
+  background: rgb(126, 223, 250);
+}
+
+.active,
+.active:hover {
   color: #fff;
   background: #C78B00;
 }
