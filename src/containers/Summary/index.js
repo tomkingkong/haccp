@@ -7,7 +7,7 @@ import './index.css';
 
 export class Summary extends Component {
 	constructor() {
-		super()
+		super();
 		this.state = {
 			product: {},
 			ingredients: [],
@@ -16,38 +16,43 @@ export class Summary extends Component {
 	}
 
 	componentDidMount = () => {
-		const { products, ingredients, editProduct, receiving, processing, inventory, packaging, companyInfo } = this.props;
+		const {
+			products,
+			ingredients,
+			editProduct,
+			receiving,
+			processing,
+			inventory,
+			packaging,
+			companyInfo
+		} = this.props;
 
 		const product = products.find(product => product.id === editProduct);
 		const newIngredients = ingredients.filter(ingredient => ingredient.productId === editProduct);
 
+		const processes = [receiving, processing, inventory, packaging];
 		const summary = newIngredients.map(ingredient => {
-			const recObj = receiving.find(x => x.id === ingredient.id);
-			const proObj = processing.find(x => x.id === ingredient.id);
-			const invObj = inventory.find(x => x.id === ingredient.id);
-			const packObj = packaging.find(x => x.id === ingredient.id);
+			processes.reduce((acc, process) => {
+				const result = process.find(x => x.id === ingredient.id);
+				acc = {...acc, ...result};
+			}, {});
 
 			return {
 				name: ingredient.name,
-				...recObj,
-				...proObj,
-				...invObj,
-				...packObj
+				...summary
 			};
 		});
-
 		this.setState({
 			ingredients: summary,
 			company: companyInfo,
 			product});
-
 	}
 
-	makeSummaryRows = () => {
-		return this.state.ingredients.map(ingredient => {
-			return <SummaryRow ingredient={ingredient}/>
-		});
-	}
+	makeSummaryRows = () => (
+		this.state.ingredients.map((ingredient, i) => (
+			<SummaryRow ingredient={ingredient} key={i}/>
+		)
+	))
 
 	render() {
 		const {company, product} = this.state;
