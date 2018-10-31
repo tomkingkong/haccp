@@ -1,7 +1,14 @@
-.navbar {
 
+.link {
+  color: #03617C;
+  text-decoration: none;
+  border-radius: 0.2rem;
+  background: #6ABFD7;
+  margin: 0 0.2rem;
+  padding: 0.5rem;
 }
 
-.navbar .link {
-  /* background: blue; */
+.active {
+  color: #fff;
+  background: #C78B00;
 }
