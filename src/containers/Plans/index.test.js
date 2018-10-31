@@ -143,6 +143,22 @@ describe('Plans Container', () => {
     });
   });
 
+  describe('handleNextClick', () => {
+    it('should call history to push to next page', () => {
+      const mockIngredients = []
+      const mockPlans = []
+      wrapper = shallow(
+        <Plans 
+          packaging={mockPlans}
+          history={history} 
+          ingredients={mockIngredients}
+          editProduct={1}
+        />);
+      wrapper.instance().componentDidMount();
+      wrapper.instance().handleNextClick();
+      expect(history.push).toHaveBeenCalled();
+      expect(history.push).toHaveBeenCalledWith(`/plans/summary`);
+    });
   });
 
   it('should match snapshot with packaging path', () => {
