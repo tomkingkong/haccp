@@ -4,78 +4,63 @@ exports[`HazardPlan Component should match snapshot 1`] = `
 <form
   className="hazard-plan"
 >
-  <WithStyles(FormControl)>
-    <WithStyles(FormLabel)
-      component="legend"
-    >
-      Hazard Control Points
-    </WithStyles(FormLabel)>
-    <WithStyles(FormGroup)>
-      <WithStyles(FormControlLabel)
-        control={
-          <WithStyles(Checkbox)
-            checked={false}
-            onChange={[Function]}
-            value="doesNotApply"
-          />
-        }
-        label="Does Not Apply"
+  <div>
+    <h2>
+      undefined info
+    </h2>
+  </div>
+  <div>
+    <h2>
+      Hazard control points
+    </h2>
+    <label>
+      <input
+        name="gen_dna"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
       />
-      <WithStyles(FormControlLabel)
-        control={
-          <WithStyles(Checkbox)
-            checked={false}
-            onChange={[Function]}
-            value="chemical"
-          />
-        }
-        label="Chemical"
+      Does not apply
+    </label>
+    <label>
+      <input
+        name="gen_hazard_chem"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
       />
-      <WithStyles(FormControlLabel)
-        control={
-          <WithStyles(Checkbox)
-            checked={false}
-            onChange={[Function]}
-            value="physical"
-          />
-        }
-        label="Physical"
+      Chemical
+    </label>
+    <label>
+      <input
+        name="gen_hazard_phys"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
       />
-      <WithStyles(FormControlLabel)
-        control={
-          <WithStyles(Checkbox)
-            checked={false}
-            onChange={[Function]}
-            value="biological"
-          />
-        }
-        label="Biological"
+      Physical
+    </label>
+    <label>
+      <input
+        name="gen_hazard_bio"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
       />
-    </WithStyles(FormGroup)>
-  </WithStyles(FormControl)>
-  <TextField
-    id="outlined-with-placeholder"
-    label="How will you handle the hazard?"
-    margin="normal"
-    name="hazardPlan"
-    onChange={[Function]}
-    placeholder="Type plan here"
-    required={false}
-    select={false}
-    value=""
-    variant="outlined"
-  />
-  <TextField
-    id="outlined-with-placeholder"
-    label="Notes"
-    margin="normal"
-    name="notes"
-    onChange={[Function]}
-    placeholder="Type notes here"
-    required={false}
-    select={false}
-    value=""
-    variant="outlined"
-  />
+      Biological
+    </label>
+    <input
+      name="gen_hazard_handling"
+      onChange={[Function]}
+      placeholder="Type plan here"
+      value=""
+    />
+    <input
+      name="gen_other"
+      onChange={[Function]}
+      placeholder="Type notes here"
+      value=""
+    />
+  </div>
 </form>
 `;
