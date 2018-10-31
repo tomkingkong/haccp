@@ -42,4 +42,16 @@ describe('IngredientsForm Component', () => {
     expect(wrapper.state().ingredients).toEqual(mockIngredients);
   });
 
+  describe('handleChange', () => {
+    it('should change state on input changes', () => {
+      const event = {
+        target: {
+          name: 'ingredientName',
+          value: 'booberries'
+        }
+      };
+      wrapper.instance().handleChange(event);
+      expect(wrapper.state().ingredientName).toEqual('booberries');
+    });
+  });
 });
