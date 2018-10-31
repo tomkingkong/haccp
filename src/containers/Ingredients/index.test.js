@@ -16,6 +16,18 @@ describe('Ingredients', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  describe.skip('handleNewIngredient', () => {
+    it('should call addIngredient', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve());
+      wrapper = shallow(<Ingredients 
+        ingredients={[]} 
+        addIngredient={mockFn} 
+        editProduct={1} />);
+      await wrapper.instance().handleNewIngredient('name');
+      expect(mockFn).toHaveBeenCalled();
+    });
+  });
+
   describe('handleNextClick', () => {
     it('should call history to push to next page', () => {
       const mockHistory = {
@@ -44,6 +56,41 @@ describe('Ingredients', () => {
         ingredients={mockIngredients} />);
       const results = wrapper.instance().editIngredients();
       expect(results).toEqual(expected);
+    });
+  });
+
+  describe('mapStateToProps', () => {
+    it('should be provided with a editProduct number and ingredients array from props', () => {
+      const mockState = {
+        editProduct: 1,
+	      ingredients: [
+          { id: 1, name:'MeatSticks' }
+        ],
+        companyInfo: {},
+        products: [],
+        receiving: [],
+        inventory: [],
+        processing: [],
+        packaging: [],
+      };
+      const expected = { 
+        editProduct: 1, 
+        ingredients: [
+          { id: 1, name:'MeatSticks' }
+        ] 
+      };
+      const results = mapStateToProps(mockState);
+      expect(results).toEqual(expected);
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with addIngredient when addIngredient is called', () => {
+      const mockDispatch = jest.fn();
+      const mockAddIngredient = { id: 1, name: 'carrots', productId: 2, type: 'ADD_INGREDIENT' };
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.addIngredient(1, 'carrots', 2);
+      expect(mockDispatch).toHaveBeenCalledWith(mockAddIngredient);
     });
   });
 });
