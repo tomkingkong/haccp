@@ -5,12 +5,14 @@ import { object, func } from 'prop-types';
 import { logIn, getCompanyInfo, putCompanyInfo } from '../../utils/apiCalls';
 import { parseCompanyData } from '../../thunks/parseCompanyData';
 
+import './index.css';
 export class Login extends Component {
   constructor() {
 		super();
 		this.state = {
 			email: '',
-			password: ''
+			password: '',
+			passwordType: 'password'
 		};
 	}
 	
@@ -33,21 +35,37 @@ export class Login extends Component {
 		}
 	}
 
+	toggleVisibility = () => {
+		const { passwordType } = this.state;
+		let changeType;
+		changeType = passwordType === 'password' ? 'text' : 'password';
+		this.setState({ passwordType: changeType });
+	}
+
 	render() {
 	  return (
-	    <div>
+	    <div className="login">
 	      <h2>Login</h2>
 				<form onSubmit={this.handleSubmit}>
 					<input
+						placeholder="Enter your email"
 						name="email"
+						type="text"
 						value={this.state.email}
 						onChange={this.handleChange}
 						/>
 					<input
+						id="toggleVisibility"
+						placeholder="Enter your password"
 						name="password"
+						type={this.state.passwordType}
 						value={this.state.password}
 						onChange={this.handleChange}
 						/>
+						<label className="pass-toggle">
+							<input type="checkbox" onClick={this.toggleVisibility}/> 
+							Show Password
+						</label>
 					<button>Log In</button>
 				</form>
 		  </div>

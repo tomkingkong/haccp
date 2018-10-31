@@ -1,6 +1,10 @@
+.plans {
+  margin: 0 1rem;
+}
+
 .save-continue {
   border: none;
-  background: #35d835;
+  background: #ca3009;
   border-radius: 0.2rem;
   box-shadow: 0.01rem 0.01rem 0.4rem 0.01rem #bcbdbc;
   color: #fff;
@@ -13,7 +17,7 @@
 }
 
 .save-continue:hover {
-  background: #46f146;
+  background: #f16846;
 }
 
 .save-continue:active {
