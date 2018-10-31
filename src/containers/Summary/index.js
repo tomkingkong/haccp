@@ -7,98 +7,50 @@ import './index.css';
 
 export class Summary extends Component {
 	constructor() {
-		super();
+		super()
 		this.state = {
-			ingredients: [
-    {
-      name: 'beef things',
-      receiving_from: 'supplier name',
-      receiving_letter: true,
-      receiving_dna: false,
-      receiving_other: 'some other text',
-      receiving_hazard_bio: true,
-      receiving_hazard_chem: true,
-      receiving_hazard_phys: false,
-      receiving_hazard_handling: 'something',
-      storage_type: 'cold',
-      storage_dna: false,
-      storage_other: 'something else',
-      storage_hazard_bio: false,
-      storage_hazard_chem: true,
-      storage_hazard_phys: false,
-      storage_hazard_handling: 'handled this way',
-      preparation_method: 'mixing it up',
-      preparation_dna: false,
-      preparation_other: 'some other toher string',
-      preparation_hazard_bio: false,
-      preparation_hazard_chem: false,
-      preparation_hazard_phys: true,
-      preparation_hazard_handling: 'heres a thing',
-      packaging_method: 'i haz a bucket',
-      packaging_dna: true,
-      packaging_other: '',
-      packaging_hazard_bio: false,
-      packaging_hazard_chem: false,
-      packaging_hazard_phys: false,
-      packaging_hazard_handling: false
-		 },
-		 {
-      name: 'beef things',
-      receiving_from: 'supplier name',
-      receiving_letter: true,
-      receiving_dna: false,
-      receiving_other: 'some other text',
-      receiving_hazard_bio: true,
-      receiving_hazard_chem: true,
-      receiving_hazard_phys: false,
-      receiving_hazard_handling: 'something',
-      storage_type: 'cold',
-      storage_dna: false,
-      storage_other: 'something else',
-      storage_hazard_bio: false,
-      storage_hazard_chem: true,
-      storage_hazard_phys: false,
-      storage_hazard_handling: 'handled this way',
-      preparation_method: 'mixing it up',
-      preparation_dna: false,
-      preparation_other: 'some other toher string',
-      preparation_hazard_bio: false,
-      preparation_hazard_chem: false,
-      preparation_hazard_phys: true,
-      preparation_hazard_handling: 'heres a thing',
-      packaging_method: 'i haz a bucket',
-      packaging_dna: true,
-      packaging_other: '',
-      packaging_hazard_bio: false,
-      packaging_hazard_chem: false,
-      packaging_hazard_phys: false,
-      packaging_hazard_handling: false
-		 }],
-		 company:
-      {
-        name: 'foodco llc',
-        email: 'company@email.com',
-        password: 'password',
-        address: '1331 17th st denver, co',
-        phone: '303-867-5309',
-        team_member_1_name: 'kort moller',
-        team_member_1_title: 'president'
-			},
-			product:
-      {
-        name: 'beef product'
-      }
-		}
+			product: {},
+			ingredients: [],
+			company: {}
+		};
+	}
+
+	componentDidMount = () => {
+		const { products, ingredients, editProduct, receiving, processing, inventory, packaging, companyInfo } = this.props;
+
+		const product = products.find(product => product.id === editProduct);
+		const newIngredients = ingredients.filter(ingredient => ingredient.productId === editProduct);
+
+		const summary = newIngredients.map(ingredient => {
+			const recObj = receiving.find(x => x.id === ingredient.id);
+			const proObj = processing.find(x => x.id === ingredient.id);
+			const invObj = inventory.find(x => x.id === ingredient.id);
+			const packObj = packaging.find(x => x.id === ingredient.id);
+
+			return {
+				name: ingredient.name,
+				...recObj,
+				...proObj,
+				...invObj,
+				...packObj
+			};
+		});
+
+		this.setState({
+			ingredients: summary,
+			company: companyInfo,
+			product});
+
 	}
 
 	makeSummaryRows = () => {
 		return this.state.ingredients.map(ingredient => {
 			return <SummaryRow ingredient={ingredient}/>
-		})
+		});
 	}
 
 	render() {
-		const {ingredients, company, product} = this.state;
+		const {company, product} = this.state;
 	  return (
 	    <div className="summary-container">
 				<div className="summary-info-header">
@@ -139,11 +91,14 @@ Summary.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  
+  ingredients: state.ingredients,
+  editProduct: state.editProduct,
+	receiving: state.receiving,
+	inventory: state.inventory,
+	processing: state.processing,
+	packaging: state.packaging,
+	products: state.products,
+	companyInfo: state.companyInfo
 });
 
-const mapDispatchToProps = dispatch => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Summary);
+export default connect(mapStateToProps, null)(Summary);
