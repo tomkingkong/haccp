@@ -47,7 +47,8 @@
       "!src/index.js",
       "!src/reducers/index.js",
       "!src/setupTests.js",
-      "!src/serviceWorker.js"
+			"!src/serviceWorker.js",
+			"!src/utils/apiCalls/setAuthToken.js"
     ]
   }
 }
