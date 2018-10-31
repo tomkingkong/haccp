@@ -1,6 +1,8 @@
 import React from 'react';
 import { object } from 'prop-types';
 
+import { logOut } from '../../utils/apiCalls';
+
 import './index.css';
 
 export const HeaderNav = ({ history }) => {
@@ -23,9 +25,12 @@ export const HeaderNav = ({ history }) => {
 		</React.Fragment>
 	)
 
-	const logOut = () => (
+	const handleLogOut = () => (
 		<button className="signup-login" 
-			onClick={() => history.replace('/')}>
+			onClick={() => {
+				logOut();
+				history.replace('/')
+				}}>
 			Log Out
 		</button>
 	)
@@ -36,7 +41,7 @@ export const HeaderNav = ({ history }) => {
 				onClick={() => history.push('/')}>
 				HACCP Planner</h1>
 			<div className="nav-btns">
-				{ shouldLogInOrSignUp ? signInLogIn() : logOut() }
+				{ shouldLogInOrSignUp ? signInLogIn() : handleLogOut() }
 			</div>
 		</nav>
 	)

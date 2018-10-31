@@ -26,23 +26,10 @@ export class Plans extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			productIngredients: [
-				{id: 1, productId:1, name:'carrot juice'}
-			],
-			plans: [
-				{	id: 1,
-					receiving_dna: true,
-					receiving_hazard_chem: true,
-					receiving_hazard_phys: true,
-					receiving_hazard_bio: true,
-					receiving_hazard_handling: 'will do',
-					receiving_other: 'notes',
-					receiving_from: 'vendor',
-					receiving_letter: true
-				}
-			],
-			planTitle: 'receiving',
-			planCategory: 'Receiving',
+			productIngredients: [],
+			plans: [],
+			planTitle: '',
+			planCategory: '',
 			categories: ['receiving', 'inventory', 'processing', 'packaging', 'summary']
 		};
 	}
@@ -84,7 +71,11 @@ export class Plans extends Component {
 		productIngredients.forEach(async (ingredient) => {
 			const data = this.props[planCategory]
 				.find(plan => plan.id === ingredient.id);
-			await putIngredient(ingredient.id, {ingredient:{...data}});
+			const updatePlanData = Object.keys(data).reduce((updatePlanData, key) => {
+				if(key !== 'id') updatePlanData[key] = data[key];
+				return updatePlanData;
+			}, {});
+			await putIngredient(ingredient.id, { ingredient: { ...updatePlanData } });
 		});
 		this.props.history.push(`/plans/${categories[next]}`);
 	}
