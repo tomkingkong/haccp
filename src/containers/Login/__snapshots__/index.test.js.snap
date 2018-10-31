@@ -8,26 +8,15 @@ exports[`Login Component should match snapshot 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <TextField
-      id="standard-dense"
-      label="Email"
+    <input
       name="email"
       onChange={[Function]}
-      required={true}
-      select={false}
       value=""
-      variant="standard"
     />
-    <TextField
-      id="outlined-password-input"
-      label="Password"
+    <input
       name="password"
       onChange={[Function]}
-      required={true}
-      select={false}
-      type="password"
       value=""
-      variant="outlined"
     />
     <button>
       Log In

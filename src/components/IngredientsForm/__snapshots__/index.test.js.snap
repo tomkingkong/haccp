@@ -35,3 +35,50 @@ exports[`IngredientsForm Component should match snapshot 1`] = `
   </form>
 </div>
 `;
+
+exports[`IngredientsForm Component should match snapshot with ingredients 1`] = `
+<div>
+  <section
+    className="ingredients"
+  >
+    <p
+      key="0"
+    >
+      meat
+    </p>
+    <p
+      key="1"
+    >
+      carrots
+    </p>
+  </section>
+  <form
+    className="form"
+  >
+    <TextField
+      id="standard-dense"
+      label="Ingredient name"
+      name="ingredientName"
+      onChange={[Function]}
+      required={true}
+      select={false}
+      value=""
+      variant="standard"
+    />
+    <WithStyles(Button)
+      onClick={[Function]}
+      variant="contained"
+    >
+      <pure(AddIcon)
+        style={
+          Object {
+            "color": "forestgreen",
+            "marginRight": "0.2rem",
+          }
+        }
+      />
+      Add Ingredient
+    </WithStyles(Button)>
+  </form>
+</div>
+`;

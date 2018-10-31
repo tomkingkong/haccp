@@ -20,11 +20,6 @@ export class IngredientsForm extends Component {
     this.setState({ ingredients });
   }
 
-  handleSave = event => {
-    event.preventDefault();
-    // this.props.handleNextClick(this.state.ingredients);
-  }
-
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });

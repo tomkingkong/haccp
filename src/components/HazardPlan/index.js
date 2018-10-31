@@ -15,8 +15,8 @@ export class HazardPlan extends PureComponent {
       gen_other: '',
       receiving_from: '',
       receiving_letter: false,
-      storage_type: '',
-      preparation_method: '',
+      inventory_type: '',
+      processing_method: '',
 			packaging_method: ''
     };
 	}
@@ -39,38 +39,32 @@ export class HazardPlan extends PureComponent {
 		});
 	}
 
-	cleanData = () => {
-		const { planName } = this.props;
-		return Object.keys(this.state).reduce((thePlan, key) => {
-      const keyString = key.split('_');
-      const endOfKey = keyString.slice(1);
+	cleanData = (planName, state) => {
+    const planDetails = Object.keys(state);
+		const updatedPlan = planDetails.reduce((plan, key) => {
+      const detail = key.split('_');
+      const endOfDetail = detail.slice(1);
 
-      if (keyString[0] === 'gen') {
-        let planKey = [planName, ...endOfKey].join('_');
-        thePlan[planKey] = this.state[key];
-      } else if (keyString[0] === planName) {
-        thePlan[key] = this.state[key];
+      if (detail[0] === 'gen') {
+        let planKey = [planName, ...endOfDetail].join('_');
+        plan[planKey] = state[key];
       }
-
-			return thePlan;
-		}, {});
+      if (detail[0] === planName) {
+        plan[key] = state[key];
+      }
+			return plan;
+    }, {});
+    
+    return updatedPlan;
 	}
 	
   handleChange = event => {
     const { name, value } = event.target;
-    const { id, handlePlanEdits } = this.props;
+    const { id, handlePlanEdits, planName } = this.props;
     this.setState({ [name]: value }, () => {
-      handlePlanEdits({id, ...this.cleanData(this.state)});
+      handlePlanEdits({id, ...this.cleanData(planName, this.state)});
     });
   }
-
-  handleChecked = name => event => {
-    const { checked } = event.target;
-    const { id, handlePlanEdits } = this.props;
-    this.setState({ [name]: checked }, () => {
-      handlePlanEdits({id, ...this.cleanData(this.state)});
-    });
-  };
 
   displayHazardForm = (dna, chem, phys, bio, handling, other) => {
     return (
@@ -80,41 +74,43 @@ export class HazardPlan extends PureComponent {
 
 				<label>
 					<input 
-						type="checkbox"
+            type="checkbox"
+            name="gen_dna"
 						value={dna}
-						onChange={this.handleChecked('gen_dna')}
+						onChange={this.handleChange}
 						/>
 						Does not apply
 				</label>
 
 				<label>
 					<input 
-						type="checkbox"
+            type="checkbox"
+            name="gen_hazard_chem"
 						value={chem}
-						onChange={this.handleChecked('gen_hazard_chem')}
+						onChange={this.handleChange}
 						/>
 						Chemical
 				</label>
 
 				<label>
 					<input 
-						type="checkbox"
+            type="checkbox"
+            name="gen_hazard_phys"
 						value={phys}
-						onChange={this.handleChecked('gen_hazard_phys')}
+						onChange={this.handleChange}
 						/>
 						Physical
 				</label>
 
 				<label>
 					<input 
-						type="checkbox"
+            type="checkbox"
+            name="gen_hazard_bio"
 						value={bio}
-						onChange={this.handleChecked('gen_hazard_bio')}
+						onChange={this.handleChange}
 						/>
 						Biological
 				</label>
-
-				
 
         <input
           name="gen_hazard_handling"
@@ -141,16 +137,15 @@ export class HazardPlan extends PureComponent {
 
           { planName === 'receiving' &&
             <div>
-
 							<label>
 								<input 
-									type="checkbox"
+                  type="checkbox"
+                  name="receiving_letter"
 									value={letter}
-									onChange={this.handleChecked('receiving_letter')}
+									onChange={this.handleChange}
 									/>
 									Does not apply
 							</label>
-              
               <input 
                 name="receiving_from"
                 placeholder="Enter here"
@@ -159,35 +154,32 @@ export class HazardPlan extends PureComponent {
               />
             </div> 
           }
+
 					{ planName === 'inventory' &&
-					
 						<input 
 							name="inventory_type"
 							placeholder="Enter here"
-							value={this.state.inventory_type}
+							value={inventoryType}
 							onChange={this.handleChange}
 						/>
-
           }
+
 					{ planName === 'processing' &&
-					
 						<input 
 							name="processing_method"
 							placeholder="Enter here"
-              value={this.state.processing_method}
+              value={prepMethod}
 							onChange={this.handleChange}
 						/>
-            
           }
+
 					{ planName === 'packaging' &&
-					
 						<input 
 							name="packaging_method"
 							placeholder="Enter here"
 							value={packMethod}
 							onChange={this.handleChange}
 						/>
-            
           }
 			</div>
 		);
@@ -205,7 +197,8 @@ export class HazardPlan extends PureComponent {
       receiving_letter,
       inventory_type,
       processing_method,
-			packaging_method } = this.state;
+      packaging_method } = this.state;
+      
     return (
       <form className="hazard-plan">
         { this.displayPlanSpecifics(receiving_from, receiving_letter, inventory_type, processing_method, packaging_method) }

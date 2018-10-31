@@ -2,30 +2,6 @@
 
 exports[`Home Component should match snapshot 1`] = `
 <div>
-  <nav
-    className="header-nav"
-  >
-    <h1
-      className="header-text"
-      onClick={[Function]}
-    >
-      HACCP Planner
-    </h1>
-    <div>
-      <button
-        className="signup-login"
-        onClick={[Function]}
-      >
-        Sign Up
-      </button>
-      <button
-        className="signup-login"
-        onClick={[Function]}
-      >
-        Log In
-      </button>
-    </div>
-  </nav>
   <div
     className="welcome-header-img"
   >

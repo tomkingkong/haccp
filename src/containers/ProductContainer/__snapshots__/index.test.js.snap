@@ -1,19 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductContainer should match snapshot 1`] = `
+exports[`ProductContainer should match snapshot with products 1`] = `
 <section
   className="products-container"
 >
-  <WithStyles(Button)
+  <Component
+    id={1}
+    key="0"
+    name="MeatSticks"
+    selectProduct={[Function]}
+  />
+  <button
     onClick={[Function]}
-    style={
-      Object {
-        "margin": "0.2rem",
-      }
-    }
-    variant="outlined"
-  >
-    <pure(AddIcon) />
-  </WithStyles(Button)>
+  />
+</section>
+`;
+
+exports[`ProductContainer should match snapshot without products 1`] = `
+<section
+  className="products-container"
+>
+  <button
+    onClick={[Function]}
+  />
 </section>
 `;

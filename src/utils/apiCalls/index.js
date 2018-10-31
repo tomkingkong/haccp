@@ -1,67 +1,58 @@
+import axios from 'axios';
+import setAuthToken from './setAuthToken';
+
 export const fetchRequest = (path = '', options = {}) => {
-  const url = 'https://sheltered-peak-41535.herokuapp.com/api/v1' + path;
+  const url = 'https://sheltered-peak-41535.herokuapp.com' + path;
   return fetch(url, options)
     .then(res => res.json())
     .then(data => data)
     .catch(error => error);
 };
 
+const origin = 'https://sheltered-peak-41535.herokuapp.com';
+const version = `/api/v1`;
+
 export const getCompanyInfo = (id) => {
-  const path = `/companies/${id}`;
-  return fetchRequest(path);
+  const path = `${origin}${version}/companies/${id}`;
+  return axios.get(path).then(res => res.data);
 };
 
-export const getCompanyLogin = (query) => {
-  const path = `/company${query}`;
-  return fetchRequest(path);
+export const signUp = (details) => {
+  const path = `${origin}/signup`;
+  return axios.post(path, details).then(res => res.data);
+};
+
+export const logIn = (details) => {
+  const path = `${origin}/login`;
+  return axios.post(path, details).then(res => {
+    let token = res.headers.authorization;
+    localStorage.setItem('authorization', token);
+    setAuthToken(token);
+    return res.data;
+  });
 };
 
 export const postCompanyInfo = (details) => {
-  const path = `/companies`;
-  const options = {
-    method: 'POST',
-    headers: { 'Content-Type' : 'application/json' },
-    body: JSON.stringify(details)
-  };
-  return fetchRequest(path, options);
+  const path = `${origin}${version}/companies`;
+  return axios.post(path, details).then(res => res);
 };
 
 export const putCompanyInfo = (id, details) => {
-  const path = `/companies/${id}`;
-  const options = {
-    method: 'PUT',
-    headers: { 'Content-Type' : 'application/json' },
-    body: JSON.stringify(details)
-  };
-  return fetchRequest(path, options);
+  const path = `${origin}${version}/companies/${id}`;
+  return axios.put(path, details).then(res => res);
 };
 
 export const postProduct = (id, details) => {
-  const path = `/companies/${id}/products`;
-  const options = {
-    method: 'POST',
-    headers: { 'Content-Type' : 'application/json' },
-    body: JSON.stringify(details)    
-  };
-  return fetchRequest(path, options);
+  const path = `${origin}${version}/companies/${id}/products`;
+  return axios.post(path, details).then(res => res);
 };
 
 export const postIngredient = (id, details) => {
-  const path = `/products/${id}/ingredients`;
-  const options = {
-    method: 'POST',
-    headers: { 'Content-Type' : 'application/json' },
-    body: JSON.stringify(details)    
-  };
-  return fetchRequest(path, options);
+  const path = `${origin}${version}/products/${id}/ingredients`;
+  return axios.post(path, details).then(res => res);
 };
 
 export const putIngredient = (id, details) => {
-  const path = `/ingredients/${id}`;
-  const options = {
-    method: 'PUT',
-    headers: { 'Content-Type' : 'application/json' },
-    body: JSON.stringify(details)    
-  };
-  return fetchRequest(path, options);
+  const path = `${origin}${version}/ingredients/${id}`;
+  return axios.put(path, details).then(res => res);
 };

@@ -3,7 +3,7 @@ import { object, func } from 'prop-types';
 import { connect } from 'react-redux';
 
 import { setCompanyInfo } from '../../actions';
-import { postCompanyInfo } from '../../utils/apiCalls';
+import { signUp, logIn } from '../../utils/apiCalls';
 
 import './index.css';
 
@@ -24,11 +24,14 @@ export class Signup extends Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
-		const { email, name } = this.state;
-		const response =  await postCompanyInfo({company: this.state});
+		const { email, password, name } = this.state;
+		const response =  await signUp({user: { email, password }});
+		console.log(response)
 		if (response.id) {
-			this.props.setCompanyInfo(response.id, name, email);
-			this.props.history.push('/companyinfo');
+			const logResponse = await logIn({user: { email, password }});
+			console.log(logResponse)
+			// this.props.setCompanyInfo(response.id, name, email);
+			// this.props.history.push('/companyinfo');
 		}
 	}
 	

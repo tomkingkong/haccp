@@ -12,22 +12,7 @@ exports[`Dashboard should match snapshot 1`] = `
       Products
     </h4>
     <Connect(ProductContainer)
-      userProducts={
-        Array [
-          Object {
-            "id": 1,
-            "name": "Meat Sticks",
-          },
-          Object {
-            "id": 2,
-            "name": "Canned Ham",
-          },
-          Object {
-            "id": 3,
-            "name": "SnickleFritz",
-          },
-        ]
-      }
+      userProducts={Array []}
     />
   </div>
 </div>

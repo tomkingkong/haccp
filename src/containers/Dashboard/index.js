@@ -9,18 +9,13 @@ export class Dashboard extends Component {
 	constructor() {
 		super();
 		this.state = {
-			userProducts: [
-				{name: 'Meat Sticks', id: 1},
-				{name: 'Canned Ham', id: 2},
-				{name: 'SnickleFritz', id: 3}
-			]
+			userProducts: []
 		};
 	}
 
 	componentDidMount() {
-		this.setState({ 
-			userProducts: this.props.products 
-		});
+		const userProducts = this.props.products;
+		this.setState({ userProducts });
 	}
 
 	render() {
@@ -47,8 +42,4 @@ export const mapStateToProps = ({ products }) => ({
   products
 });
 
-export const mapDispatchToProps = dispatch => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, null)(Dashboard);
