@@ -1,6 +1,7 @@
 .form {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: flex-start;
+  max-width: 40rem;
+  margin: 1rem 0;
 }

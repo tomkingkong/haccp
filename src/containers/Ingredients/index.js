@@ -5,6 +5,7 @@ import { object, number, array } from 'prop-types';
 import IngredientsForm from '../../components/IngredientsForm';
 import { postIngredient } from '../../utils/apiCalls';
 import { addIngredient } from '../../actions';
+import './index.css';
 
 export class Ingredients extends Component {
 
@@ -27,13 +28,14 @@ export class Ingredients extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="ingredients">
 				<h2>Ingredients</h2>
 				<IngredientsForm 
 					ingredients={this.editIngredients()}
 					handleNewIngredient={this.handleNewIngredient} />
-				<button onClick={this.handleNextClick}>
-					Next Page
+				<button className="save-continue"
+					onClick={this.handleNextClick}>
+					save & continue
 				</button>
 			</div>
 		);
