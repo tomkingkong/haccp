@@ -10,9 +10,32 @@ describe('HazardPlan Component', () => {
     wrapper = shallow(<HazardPlan />);
   });
 
+  describe('snapshots', () => {
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+    it('should match snapshot with receiving plan', () => {
+      wrapper = shallow(<HazardPlan planName={'receiving'} />);
+      expect(wrapper).toMatchSnapshot();
+    });
+  
+    it('should match snapshot with inventory plan', () => {
+      wrapper = shallow(<HazardPlan planName={'inventory'} />);
+      expect(wrapper).toMatchSnapshot();
+    });
+  
+    it('should match snapshot with processing plan', () => {
+      wrapper = shallow(<HazardPlan planName={'processing'} />);
+      expect(wrapper).toMatchSnapshot();
+    });
+  
+    it('should match snapshot with packaging plan', () => {
+      wrapper = shallow(<HazardPlan planName={'packaging'} />);
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+  
 
   it('should contain default states', () => {
     const expectedState = {
@@ -27,7 +50,7 @@ describe('HazardPlan Component', () => {
       inventory_type: '',
       processing_method: '',
 			packaging_method: ''
-    }
+    };
     expect(wrapper.state()).toEqual(expectedState);
   });
 
@@ -44,7 +67,7 @@ describe('HazardPlan Component', () => {
       inventory_type: '',
       processing_method: '',
 			packaging_method: ''
-    }
+    };
     const details = {};
     const planName = 'receiving';
     wrapper = shallow(<HazardPlan planName={planName} details={details}/>);
@@ -75,7 +98,7 @@ describe('HazardPlan Component', () => {
       inventory_type: undefined,
       processing_method: undefined,
 			packaging_method: undefined
-    }
+    };
     const planName = 'receiving';
     wrapper = shallow(<HazardPlan planName={planName} details={details}/>);
     wrapper.instance().componentDidMount();
@@ -104,7 +127,7 @@ describe('HazardPlan Component', () => {
       inventory_type: 'freezer',
       processing_method: undefined,
 			packaging_method: undefined
-    }
+    };
     const planName = 'inventory';
     wrapper = shallow(<HazardPlan planName={planName} details={details}/>);
     wrapper.instance().componentDidMount();
@@ -133,7 +156,7 @@ describe('HazardPlan Component', () => {
       inventory_type: undefined,
       processing_method: 'eating',
 			packaging_method: undefined
-    }
+    };
     const planName = 'processing';
     wrapper = shallow(<HazardPlan planName={planName} details={details}/>);
     wrapper.instance().componentDidMount();
