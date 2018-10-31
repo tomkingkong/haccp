@@ -23,15 +23,13 @@ export class Login extends Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
-		const company = await logIn({company: this.state});
-		console.log(company)
-		if (company.id) {
-			const compData = await putCompanyInfo(company.id, {company:{name:'Lucas'}});
-			const data = await getCompanyInfo(company.id);
-			console.log(data)
-			console.log(compData)
-			// this.props.parseCompanyData(data);
-			// this.props.history.push('/dashboard');
+		const { email, password } = this.state;
+		const userInfo = {user: { email, password }};
+		const user = await logIn(userInfo);
+		if (user.id) {
+			const data = await getCompanyInfo(user.id);
+			this.props.parseCompanyData(data);
+			this.props.history.push('/dashboard');
 		}
 	}
 

@@ -44,4 +44,6 @@
 .pass-toggle {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  max-width: 8rem;
 }
