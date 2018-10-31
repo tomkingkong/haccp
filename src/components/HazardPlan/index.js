@@ -39,29 +39,30 @@ export class HazardPlan extends PureComponent {
 		});
 	}
 
-	cleanData = () => {
-		const { planName } = this.props;
-		return Object.keys(this.state).reduce((thePlan, key) => {
-      const keyString = key.split('_');
-      const endOfKey = keyString.slice(1);
+	cleanData = (planName, state) => {
+    const planDetails = Object.keys(state);
+		const updatedPlan = planDetails.reduce((plan, key) => {
+      const detail = key.split('_');
+      const endOfDetail = detail.slice(1);
 
-      if (keyString[0] === 'gen') {
-        let planKey = [planName, ...endOfKey].join('_');
-        thePlan[planKey] = this.state[key];
-
-      } else if (keyString[0] === planName) {
-        thePlan[key] = this.state[key];
+      if (detail[0] === 'gen') {
+        let planKey = [planName, ...endOfDetail].join('_');
+        plan[planKey] = state[key];
       }
-
-			return thePlan;
-		}, {});
+      if (detail[0] === planName) {
+        plan[key] = state[key];
+      }
+			return plan;
+    }, {});
+    
+    return updatedPlan;
 	}
 	
   handleChange = event => {
     const { name, value } = event.target;
-    const { id, handlePlanEdits } = this.props;
+    const { id, handlePlanEdits, planName } = this.props;
     this.setState({ [name]: value }, () => {
-      handlePlanEdits({id, ...this.cleanData(this.state)});
+      handlePlanEdits({id, ...this.cleanData(planName, this.state)});
     });
   }
 
