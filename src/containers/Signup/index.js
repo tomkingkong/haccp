@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { object, func } from 'prop-types';
 import { connect } from 'react-redux';
 
-import { setCompanyInfo } from '../../actions';
 import { signUp, logIn } from '../../utils/apiCalls';
 
 import './index.css';
@@ -11,7 +10,6 @@ export class Signup extends Component {
   constructor() {
 		super();
 		this.state = {
-			email: '',
 			password: '',
 			name: ''
 		};
@@ -24,14 +22,12 @@ export class Signup extends Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
-		const { email, password, name } = this.state;
-		const response =  await signUp({user: { email, password }});
-		console.log(response)
+		const { email, password } = this.state;
+		const userInfo = {user: { email, password }};
+		const response =  await signUp(userInfo);
 		if (response.id) {
-			const logResponse = await logIn({user: { email, password }});
-			console.log(logResponse)
-			// this.props.setCompanyInfo(response.id, name, email);
-			// this.props.history.push('/companyinfo');
+			await logIn(userInfo);
+			this.props.history.push('/companyinfo');
 		}
 	}
 	
@@ -41,15 +37,9 @@ export class Signup extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="signup">
 				<h2>Signup</h2>
 				<form onSubmit={this.handleSubmit}>
-					<input
-						name="name"
-						value={this.state.name}
-						onChange={this.handleChange}
-						placeholder="Company Name"
-						 />
 					<input
 						name="email"
 						value={this.state.email}
@@ -76,8 +66,4 @@ Signup.propTypes = {
 	setCompanyInfo: func
 };
 
-export const mapDispatchToProps = dispatch => ({
-	setCompanyInfo: (id, name, email) => dispatch(setCompanyInfo(id, name, email))
-});
-
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(null, null)(Signup);
