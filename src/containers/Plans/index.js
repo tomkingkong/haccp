@@ -28,21 +28,29 @@ export class Plans extends Component {
 			productIngredients: [],
 			plans: [],
 			planTitle: '',
-			planCategory: this.props.history.location.pathname.split('/').pop(),
+			planCategory: '',
 			categories: ['receiving', 'inventory', 'processing', 'packaging', 'summary']
 		};
 	}
 
 	componentDidMount() {
-		const { planCategory } = this.state;
-		const { ingredients, editProduct } = this.props;
+		const { ingredients, editProduct, history } = this.props;
+
+		const planCategory = history.location.pathname.split('/').pop()
 		const planTitle = planCategory[0].toUpperCase() + planCategory.slice(1);
+
 		const productIngredients = ingredients
 			.filter(ingredient => ingredient.productId === editProduct);
+			
 		const plans = this.props[planCategory].filter(plan => {
 			return productIngredients.some(ingredient => ingredient.id === plan.id);
 		});
-		this.setState({ productIngredients, plans, planTitle });
+		this.setState({ 
+			productIngredients, 
+			plans, 
+			planTitle,
+			planCategory
+		});
 	}
 
 	handlePlanEdits = newPlan => {
