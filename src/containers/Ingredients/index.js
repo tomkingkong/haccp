@@ -21,7 +21,8 @@ export class Ingredients extends Component {
 
 	editIngredients = () => {
 		const { ingredients, editProduct } = this.props;
-		return ingredients.filter(ing => ing.productId === editProduct);
+		return ingredients
+			.filter(ingredient => ingredient.productId === editProduct);
 	}
 
 	render() {
