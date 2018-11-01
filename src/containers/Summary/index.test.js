@@ -57,15 +57,14 @@ describe('Summary', () => {
       name: 'milkmeat'
     };
     const expected = {
-			product: { id: 1, name: "MeatSticks" },
+			product: { id: 1, name: "CarrotMilk" },
 			ingredients: [{ 
         id: 1, 
         name: 'carrots', 
-        productId: 1,
         inv_info: 'specific to carrots',
         pack_info: 'specific to carrots',
         pro_info: 'specific to carrots',
-        rec_info: 'specific to carrots',
+        rec_info: 'specific to carrots'
       }],
 			company: mockCoInfo
     };

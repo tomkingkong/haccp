@@ -2,7 +2,9 @@
 
 exports[`SummaryRow should match snapshot 1`] = `
 <tr>
-  <td>
+  <td
+    className="first-table-row"
+  >
     carrot
   </td>
   <td>
@@ -360,7 +362,9 @@ exports[`SummaryRow should match snapshot 1`] = `
 
 exports[`SummaryRow should match snapshot with details 1`] = `
 <tr>
-  <td>
+  <td
+    className="first-table-row"
+  >
     true
   </td>
   <td>

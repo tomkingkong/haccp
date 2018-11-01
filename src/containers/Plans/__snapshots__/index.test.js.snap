@@ -72,7 +72,7 @@ exports[`Plans Container snapshot tests should match snapshot with ingredients a
     className="save-continue"
     onClick={[Function]}
   >
-    save & continue
+    continue
   </button>
 </div>
 `;
@@ -139,7 +139,7 @@ exports[`Plans Container snapshot tests should match snapshot with ingredients b
     className="save-continue"
     onClick={[Function]}
   >
-    save & continue
+    continue
   </button>
 </div>
 `;

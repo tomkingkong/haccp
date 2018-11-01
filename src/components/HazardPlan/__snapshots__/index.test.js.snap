@@ -9,7 +9,9 @@ exports[`HazardPlan Component snapshots should match snapshot 1`] = `
       undefined info
     </h2>
   </div>
-  <div>
+  <div
+    className="hazard-plan-container"
+  >
     <h2>
       Hazard control points
     </h2>
@@ -49,18 +51,23 @@ exports[`HazardPlan Component snapshots should match snapshot 1`] = `
       />
       Biological
     </label>
-    <input
-      name="gen_hazard_handling"
-      onChange={[Function]}
-      placeholder="Type plan here"
-      value=""
-    />
-    <input
-      name="gen_other"
-      onChange={[Function]}
-      placeholder="Type notes here"
-      value=""
-    />
+    <label>
+      Hazard Type:
+      <input
+        name="gen_hazard_handling"
+        onChange={[Function]}
+        value=""
+      />
+    </label>
+    <label>
+      Notes:
+      <input
+        name="gen_other"
+        onChange={[Function]}
+        placeholder="Type notes here"
+        value=""
+      />
+    </label>
   </div>
 </form>
 `;
@@ -73,14 +80,19 @@ exports[`HazardPlan Component snapshots should match snapshot with inventory pla
     <h2>
       inventory info
     </h2>
-    <input
-      name="inventory_type"
-      onChange={[Function]}
-      placeholder="Enter here"
-      value=""
-    />
+    <label>
+      Hazard:
+      <input
+        name="inventory_type"
+        onChange={[Function]}
+        placeholder="Enter here"
+        value=""
+      />
+    </label>
   </div>
-  <div>
+  <div
+    className="hazard-plan-container"
+  >
     <h2>
       Hazard control points
     </h2>
@@ -120,18 +132,23 @@ exports[`HazardPlan Component snapshots should match snapshot with inventory pla
       />
       Biological
     </label>
-    <input
-      name="gen_hazard_handling"
-      onChange={[Function]}
-      placeholder="Type plan here"
-      value=""
-    />
-    <input
-      name="gen_other"
-      onChange={[Function]}
-      placeholder="Type notes here"
-      value=""
-    />
+    <label>
+      Hazard Type:
+      <input
+        name="gen_hazard_handling"
+        onChange={[Function]}
+        value=""
+      />
+    </label>
+    <label>
+      Notes:
+      <input
+        name="gen_other"
+        onChange={[Function]}
+        placeholder="Type notes here"
+        value=""
+      />
+    </label>
   </div>
 </form>
 `;
@@ -144,14 +161,19 @@ exports[`HazardPlan Component snapshots should match snapshot with packaging pla
     <h2>
       packaging info
     </h2>
-    <input
-      name="packaging_method"
-      onChange={[Function]}
-      placeholder="Enter here"
-      value=""
-    />
+    <label>
+      Hazard:
+      <input
+        name="packaging_method"
+        onChange={[Function]}
+        placeholder="Enter here"
+        value=""
+      />
+    </label>
   </div>
-  <div>
+  <div
+    className="hazard-plan-container"
+  >
     <h2>
       Hazard control points
     </h2>
@@ -191,18 +213,23 @@ exports[`HazardPlan Component snapshots should match snapshot with packaging pla
       />
       Biological
     </label>
-    <input
-      name="gen_hazard_handling"
-      onChange={[Function]}
-      placeholder="Type plan here"
-      value=""
-    />
-    <input
-      name="gen_other"
-      onChange={[Function]}
-      placeholder="Type notes here"
-      value=""
-    />
+    <label>
+      Hazard Type:
+      <input
+        name="gen_hazard_handling"
+        onChange={[Function]}
+        value=""
+      />
+    </label>
+    <label>
+      Notes:
+      <input
+        name="gen_other"
+        onChange={[Function]}
+        placeholder="Type notes here"
+        value=""
+      />
+    </label>
   </div>
 </form>
 `;
@@ -215,14 +242,19 @@ exports[`HazardPlan Component snapshots should match snapshot with processing pl
     <h2>
       processing info
     </h2>
-    <input
-      name="processing_method"
-      onChange={[Function]}
-      placeholder="Enter here"
-      value=""
-    />
+    <label>
+      Hazard:
+      <input
+        name="processing_method"
+        onChange={[Function]}
+        placeholder="Enter here"
+        value=""
+      />
+    </label>
   </div>
-  <div>
+  <div
+    className="hazard-plan-container"
+  >
     <h2>
       Hazard control points
     </h2>
@@ -262,18 +294,23 @@ exports[`HazardPlan Component snapshots should match snapshot with processing pl
       />
       Biological
     </label>
-    <input
-      name="gen_hazard_handling"
-      onChange={[Function]}
-      placeholder="Type plan here"
-      value=""
-    />
-    <input
-      name="gen_other"
-      onChange={[Function]}
-      placeholder="Type notes here"
-      value=""
-    />
+    <label>
+      Hazard Type:
+      <input
+        name="gen_hazard_handling"
+        onChange={[Function]}
+        value=""
+      />
+    </label>
+    <label>
+      Notes:
+      <input
+        name="gen_other"
+        onChange={[Function]}
+        placeholder="Type notes here"
+        value=""
+      />
+    </label>
   </div>
 </form>
 `;
@@ -294,17 +331,23 @@ exports[`HazardPlan Component snapshots should match snapshot with receiving pla
           type="checkbox"
           value={false}
         />
-        Does not apply
+        Letter of Auth on File?
       </label>
-      <input
-        name="receiving_from"
-        onChange={[Function]}
-        placeholder="Enter here"
-        value=""
-      />
+      <br />
+      <label>
+        Received From:
+        <input
+          name="receiving_from"
+          onChange={[Function]}
+          placeholder="Enter here"
+          value=""
+        />
+      </label>
     </div>
   </div>
-  <div>
+  <div
+    className="hazard-plan-container"
+  >
     <h2>
       Hazard control points
     </h2>
@@ -344,18 +387,23 @@ exports[`HazardPlan Component snapshots should match snapshot with receiving pla
       />
       Biological
     </label>
-    <input
-      name="gen_hazard_handling"
-      onChange={[Function]}
-      placeholder="Type plan here"
-      value=""
-    />
-    <input
-      name="gen_other"
-      onChange={[Function]}
-      placeholder="Type notes here"
-      value=""
-    />
+    <label>
+      Hazard Type:
+      <input
+        name="gen_hazard_handling"
+        onChange={[Function]}
+        value=""
+      />
+    </label>
+    <label>
+      Notes:
+      <input
+        name="gen_other"
+        onChange={[Function]}
+        placeholder="Type notes here"
+        value=""
+      />
+    </label>
   </div>
 </form>
 `;
