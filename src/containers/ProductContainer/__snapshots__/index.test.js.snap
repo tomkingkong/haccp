@@ -4,15 +4,18 @@ exports[`ProductContainer should match snapshot with products 1`] = `
 <section
   className="products-container"
 >
-  <Component
+  <Product
     id={1}
     key="0"
     name="MeatSticks"
     selectProduct={[Function]}
   />
   <button
+    className="add-product"
     onClick={[Function]}
-  />
+  >
+    +
+  </button>
 </section>
 `;
 
@@ -21,7 +24,10 @@ exports[`ProductContainer should match snapshot without products 1`] = `
   className="products-container"
 >
   <button
+    className="add-product"
     onClick={[Function]}
-  />
+  >
+    +
+  </button>
 </section>
 `;
