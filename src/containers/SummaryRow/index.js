@@ -75,7 +75,7 @@ export const SummaryRow = ({ingredient}) => {
 
 						<div className="summary-bool">
 								<p className="summary-info-single-line">
-									 {ingredient.storage_dna ? 'Does not apply' : ''}
+									 {ingredient.inventory_dna ? 'Does not apply' : ''}
 								</p>
 							</div>
 							
@@ -84,7 +84,7 @@ export const SummaryRow = ({ingredient}) => {
 									Bio Hazard:  
 								</p>
 								<p className="summary-info-single-line"> 
-								{ingredient.storage_hazard_bio ? 'yes' : 'no'}
+								{ingredient.inventory_hazard_bio ? 'yes' : 'no'}
 								</p>
 							</div>
 
@@ -93,7 +93,7 @@ export const SummaryRow = ({ingredient}) => {
 									Chem Hazard:  
 								</p>
 								<p className="summary-info-single-line"> 
-								{ingredient.storage_hazard_chem ? 'yes' : 'no'}
+								{ingredient.inventory_hazard_chem ? 'yes' : 'no'}
 								</p>
 							</div>
 
@@ -102,7 +102,7 @@ export const SummaryRow = ({ingredient}) => {
 									Physical Hazard:  
 								</p>
 								<p className="summary-info-single-line"> 
-								{ingredient.storage_hazard_phys ? 'yes' : 'no'}
+								{ingredient.inventory_hazard_phys ? 'yes' : 'no'}
 								</p>
 							</div>
 
@@ -111,7 +111,7 @@ export const SummaryRow = ({ingredient}) => {
 									Hazard Handling:
 								</p>
 								<p className="summary-table-item">
-								{ingredient.storage_hazard_handling}
+								{ingredient.inventory_hazard_handling}
 								</p>
 							</div>
 							<div className="summary-info-dual-line">
@@ -127,7 +127,7 @@ export const SummaryRow = ({ingredient}) => {
 									Other: 
 								</p>
 								<p className="summary-table-item">
-									{ingredient.storage_other}
+									{ingredient.inventory_other}
 								</p>
 							</div>
 						</td>
@@ -135,7 +135,7 @@ export const SummaryRow = ({ingredient}) => {
 						<td>
 							<div className="summary-bool">
 								<p className="summary-info-single-line">
-									 {ingredient.preparation_dna ? 'Does not apply' : ''}
+									 {ingredient.processing_dna ? 'Does not apply' : ''}
 								</p>
 							</div>
 							
@@ -144,7 +144,7 @@ export const SummaryRow = ({ingredient}) => {
 									Bio Hazard:  
 								</p>
 								<p className="summary-info-single-line"> 
-								{ingredient.preparation_hazard_bio ? 'yes' : 'no'}
+								{ingredient.processing_hazard_bio ? 'yes' : 'no'}
 								</p>
 							</div>
 
@@ -153,7 +153,7 @@ export const SummaryRow = ({ingredient}) => {
 									Chem Hazard:  
 								</p>
 								<p className="summary-info-single-line"> 
-								{ingredient.preparation_hazard_chem ? 'yes' : 'no'}
+								{ingredient.processing_hazard_chem ? 'yes' : 'no'}
 								</p>
 							</div>
 
@@ -162,7 +162,7 @@ export const SummaryRow = ({ingredient}) => {
 									Physical Hazard:  
 								</p>
 								<p className="summary-info-single-line"> 
-								{ingredient.preparation_hazard_phys ? 'yes' : 'no'}
+								{ingredient.processing_hazard_phys ? 'yes' : 'no'}
 								</p>
 							</div>
 
@@ -171,7 +171,7 @@ export const SummaryRow = ({ingredient}) => {
 									Hazard Handling:
 								</p>
 								<p className="summary-table-item">
-								{ingredient.preparation_hazard_handling}
+								{ingredient.processing_hazard_handling}
 								</p>
 							</div>
 							
@@ -180,7 +180,7 @@ export const SummaryRow = ({ingredient}) => {
 									Other: 
 								</p>
 								<p className="summary-table-item">
-									{ingredient.preparation_other}
+									{ingredient.processing_other}
 								</p>
 							</div>
 							

@@ -1,0 +1,747 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SummaryRow should match snapshot 1`] = `
+<tr>
+  <td>
+    carrot
+  </td>
+  <td>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      />
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Letter of Auth on file:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        No
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Bio Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Chem Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Physical Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Hazard Handling:
+      </p>
+      <p
+        className="summary-table-item"
+      />
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Received From:
+      </p>
+      <p
+        className="summary-table-item"
+      />
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Other:
+      </p>
+      <p
+        className="summary-table-item"
+      />
+    </div>
+  </td>
+  <td>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      />
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Bio Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Chem Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Physical Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Hazard Handling:
+      </p>
+      <p
+        className="summary-table-item"
+      />
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Received From:
+      </p>
+      <p
+        className="summary-table-item"
+      />
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Other:
+      </p>
+      <p
+        className="summary-table-item"
+      />
+    </div>
+  </td>
+  <td>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      />
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Bio Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Chem Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Physical Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Hazard Handling:
+      </p>
+      <p
+        className="summary-table-item"
+      />
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Other:
+      </p>
+      <p
+        className="summary-table-item"
+      />
+    </div>
+  </td>
+  <td>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      />
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Bio Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Chem Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Physical Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        no
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Hazard Handling:
+      </p>
+      <p
+        className="summary-table-item"
+      />
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Packaging method:
+      </p>
+      <p
+        className="summary-table-item"
+      />
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Other:
+      </p>
+      <p
+        className="summary-table-item"
+      />
+    </div>
+  </td>
+</tr>
+`;
+
+exports[`SummaryRow should match snapshot with details 1`] = `
+<tr>
+  <td>
+    true
+  </td>
+  <td>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Does not apply
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Letter of Auth on file:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        Yes
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Bio Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Chem Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Physical Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Hazard Handling:
+      </p>
+      <p
+        className="summary-table-item"
+      >
+        true
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Received From:
+      </p>
+      <p
+        className="summary-table-item"
+      >
+        true
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Other:
+      </p>
+      <p
+        className="summary-table-item"
+      >
+        true
+      </p>
+    </div>
+  </td>
+  <td>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Does not apply
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Bio Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Chem Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Physical Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Hazard Handling:
+      </p>
+      <p
+        className="summary-table-item"
+      >
+        true
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Received From:
+      </p>
+      <p
+        className="summary-table-item"
+      >
+        true
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Other:
+      </p>
+      <p
+        className="summary-table-item"
+      >
+        true
+      </p>
+    </div>
+  </td>
+  <td>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Does not apply
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Bio Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Chem Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Physical Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Hazard Handling:
+      </p>
+      <p
+        className="summary-table-item"
+      >
+        true
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Other:
+      </p>
+      <p
+        className="summary-table-item"
+      >
+        true
+      </p>
+    </div>
+  </td>
+  <td>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Does not apply
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Bio Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Chem Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-bool"
+    >
+      <p
+        className="summary-info-single-line"
+      >
+        Physical Hazard:
+      </p>
+      <p
+        className="summary-info-single-line"
+      >
+        yes
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Hazard Handling:
+      </p>
+      <p
+        className="summary-table-item"
+      >
+        true
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Packaging method:
+      </p>
+      <p
+        className="summary-table-item"
+      >
+        true
+      </p>
+    </div>
+    <div
+      className="summary-info-dual-line"
+    >
+      <p
+        className="summary-table-item summary-table-item-header"
+      >
+        Other:
+      </p>
+      <p
+        className="summary-table-item"
+      >
+        true
+      </p>
+    </div>
+  </td>
+</tr>
+`;
