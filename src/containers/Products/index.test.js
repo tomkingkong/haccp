@@ -30,7 +30,28 @@ describe('Products', () => {
     });
   });
 
-  describe('handleNextClick', () => { });
+  describe('handleSubmit', async () => {
+    const mockFn = jest.fn();
+		const mockHistory = {
+			push: mockFn
+    };
+    const mockAdd = jest.fn();
+    const mockEdit = jest.fn();
+		const wrapper = shallow(<Products 
+			history={mockHistory} 
+      addProduct={mockAdd} 
+      editProduct={mockEdit}
+      companyInfo={{id:1}}/>);
+
+		const mockEvent = {
+			preventDefault: jest.fn()
+		};
+		await wrapper.instance().handleSubmit(mockEvent);
+		expect(mockAdd).toHaveBeenCalled();
+		expect(mockEdit).toHaveBeenCalled();
+		expect(mockFn).toHaveBeenCalled();
+		expect(mockFn).toHaveBeenCalledWith('/plans/ingredients');
+  });
 
   describe('mapStateToProps', () => {
     it('should be provided with a company object from props', () => {

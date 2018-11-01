@@ -1,11 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Products should match snapshot 1`] = `
-<div>
+<div
+  className="new-products"
+>
   <h2>
-    Products
+    Add new product
   </h2>
-  <form>
+  <form
+    onSubmit={[Function]}
+  >
     <input
       name="name"
       onChange={[Function]}
@@ -13,7 +17,7 @@ exports[`Products should match snapshot 1`] = `
       value=""
     />
     <button
-      onClick={[Function]}
+      className="add-new-product"
     >
       Save & Continue
     </button>
