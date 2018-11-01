@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { ProductContainer } from '.';
+import { ProductContainer, mapDispatchToProps } from '.';
 
 describe('ProductContainer', () => {
   let wrapper;
@@ -25,6 +25,27 @@ describe('ProductContainer', () => {
       wrapper = shallow(<ProductContainer userProducts={[]} editProduct={mockFn} />);
       wrapper.instance().selectProduct(1);
       expect(mockFn).toHaveBeenCalled();
+    });
+  });
+
+  describe('addNewProduct', () => {
+    it('should push to products page', () => {
+      const mockFn = jest.fn();
+      const history = { push: mockFn }
+      wrapper = shallow(<ProductContainer history={history} userProducts={[]} />);
+      wrapper.instance().addNewProduct();
+      expect(mockFn).toHaveBeenCalled();
+      expect(mockFn).toHaveBeenCalledWith('/products');
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with editProduct when editProduct is called', () => {
+      const mockDispatch = jest.fn();
+      const mockEditProduct = { id:1, type: 'EDIT_PRODUCT' };
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.editProduct(1);
+      expect(mockDispatch).toHaveBeenCalledWith(mockEditProduct);
     });
   });
 });
