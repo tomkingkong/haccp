@@ -1,10 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Plans Container snapshot tests should match snapshot with ingredients and plans 1`] = `
-<div>
+<div
+  className="plans"
+>
   <h2>
     Packaging
   </h2>
+  <h4>
+    Edit 
+    packaging
+     information for your ingredients
+  </h4>
   <section
     className="ingredients-receiving-edit"
   >
@@ -62,18 +69,26 @@ exports[`Plans Container snapshot tests should match snapshot with ingredients a
     </WithStyles(ExpansionPanel)>
   </section>
   <button
+    className="save-continue"
     onClick={[Function]}
   >
-    Next Page
+    save & continue
   </button>
 </div>
 `;
 
 exports[`Plans Container snapshot tests should match snapshot with ingredients but no plans 1`] = `
-<div>
+<div
+  className="plans"
+>
   <h2>
     Packaging
   </h2>
+  <h4>
+    Edit 
+    packaging
+     information for your ingredients
+  </h4>
   <section
     className="ingredients-receiving-edit"
   >
@@ -121,9 +136,10 @@ exports[`Plans Container snapshot tests should match snapshot with ingredients b
     </WithStyles(ExpansionPanel)>
   </section>
   <button
+    className="save-continue"
     onClick={[Function]}
   >
-    Next Page
+    save & continue
   </button>
 </div>
 `;

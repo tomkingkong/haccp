@@ -144,9 +144,21 @@ describe('Plans Container', () => {
   });
 
   describe('handleNextClick', () => {
-    it('should call history to push to next page', () => {
-      const mockIngredients = []
-      const mockPlans = []
+    it('should call history to push to next page', async () => {
+      history = {
+        push: jest.fn(),
+        location: {
+          pathname: 'packaging'
+        }
+      }
+      const mockIngredients = [
+        { id: 1, name: 'carrots', productId: 1 },
+        { id: 2, name: 'meat', productId: 2 },
+      ]
+      const mockPlans = [
+        { id: 1, info: 'specific to carrots' },
+        { id: 2, info: 'specific to meat' },
+      ]
       wrapper = shallow(
         <Plans 
           packaging={mockPlans}
@@ -155,7 +167,7 @@ describe('Plans Container', () => {
           editProduct={1}
         />);
       wrapper.instance().componentDidMount();
-      wrapper.instance().handleNextClick();
+      await wrapper.instance().handleNextClick();
       expect(history.push).toHaveBeenCalled();
       expect(history.push).toHaveBeenCalledWith(`/plans/summary`);
     });
