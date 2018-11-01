@@ -113,7 +113,7 @@ export class Plans extends Component {
 				</section>
 				<button className="save-continue"
 					onClick={ this.handleNextClick }>
-					save & continue
+					continue
 				</button>
 			</div>
 		);

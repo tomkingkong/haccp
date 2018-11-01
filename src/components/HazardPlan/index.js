@@ -68,7 +68,7 @@ export class HazardPlan extends PureComponent {
 
   displayHazardForm = (dna, chem, phys, bio, handling, other) => {
     return (
-      <div>
+      <div className="hazard-plan-container">
 
 				<h2>Hazard control points</h2>
 
@@ -112,19 +112,25 @@ export class HazardPlan extends PureComponent {
 						Biological
 				</label>
 
-        <input
+        <label>
+					Hazard Type:
+				<input
           name="gen_hazard_handling"
-          placeholder="Type plan here"
           value={handling}
           onChange={this.handleChange}
         />
+					</label>
 				
-        <input 
+				<label>
+					Notes:
+				<input 
           name="gen_other"
           placeholder="Type notes here"
           value={other}
           onChange={this.handleChange}
         />
+				</label>
+        
       </div>
     );
   }
@@ -144,42 +150,55 @@ export class HazardPlan extends PureComponent {
 									value={letter}
 									onChange={this.handleChange}
 									/>
-									Does not apply
+									Letter of Auth on File?
 							</label>
+							<br/>
+							<label>
+								Received From:
               <input 
                 name="receiving_from"
                 placeholder="Enter here"
                 value={fromWhere}
                 onChange={this.handleChange}
               />
+							</label>
             </div> 
           }
 
 					{ planName === 'inventory' &&
-						<input 
+						<label>
+							Hazard:
+							<input 
 							name="inventory_type"
 							placeholder="Enter here"
 							value={inventoryType}
 							onChange={this.handleChange}
 						/>
+						</label>
           }
 
 					{ planName === 'processing' &&
-						<input 
+						<label>
+							Hazard:
+							<input 
 							name="processing_method"
 							placeholder="Enter here"
               value={prepMethod}
 							onChange={this.handleChange}
 						/>
+						</label>
           }
 
 					{ planName === 'packaging' &&
-						<input 
+						<label>
+							Hazard: 
+							<input 
 							name="packaging_method"
 							placeholder="Enter here"
 							value={packMethod}
 							onChange={this.handleChange}
 						/>
+						</label>
           }
 			</div>
 		);

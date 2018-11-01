@@ -3,7 +3,7 @@ import React from 'react';
 export const SummaryRow = ({ingredient}) => {
 	return (
 		<tr>
-		<td>{ingredient.name}</td>
+		<td className="first-table-row">{ingredient.name}</td>
 						<td>
 							<div className="summary-bool">
 								<p className="summary-info-single-line">

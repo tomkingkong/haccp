@@ -1,3 +1,35 @@
 .ingredients {
-  margin: 0 1rem;
+	margin: 2rem 1rem;
+	background-color: white;	
+	padding: .5rem 1rem 1rem 2rem;
+	border-radius: 10px;
+	max-width: 400px;
+}
+
+.ingredients h2 {
+	color: rgb(76, 76, 76);
+}
+
+.ingredients div {
+	/* width: 200px; */
+}
+
+.ingredients button {
+	padding: .5rem .5rem;
+}
+
+.save-continue {
+	min-width: 335px;
+	margin: 2rem auto !important;
+}
+
+section.ingredients {
+	padding: 0;
+}
+
+.ingredients p {
+	color: rgb(76, 76, 76);
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 1.2rem;
+	text-decoration-line: underline;
 }

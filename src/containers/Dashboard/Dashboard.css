@@ -4,7 +4,12 @@
 
 .user-products { 
   border: 2px solid #2096ba;
-  width: 100%;
+	width: 100%;
+	background-color: white;
+}
+
+.user-product { 
+	/* background-color: white; */
 }
 
 .products-title {

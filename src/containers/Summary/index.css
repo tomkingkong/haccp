@@ -38,6 +38,7 @@ margin: 0;
 	justify-content: space-evenly;
 	background-color: rgb(68, 149, 163);
 	color: white;
+	padding: 3rem;
 }
 
 .summary-table-item {
@@ -56,8 +57,13 @@ td {
 
 table, th, td {
 	border: 1px solid black;
+	background-color: white;
 }
 
 table {
 	margin: 0 auto;
+}
+
+.first-table-row {
+	max-width: 100px !important;
 }

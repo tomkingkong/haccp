@@ -36,7 +36,7 @@ export class Signup extends Component {
 
 	render() {
 		return (
-			<div className="signup">
+			<div className="login">
 				<h2>Signup</h2>
 				<form onSubmit={this.handleSubmit}>
 					<input
@@ -54,7 +54,7 @@ export class Signup extends Component {
 					<button>Sign Up</button>
 				</form>
 				<p>Already have an account: </p>
-				<button onClick={this.goToLogin}>Log In</button>
+				<button className="login-button" onClick={this.goToLogin}>Log In</button>
 			</div>
 		);
 	}	
