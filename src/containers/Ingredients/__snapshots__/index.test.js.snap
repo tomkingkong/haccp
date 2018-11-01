@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Ingredients should match snapshot 1`] = `
-<div>
+<div
+  className="ingredients"
+>
   <h2>
     Ingredients
   </h2>
@@ -10,9 +12,10 @@ exports[`Ingredients should match snapshot 1`] = `
     ingredients={Array []}
   />
   <button
+    className="save-continue"
     onClick={[Function]}
   >
-    Next Page
+    save & continue
   </button>
 </div>
 `;
