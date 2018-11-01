@@ -10,5 +10,44 @@ exports[`HeaderNav should match snapshot 1`] = `
   >
     HACCP Planner
   </h1>
+  <div
+    className="nav-btns"
+  >
+    <button
+      className="signup-login logout"
+      onClick={[Function]}
+    >
+      Log Out
+    </button>
+  </div>
+</nav>
+`;
+
+exports[`HeaderNav should match snapshot with path / 1`] = `
+<nav
+  className="header-nav"
+>
+  <h1
+    className="header-text"
+    onClick={[Function]}
+  >
+    HACCP Planner
+  </h1>
+  <div
+    className="nav-btns"
+  >
+    <button
+      className="signup-login log"
+      onClick={[Function]}
+    >
+      Log In
+    </button>
+    <button
+      className="signup-login sign"
+      onClick={[Function]}
+    >
+      Sign Up
+    </button>
+  </div>
 </nav>
 `;
