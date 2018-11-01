@@ -1,5 +1,11 @@
 .login {
-  margin: 0 1rem;
+	margin: 3rem auto;
+	max-width: 320px;
+}
+
+.login h2 {
+	text-align: center;
+	font-size: 2rem;
 }
 
 .login form {
@@ -15,24 +21,6 @@
   padding: 0.5rem;
   height: 1.5rem;
   margin: 0.5rem 0;
-}
-
-.login form button { 
-  cursor: pointer;
-  border-radius: 0.2rem;
-  box-shadow: 0.01rem 0.01rem 0.4rem 0.01rem #bcbdbc;
-  border: 1px solid #b97a7a;
-  background: #d62f2f;
-  color: rgb(233, 231, 231);
-  font-size: 110%;
-  height: 1.8rem;
-  width: 5rem;
-  outline: none;
-}
-
-.login form button:hover {
-  background: #ff4343;
-  border: 1px solid #ca9999;
 }
 
 .login form button:active {

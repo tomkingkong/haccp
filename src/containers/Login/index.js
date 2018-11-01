@@ -64,7 +64,7 @@ export class Login extends Component {
 							<input type="checkbox" onClick={this.toggleVisibility}/> 
 							Show Password
 						</label>
-					<button>Log In</button>
+					<button className="login-button">Log In</button>
 				</form>
 		  </div>
 	  );

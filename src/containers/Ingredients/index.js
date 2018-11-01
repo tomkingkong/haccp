@@ -35,7 +35,7 @@ export class Ingredients extends Component {
 					handleNewIngredient={this.handleNewIngredient} />
 				<button className="save-continue"
 					onClick={this.handleNextClick}>
-					save & continue
+					continue
 				</button>
 			</div>
 		);
