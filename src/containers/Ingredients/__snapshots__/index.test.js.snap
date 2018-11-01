@@ -15,7 +15,7 @@ exports[`Ingredients should match snapshot 1`] = `
     className="save-continue"
     onClick={[Function]}
   >
-    save & continue
+    continue
   </button>
 </div>
 `;

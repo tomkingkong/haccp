@@ -34,7 +34,9 @@ exports[`Summary should match snapshot 1`] = `
   </div>
   <table>
     <tr>
-      <th>
+      <th
+        className="first-table-row"
+      >
         Ingredient
       </th>
       <th>
