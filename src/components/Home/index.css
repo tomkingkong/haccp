@@ -53,13 +53,14 @@
 .welcome-container {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	max-width: 1080px;
 	padding: 2rem 0;
 	margin: 0 auto;
 }
 
 .welcome-step-container {
-	max-width: 300px;
+	max-width: 292px;
 	text-align: center;
 	padding: 1.5rem;
 }
