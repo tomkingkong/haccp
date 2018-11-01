@@ -4,15 +4,23 @@ import { shallow } from 'enzyme';
 import { Signup } from '.';
 
 describe('Signup Component', () => {
-let wrapper;
 
   it('should match snapshot', () => {
-    wrapper = shallow(<Signup />);
+    const wrapper = shallow(<Signup />);
     expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should have default states', () => {
+		const wrapper = shallow(<Signup />);
+		const expected = {
+			password: '',
+			email: ''
+		}
+    expect(wrapper.state()).toEqual(expected);
 	});
 	
 	it('should handle a change', () => {
-		wrapper = shallow(<Signup />);
+		const wrapper = shallow(<Signup />);
 		const mockEvent = {
 			target: {
 				name: 'email',
@@ -22,26 +30,36 @@ let wrapper;
 		expect(wrapper.state('email')).toEqual('');
 		wrapper.instance().handleChange(mockEvent);
 		expect(wrapper.state('email')).toEqual('ben@gmail.com');
-
 	});
 
-	xit('should handle submit', () => {
-		window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-			json: () => Promise.resolve({id:1})
-			})
-		);
-		
-		const mockHistory = {};
-		const mockSetCompanyInfo = jest.fn();
-		wrapper = shallow(<Signup 
-			history={mockHistory}
-			setCompanyInfo={mockSetCompanyInfo}/>);
+	it('should handle submit', async () => {
+		window.fetch = jest.fn().mockImplementation(() => Promise.resolve({id:1}));
+		const mockFn = jest.fn();
+		const mockHistory = {
+			push: mockFn
+		};
+		const wrapper = shallow(<Signup 
+			history={mockHistory} />);
 
 		const mockEvent = {
 			preventDefault: jest.fn()
 		};
-		wrapper.instance().handleSubmit(mockEvent);
-		expect(mockSetCompanyInfo).toHaveBeenCalled();
-		// expect(mockHistory).toEqual(['/companyinfo']);
+		await wrapper.instance().handleSubmit(mockEvent);
+		expect(mockFn).toHaveBeenCalled();
+		expect(mockFn).toHaveBeenCalledWith('/companyinfo');
+	});
+
+	describe('goToLogin', () => {
+		it('should send the user to login page', () => {
+			const mockFn = jest.fn();
+			const mockHistory = {
+				push: mockFn
+			};
+			const wrapper = shallow(<Signup 
+				history={mockHistory}/>);
+			wrapper.instance().goToLogin();
+			expect(mockFn).toHaveBeenCalled();
+			expect(mockFn).toHaveBeenCalledWith('/login');
+		});
 	});
 });
