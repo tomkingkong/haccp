@@ -2,7 +2,7 @@
 
 exports[`Signup Component should match snapshot 1`] = `
 <div
-  className="signup"
+  className="login"
 >
   <h2>
     Signup
@@ -30,6 +30,7 @@ exports[`Signup Component should match snapshot 1`] = `
     Already have an account: 
   </p>
   <button
+    className="login-button"
     onClick={[Function]}
   >
     Log In
