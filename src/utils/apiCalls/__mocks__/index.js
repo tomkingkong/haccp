@@ -1,38 +1,6 @@
-const origin = 'https://sheltered-peak-41535.herokuapp.com/api/v1';
-
-export const getCompanyInfo = (id) => {
-  const path = `/companies/${id}`;
-  const url = origin + path;
-  return fetch(url)
-    .then(res => res.json())
-    .then(data => data)
-    .catch(console.log);
-};
-
-export const postCompanyInfo = (details) => {
-  const path = `/companies`;
-  const url = origin + path;
-  const options = {
-    method: 'POST',
-    headers: { 'Content-Type' : 'application/json' },
-    body: JSON.stringify(details)
-  };
-  return fetch(url, options)
-    .then(res => res.json())
-    .then(data => data)
-    .catch(console.log);
-};
-
-export const putCompanyInfo = (id, details) => {
-  const path = `/companies/${id}`;
-  const url = origin + path;
-  const options = {
-    method: 'PUT',
-    headers: { 'Content-Type' : 'application/json' },
-    body: JSON.stringify(details)
-  };
-  return fetch(url, options)
-    .then(res => res.json())
-    .then(data => data)
-    .catch(console.log);
-};
+export default {
+  get: jest.fn(() => Promise.resolve({ id: 1 })),
+  post: jest.fn(() => Promise.resolve({ id: 1 })),
+  put: jest.fn(() => Promise.resolve({ id: 1 })),
+  delete: jest.fn(() => Promise.resolve({ id: 1 }))
+}

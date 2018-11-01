@@ -1,14 +1,6 @@
 import axios from 'axios';
 import setAuthToken from './setAuthToken';
 
-export const fetchRequest = (path = '', options = {}) => {
-  const url = 'https://sheltered-peak-41535.herokuapp.com' + path;
-  return fetch(url, options)
-    .then(res => res.json())
-    .then(data => data)
-    .catch(error => error);
-};
-
 const origin = 'https://sheltered-peak-41535.herokuapp.com';
 const version = `/api/v1`;
 
@@ -42,10 +34,10 @@ export const postCompanyInfo = (details) => {
   return axios.post(path, details).then(res => res.data);
 };
 
-export const putCompanyInfo = (id, details) => {
-  const path = `${origin}${version}/companies/${id}`;
-  return axios.put(path, details).then(res => res.data);
-};
+// export const putCompanyInfo = (id, details) => {
+//   const path = `${origin}${version}/companies/${id}`;
+//   return axios.put(path, details).then(res => res.data);
+// };
 
 export const postProduct = (id, details) => {
   const path = `${origin}${version}/companies/${id}/products`;
