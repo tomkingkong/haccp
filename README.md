@@ -10,11 +10,21 @@ Project that allows users to create small business haccp plans.
 [Tom King](https://github.com/tomkingkong)  
 [Ben Paige](https://github.com/benjaminpaige)    
 [Lucas Alderfer](https://github.com/LucasAlderfer)  
-	
 
 ## How to use
+1. Start a small business.
+1. Clone down this repo.
+1. Run `npm install` to install dependencies.
+1. Run `npm start` to get the application up and running.
+1. Run `npm test` to run all tests.
 
 ## Tech used
+ReactJS  
+Redux  
+Router  
+Devise  
+JWT
+Ruby/Rails  
 
 ## Final Result
 
