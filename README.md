@@ -4,6 +4,8 @@
 
 Project that allows users to create small business haccp plans. 
 
+<img src="https://github.com/benjaminpaige/haccp/blob/master/src/assets/HACCP-welcome-page.png" />
+
 ## Created by
 [Tom King](https://github.com/tomkingkong)  
 [Ben Paige](https://github.com/benjaminpaige)    
