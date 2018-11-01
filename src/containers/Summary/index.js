@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { object } from 'prop-types';
+import { object, array, number } from 'prop-types';
 
-import {SummaryRow} from '../SummaryRow';
+import { SummaryRow } from '../SummaryRow';
 import './index.css';
 
 export class Summary extends Component {
@@ -56,6 +56,10 @@ export class Summary extends Component {
 		)
 	))
 
+	printSummary = () => {
+		this.props.history.push('/dashboard')
+	}
+
 	render() {
 		const {company, product} = this.state;
 	  return (
@@ -85,7 +89,7 @@ export class Summary extends Component {
 					
 						{this.makeSummaryRows()}
 				</table>
-	      <button onClick={() => this.props.history.push('/dashboard')}>
+	      <button onClick={this.printSummary}>
 					Print
 	      </button>
 	    </div>
@@ -94,10 +98,18 @@ export class Summary extends Component {
 }
 
 Summary.propTypes = {
-	history: object
+	history: object,
+	ingredients: array,
+  editProduct: number,
+	receiving: array,
+	inventory: array,
+	processing: array,
+	packaging: array,
+	products: array,
+	companyInfo: object,
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   ingredients: state.ingredients,
   editProduct: state.editProduct,
 	receiving: state.receiving,

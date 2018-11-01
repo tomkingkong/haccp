@@ -4,39 +4,34 @@ exports[`Summary should match snapshot 1`] = `
 <div
   className="summary-container"
 >
-  <h2>
-    Summary
-  </h2>
-  <h1
-    className="summary-header"
+  <div
+    className="summary-info-header"
   >
-    HACCP Plan
-  </h1>
-  <h2
-    className="summary-company-name"
-  >
-    foodco llc
-  </h2>
-  <h2
-    className="summary-product-name"
-  >
-    beef product
-  </h2>
-  <p>
-    kort moller
-  </p>
-  <p>
-    president
-  </p>
-  <p>
-    303-867-5309
-  </p>
-  <p>
-    1331 17th st denver, co
-  </p>
-  <p>
-    company@email.com
-  </p>
+    <div
+      className="summary-product-header"
+    >
+      <h1
+        className="summary-header"
+      >
+        HACCP Plan
+      </h1>
+      <h2
+        className="summary-company-name"
+      />
+      <h2
+        className="summary-product-name"
+      />
+    </div>
+    <div
+      className="summary-product-header"
+    >
+      <p />
+      <p />
+      <p />
+      <p />
+      <p />
+    </div>
+  </div>
   <table>
     <tr>
       <th>
@@ -54,217 +49,6 @@ exports[`Summary should match snapshot 1`] = `
       <th>
         Packaging
       </th>
-    </tr>
-    <tr>
-      <td>
-        beef things
-      </td>
-      <td>
-        <div
-          className="summary-bool"
-        >
-          <p
-            className="summary-info-single-line"
-          />
-        </div>
-        <div
-          className="summary-bool"
-        >
-          <p
-            className="summary-info-single-line"
-          >
-            Letter of Auth on file:
-          </p>
-          <p
-            className="summary-info-single-line"
-          >
-            Yes
-          </p>
-        </div>
-        <div
-          className="summary-bool"
-        >
-          <p
-            className="summary-info-single-line"
-          >
-            Bio Hazard:
-          </p>
-          <p
-            className="summary-info-single-line"
-          >
-            yes
-          </p>
-        </div>
-        <div
-          className="summary-bool"
-        >
-          <p
-            className="summary-info-single-line"
-          >
-            Chem Hazard:
-          </p>
-          <p
-            className="summary-info-single-line"
-          >
-            yes
-          </p>
-        </div>
-        <div
-          className="summary-bool"
-        >
-          <p
-            className="summary-info-single-line"
-          >
-            Physical Hazard:
-          </p>
-          <p
-            className="summary-info-single-line"
-          >
-            no
-          </p>
-        </div>
-        <div
-          className="summary-info-dual-line"
-        >
-          <p
-            className="summary-table-item summary-table-item-header"
-          >
-            Hazard Handling:
-          </p>
-          <p
-            className="summary-table-item"
-          >
-            something
-          </p>
-        </div>
-        <div
-          className="summary-info-dual-line"
-        >
-          <p
-            className="summary-table-item summary-table-item-header"
-          >
-            Received From:
-          </p>
-          <p
-            className="summary-table-item"
-          >
-            supplier name
-          </p>
-        </div>
-        <div
-          className="summary-info-dual-line"
-        >
-          <p
-            className="summary-table-item summary-table-item-header"
-          >
-            Other:
-          </p>
-          <p
-            className="summary-table-item"
-          >
-            some other text
-          </p>
-        </div>
-      </td>
-      <td>
-        <div
-          className="summary-bool"
-        >
-          <p
-            className="summary-info-single-line"
-          />
-        </div>
-        <div
-          className="summary-bool"
-        >
-          <p
-            className="summary-info-single-line"
-          >
-            Bio Hazard:
-          </p>
-          <p
-            className="summary-info-single-line"
-          >
-            no
-          </p>
-        </div>
-        <div
-          className="summary-bool"
-        >
-          <p
-            className="summary-info-single-line"
-          >
-            Chem Hazard:
-          </p>
-          <p
-            className="summary-info-single-line"
-          >
-            yes
-          </p>
-        </div>
-        <div
-          className="summary-bool"
-        >
-          <p
-            className="summary-info-single-line"
-          >
-            Physical Hazard:
-          </p>
-          <p
-            className="summary-info-single-line"
-          >
-            no
-          </p>
-        </div>
-        <div
-          className="summary-info-dual-line"
-        >
-          <p
-            className="summary-table-item summary-table-item-header"
-          >
-            Hazard Handling:
-          </p>
-          <p
-            className="summary-table-item"
-          >
-            handled this way
-          </p>
-        </div>
-        <div
-          className="summary-info-dual-line"
-        >
-          <p
-            className="summary-table-item summary-table-item-header"
-          >
-            Received From:
-          </p>
-          <p
-            className="summary-table-item"
-          >
-            supplier name
-          </p>
-        </div>
-        <div
-          className="summary-info-dual-line"
-        >
-          <p
-            className="summary-table-item summary-table-item-header"
-          >
-            Other:
-          </p>
-          <p
-            className="summary-table-item"
-          >
-            something else
-          </p>
-        </div>
-      </td>
-      <td>
-        Jackson
-      </td>
-      <td>
-        94
-      </td>
     </tr>
   </table>
   <button
