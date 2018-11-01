@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login Component should match snapshot 1`] = `
-<div>
+<div
+  className="login"
+>
   <h2>
     Login
   </h2>
@@ -11,13 +13,68 @@ exports[`Login Component should match snapshot 1`] = `
     <input
       name="email"
       onChange={[Function]}
+      placeholder="Enter your email"
+      type="text"
       value=""
     />
     <input
+      id="toggleVisibility"
       name="password"
       onChange={[Function]}
+      placeholder="Enter your password"
+      type="password"
       value=""
     />
+    <label
+      className="pass-toggle"
+    >
+      <input
+        onClick={[Function]}
+        type="checkbox"
+      />
+      Show Password
+    </label>
+    <button>
+      Log In
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Login Component should match snapshot with password visibile 1`] = `
+<div
+  className="login"
+>
+  <h2>
+    Login
+  </h2>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      name="email"
+      onChange={[Function]}
+      placeholder="Enter your email"
+      type="text"
+      value=""
+    />
+    <input
+      id="toggleVisibility"
+      name="password"
+      onChange={[Function]}
+      placeholder="Enter your password"
+      type="text"
+      value=""
+    />
+    <label
+      className="pass-toggle"
+    >
+      <input
+        onClick={[Function]}
+        type="checkbox"
+      />
+      Show Password
+    </label>
     <button>
       Log In
     </button>
