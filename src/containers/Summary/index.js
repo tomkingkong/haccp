@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { object } from 'prop-types';
+import { object, array, number } from 'prop-types';
 
-import {SummaryRow} from '../SummaryRow';
+import { SummaryRow } from '../SummaryRow';
 import './index.css';
 
 export class Summary extends Component {
@@ -35,6 +35,7 @@ export class Summary extends Component {
 			processes.reduce((acc, process) => {
 				const result = process.find(x => x.id === ingredient.id);
 				acc = {...acc, ...result};
+				return acc;
 			}, {});
 
 			return {
@@ -53,6 +54,10 @@ export class Summary extends Component {
 			<SummaryRow ingredient={ingredient} key={i}/>
 		)
 	))
+
+	printSummary = () => {
+		this.props.history.push('/dashboard')
+	}
 
 	render() {
 		const {company, product} = this.state;
@@ -83,7 +88,7 @@ export class Summary extends Component {
 					
 						{this.makeSummaryRows()}
 				</table>
-	      <button onClick={() => this.props.history.push('/dashboard')}>
+	      <button onClick={this.printSummary}>
 					Print
 	      </button>
 	    </div>
@@ -92,10 +97,18 @@ export class Summary extends Component {
 }
 
 Summary.propTypes = {
-	history: object
+	history: object,
+	ingredients: array,
+  editProduct: number,
+	receiving: array,
+	inventory: array,
+	processing: array,
+	packaging: array,
+	products: array,
+	companyInfo: object,
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   ingredients: state.ingredients,
   editProduct: state.editProduct,
 	receiving: state.receiving,
