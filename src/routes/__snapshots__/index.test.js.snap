@@ -24,11 +24,6 @@ exports[`Routes should match snapshot 1`] = `
   <Route
     component={[Function]}
     exact={true}
-    path="/profile"
-  />
-  <Route
-    component={[Function]}
-    exact={true}
     path="/dashboard"
   />
   <Route

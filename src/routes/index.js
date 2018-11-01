@@ -6,7 +6,6 @@ import Ingredients from '../containers/Ingredients';
 import Products from '../containers/Products';
 import CompanyInfo from '../containers/CompanyInfo';
 import Dashboard from '../containers/Dashboard';
-import Profile from '../containers/Profile';
 import Plans from '../containers/Plans';
 
 import Login from '../containers/Login';
@@ -24,7 +23,6 @@ export class Routes extends Component {
         <Route exact path = '/' component={Home} />
         <Route exact path = '/login' component={Login} />
         <Route exact path = '/signup' component={Signup} />
-        <Route exact path = '/profile' component={Profile} />
         <Route exact path = '/dashboard' component={Dashboard} />
         <Route exact path = '/companyinfo' component={CompanyInfo} />
         <Route exact path = '/products' component={Products} />
