@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { string, func, object, number } from 'prop-types';
 
 import { List, ListItem, ListItemText, Divider } from '@material-ui/core';
@@ -7,41 +7,36 @@ import AddIcon from '@material-ui/icons/Add';
 import Printer from '@material-ui/icons/Print';
 
 import './Product.css';
-
-export const Product = ({ 
-	name, 
-	selectProduct,
-	history,
-	id }) => {
-
-	const style = {
-		edit: {
-			color: "grey",
-			fontSize: 15,
-			zIndex:'-1'
-		},
-		button: {
-			paddingRight: 0,
-			paddingLeft: '0.5rem',
-			fontSize: '9rem'
-		},
-		add: {
-			color: "green",
-			fontSize: 20,
-			zIndex:'-1'
-		},
-		summary: {
-			color: "#df6e21",
-			zIndex:'-1'
-		}
-	};
-
-	const handleEditing = event => {
+const style = {
+	edit: {
+		color: "grey",
+		fontSize: 15,
+		zIndex:'-1'
+	},
+	button: {
+		paddingRight: 0,
+		paddingLeft: '0.5rem',
+		fontSize: '9rem'
+	},
+	add: {
+		color: "green",
+		fontSize: 20,
+		zIndex:'-1'
+	},
+	summary: {
+		color: "#df6e21",
+		zIndex:'-1'
+	}
+};
+export class Product extends Component {
+	
+	handleEditing = event => {
+		const { selectProduct, id, history } = this.props;
 		selectProduct(id);
 		history.push(`/plans/${event.target.id.toLowerCase()}`);
 	};
 
-	const displayLinks = () => {
+	displayLinks = () => {
 		const links = [
 			'Ingredients', 
 			'Receiving', 
@@ -62,7 +57,7 @@ export const Product = ({
 					aria-label={(isSummary 
 						? `Display ${link}` 
 						: `Edit ${link} Information`)}
-					onClick={handleEditing}>
+					onClick={this.handleEditing}>
 					<ListItemText style={{zIndex:'-1'}} primary={link} />
 					{ isSummary && <Printer style={style.summary} /> }
 					{ isIngredients && <AddIcon style={style.add}/> }
@@ -71,17 +66,17 @@ export const Product = ({
 			);
 		});
 	};
-
-	return (
-		<article className="user-product">
-			<h3>{name}</h3>
-			<List component='nav'>
-				<Divider />
-				{ displayLinks() }
-			</List>
-		</article>
-
-	);
+	render() {
+		return (
+			<article className="user-product">
+				<h3>{this.props.name}</h3>
+				<List component='nav'>
+					<Divider />
+					{ this.displayLinks() }
+				</List>
+			</article>
+		);
+	}
 };
 
 Product.propTypes = {
@@ -90,3 +85,5 @@ Product.propTypes = {
 	history: object,
 	name: string
 };
+
+export default Product;

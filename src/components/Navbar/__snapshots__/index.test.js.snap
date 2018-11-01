@@ -8,6 +8,22 @@ exports[`Navbar Component should match snapshot 1`] = `
     activeClassName="active"
     aria-current="page"
     className="link"
+    to="/dashboard"
+  >
+    Dashboard
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    className="link"
+    to="/plans/ingredients"
+  >
+    Ingredients
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    className="link"
     to="/plans/receiving"
   >
     Receiving
