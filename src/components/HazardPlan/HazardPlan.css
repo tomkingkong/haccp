@@ -2,3 +2,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.hazard-plan-container label {
+	display: block;
+}
+

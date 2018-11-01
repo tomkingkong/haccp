@@ -32,16 +32,18 @@ export class Summary extends Component {
 
 		const processes = [receiving, processing, inventory, packaging];
 		const summary = newIngredients.map(ingredient => {
-			processes.reduce((acc, process) => {
+			const result = processes.reduce((acc, process) => {
 				const result = process.find(x => x.id === ingredient.id);
 				acc = {...acc, ...result};
+				return acc;
 			}, {});
-
+			
 			return {
 				name: ingredient.name,
-				...summary
+				...result
 			};
 		});
+
 		this.setState({
 			ingredients: summary,
 			company: companyInfo,
@@ -74,7 +76,7 @@ export class Summary extends Component {
 				</div>
 				<table>
 					<tr>
-						<th>Ingredient</th>
+						<th className="first-table-row">Ingredient</th>
 						<th>Receiving</th> 
 						<th>Storage</th>
 						<th>Processing</th>
