@@ -15,9 +15,8 @@ describe('Ingredients', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  describe.skip('handleNewIngredient', () => {
+  describe('handleNewIngredient', () => {
     it('should call addIngredient', async () => {
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve());
       wrapper = shallow(<Ingredients 
         ingredients={[]} 
         addIngredient={mockFn} 
