@@ -20,12 +20,6 @@ exports[`CompanyInfo should match snapshot 1`] = `
       value=""
     />
     <input
-      name="email"
-      onChange={[Function]}
-      placeholder="email"
-      value=""
-    />
-    <input
       name="address"
       onChange={[Function]}
       placeholder="address"
@@ -46,7 +40,7 @@ exports[`CompanyInfo should match snapshot 1`] = `
     <input
       name="team_member_1_title"
       onChange={[Function]}
-      placeholder="team_member_1_title"
+      placeholder="team member title"
       value=""
     />
     <button
