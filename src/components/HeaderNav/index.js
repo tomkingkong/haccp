@@ -14,11 +14,11 @@ export const HeaderNav = ({ history }) => {
 
 	const signInLogIn = () => (
 		<React.Fragment>
-			<button className="signup-login" 
+			<button className="signup-login log" 
 				onClick={() => history.push('/login')}>
 				Log In
 			</button>
-			<button className="signup-login" 
+			<button className="signup-login sign" 
 				onClick={() => history.push('/signup')}>
 				Sign Up
 			</button>
@@ -26,7 +26,7 @@ export const HeaderNav = ({ history }) => {
 	)
 
 	const handleLogOut = () => (
-		<button className="signup-login" 
+		<button className="signup-login logout" 
 			onClick={() => {
 				logOut();
 				history.replace('/')
