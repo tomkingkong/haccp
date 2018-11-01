@@ -99,8 +99,17 @@ describe('receiving reducer', () => {
   });
 
   it('should return a state array containing an updated plan object', () => {
-    const initialState = [];
+    const initialState = [{  
+      id:1,
+      ingredientId: 1, 
+      doesNotApply: false,
+      chemical: false,
+      physical: false,
+      biological: false,
+      hazardPlan: 'zzzz',
+      notes: 'notes' }];
     const plan = {  
+      id:1,
       ingredientId: 1, 
       doesNotApply: false,
       chemical: false,
@@ -125,6 +134,7 @@ describe('inventory reducer', () => {
   it('should return a state array containing a plan object', () => {
     const initialState = [];
     const plan = {  
+      id:1,
       ingredientId: 1, 
       doesNotApply: false,
       chemical: false,
@@ -139,8 +149,17 @@ describe('inventory reducer', () => {
   });
 
   it('should return a state array containing an updated plan object', () => {
-    const initialState = [];
+    const initialState = [{  
+      id:1,
+      ingredientId: 1, 
+      doesNotApply: false,
+      chemical: false,
+      physical: false,
+      biological: false,
+      hazardPlan: 'zzzz',
+      notes: 'notes' }];
     const plan = {  
+      id:1,
       ingredientId: 1, 
       doesNotApply: false,
       chemical: false,
@@ -179,8 +198,17 @@ describe('processing reducer', () => {
   });
 
   it('should return a state array containing an updated plan object', () => {
-    const initialState = [];
+    const initialState = [{  
+      id:1,
+      ingredientId: 1, 
+      doesNotApply: false,
+      chemical: false,
+      physical: false,
+      biological: false,
+      hazardPlan: 'zzzz',
+      notes: 'notes' }];
     const plan = {  
+      id:1,
       ingredientId: 1, 
       doesNotApply: false,
       chemical: false,
@@ -219,8 +247,17 @@ describe('packaging reducer', () => {
   });
 
   it('should return a state array containing an updated plan object', () => {
-    const initialState = [];
+    const initialState = [{  
+      id:1,
+      ingredientId: 1, 
+      doesNotApply: false,
+      chemical: false,
+      physical: false,
+      biological: false,
+      hazardPlan: 'hazzzzrd',
+      notes: 'notes' }];
     const plan = {  
+      id: 1,
       ingredientId: 1, 
       doesNotApply: false,
       chemical: false,
