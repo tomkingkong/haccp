@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { object, func } from 'prop-types';
-import { connect } from 'react-redux';
 
 import { signUp, logIn } from '../../utils/apiCalls';
 
@@ -11,7 +10,7 @@ export class Signup extends Component {
 		super();
 		this.state = {
 			password: '',
-			name: ''
+			email: ''
 		};
 	}
 	
@@ -66,4 +65,4 @@ Signup.propTypes = {
 	setCompanyInfo: func
 };
 
-export default connect(null, null)(Signup);
+export default Signup;
