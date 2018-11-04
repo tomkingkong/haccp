@@ -4,6 +4,17 @@
 
 Project that allows users to create small business haccp plans. 
 
+### What are HACCP plans?
+HACCP stands for Hazard Analysis Critical
+Control Point.  
+It is a written plan that defines the
+procedures for maintaining control of
+potentially hazardous food at the critical
+control points of food preparation or
+processing.  
+Simply put, it is a plan stating how food is to
+be handled so consumers do not get sick. 
+
 <img src="https://github.com/benjaminpaige/haccp/blob/master/src/assets/HACCP-welcome-page.png" />
 
 ## Created by
