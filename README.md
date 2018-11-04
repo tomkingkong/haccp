@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/benjaminpaige/haccp.svg?branch=master)](https://travis-ci.org/benjaminpaige/haccp)
-
 # Small Business HACCP Plan Builder
 
 Project that allows users to create small business haccp plans. 
