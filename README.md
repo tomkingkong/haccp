@@ -32,8 +32,6 @@ ReactJS
 Redux  
 Router  
 Devise  
-JWT
+JWT  
 Ruby/Rails  
-
-## Final Result
 
