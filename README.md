@@ -14,6 +14,7 @@ Simply put, it is a plan stating how food is to
 be handled so consumers do not get sick. 
 
 <img src="https://github.com/benjaminpaige/haccp/blob/master/src/assets/HACCP-welcome-page.png" />
+<img src="https://github.com/benjaminpaige/haccp/blob/master/src/assets/HACCP-experience.gif" />
 
 ## Created by
 [Tom King](https://github.com/tomkingkong)  
