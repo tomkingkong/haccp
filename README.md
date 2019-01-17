@@ -28,6 +28,8 @@ be handled so consumers do not get sick.
 1. Run `npm start` to get the application up and running.
 1. Run `npm test` to run all tests.
 
+### [View the Backend](https://github.com/LucasAlderfer/haccp_builder_be)
+
 ## Tech used
 ReactJS  
 Redux  
